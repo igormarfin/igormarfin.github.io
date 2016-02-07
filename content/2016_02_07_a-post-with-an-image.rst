@@ -1,7 +1,7 @@
 A post with an Image
 ####################
 
-:date: 2016-2-7 18:56
+:date: 2016-2-7 21:50
 :tags: blog,post,image
 :category: BuildingThisBlog
 :slug: a-post-with-an-image
@@ -33,7 +33,7 @@ Sometimes you would like to post articles with images. What you can do is the fo
 
    Here is my image
 
-    .. figure:: ../images/pelican-plugin-post-stats-medium-example.png
+    .. figure:: /images/pelican-plugin-post-stats-medium-example.png
              :align: right
 
              This is the caption of the figure.
@@ -41,10 +41,18 @@ Sometimes you would like to post articles with images. What you can do is the fo
    " >> $(BLOG_SOURCE)/content/*a-post-with-an-image.rst
 
 
+Also it is important that your `pelicanconf.py` has `images` in the static path:
+
+
+.. code-block:: bash
+
+   STATIC_PATHS=['images']
+ 
+
 
 Here is my image
 
-.. figure:: images/pelican-plugin-post-stats-medium-example.png
+.. figure:: /images/pelican-plugin-post-stats-medium-example.png
     :align: right
 
     This is the caption of the figure.

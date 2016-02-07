@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Programmatic Statistics</title><link href="http://igormarfin.github.io/" rel="alternate"></link><link href="http://igormarfin.github.io/feeds/buildingthisblog.atom.xml" rel="self"></link><id>http://igormarfin.github.io/</id><updated>2016-02-07T18:56:00+01:00</updated><entry><title>A post with an Image</title><link href="http://igormarfin.github.io/blog/2016/02/07/a-post-with-an-image/" rel="alternate"></link><updated>2016-02-07T18:56:00+01:00</updated><author><name>Igor Marfin</name></author><id>tag:igormarfin.github.io,2016-02-07:blog/2016/02/07/a-post-with-an-image/</id><summary type="html">&lt;p&gt;Sometimes you would like to post articles with images. What you can do is the following&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Programmatic Statistics</title><link href="/" rel="alternate"></link><link href="/feeds/buildingthisblog.atom.xml" rel="self"></link><id>/</id><updated>2016-02-07T21:50:00+01:00</updated><entry><title>A post with an Image</title><link href="/blog/2016/02/07/a-post-with-an-image/" rel="alternate"></link><updated>2016-02-07T21:50:00+01:00</updated><author><name>Igor Marfin</name></author><id>tag:,2016-02-07:blog/2016/02/07/a-post-with-an-image/</id><summary type="html">&lt;p&gt;Sometimes you would like to post articles with images. What you can do is the following&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;make post_with_image
 
 &lt;span class="c"&gt;# to test the html output&lt;/span&gt;
@@ -18,20 +18,23 @@ cp pelican-plugin-post-stats-medium-example.png &lt;span class="k"&gt;$(&lt;/spa
 
 &lt;span class="s2"&gt;Here is my image&lt;/span&gt;
 
-&lt;span class="s2"&gt; .. figure:: ../images/pelican-plugin-post-stats-medium-example.png&lt;/span&gt;
+&lt;span class="s2"&gt; .. figure:: /images/pelican-plugin-post-stats-medium-example.png&lt;/span&gt;
 &lt;span class="s2"&gt;          :align: right&lt;/span&gt;
 
 &lt;span class="s2"&gt;          This is the caption of the figure.&lt;/span&gt;
 
 &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class="k"&gt;$(&lt;/span&gt;BLOG_SOURCE&lt;span class="k"&gt;)&lt;/span&gt;/content/*a-post-with-an-image.rst
 &lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Also it is important that your &lt;cite&gt;pelicanconf.py&lt;/cite&gt; has &lt;cite&gt;images&lt;/cite&gt; in the static path:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;STATIC_PATHS&lt;/span&gt;&lt;span class="o"&gt;=[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;images&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Here is my image&lt;/p&gt;
 &lt;div class="figure align-right"&gt;
-&lt;img alt="" src="images/pelican-plugin-post-stats-medium-example.png" /&gt;
+&lt;img alt="" src="/images/pelican-plugin-post-stats-medium-example.png" /&gt;
 &lt;p class="caption"&gt;This is the caption of the figure.&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;That's it.&lt;/p&gt;
-</summary><category term="blog"></category><category term="post"></category><category term="image"></category></entry><entry><title>HOW-TO make this blog</title><link href="http://igormarfin.github.io/blog/2016/02/07/how-to-make-this-blog/" rel="alternate"></link><updated>2016-02-07T13:41:00+01:00</updated><author><name>Igor Marfin</name></author><id>tag:igormarfin.github.io,2016-02-07:blog/2016/02/07/how-to-make-this-blog/</id><summary type="html">&lt;p&gt;These are only few  steps which you can do, if you want to have such blog:&lt;/p&gt;
+</summary><category term="blog"></category><category term="post"></category><category term="image"></category></entry><entry><title>HOW-TO make this blog</title><link href="/blog/2016/02/07/how-to-make-this-blog/" rel="alternate"></link><updated>2016-02-07T13:41:00+01:00</updated><author><name>Igor Marfin</name></author><id>tag:,2016-02-07:blog/2016/02/07/how-to-make-this-blog/</id><summary type="html">&lt;p&gt;These are only few  steps which you can do, if you want to have such blog:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;git clone https://iggy_floyd@bitbucket.org/iggy_floyd/blog_with_ipython_notebook.git
 &lt;span class="nb"&gt;cd &lt;/span&gt;blog_with_ipython_notebook
 make
