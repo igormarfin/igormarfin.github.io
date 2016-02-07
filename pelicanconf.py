@@ -33,7 +33,7 @@ DEFAULT_PAGINATION = False
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
-PLUGIN_PATH = './plugins' 
+PLUGIN_PATHS = ['./plugins'] 
 MARKUP = ('md', 'ipynb') 
 PLUGINS = ['ipynb','share_post'] 
 
@@ -67,8 +67,10 @@ import os
 path = os.path.curdir
 THEME = '%s/theme' % path
 
+STATIC_PATHS=['images']
 
 SITEURL = "http://igormarfin.github.io/"
 
 # DISQUS comments
 DISQUS_SITENAME = "igormarfingithubio"
+
