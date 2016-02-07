@@ -66,3 +66,9 @@ SEARCH_BOX = True
 import os
 path = os.path.curdir
 THEME = '%s/theme' % path
+
+
+SITEURL = "http://igormarfin.github.io/"
+
+# DISQUS comments
+DISQUS_SITENAME = "igormarfingithubio"

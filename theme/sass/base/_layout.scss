@@ -1,4 +1,4 @@
-$max-width: 1200px !default;
+$max-width: 2200px !default;
 
 // Padding used for layout margins
 $pad-min: 18px !default;
@@ -52,15 +52,15 @@ body {
     @extend .group;
     padding-left: $pad-min;
     padding-right: $pad-min;
-    @media only screen and (min-width: 480px) {
+    @media only screen and (min-width: 1480px) {
       padding-left: $pad-narrow;
       padding-right: $pad-narrow;
     }
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 1768px) {
       padding-left: $pad-medium;
       padding-right: $pad-medium;
     }
-    @media only screen and (min-width: 992px) {
+    @media only screen and (min-width: 1992px) {
       padding-left: $pad-wide;
       padding-right: $pad-wide;
     }
@@ -69,15 +69,15 @@ body {
     @extend .group;
     margin-left: $pad-min;
     margin-right: $pad-min;
-    @media only screen and (min-width: 480px) {
+    @media only screen and (min-width: 1480px) {
       margin-left: $pad-narrow;
       margin-right: $pad-narrow;
     }
-    @media only screen and (min-width: 768px) {
+    @media only screen and (min-width: 1768px) {
       margin-left: $pad-medium;
       margin-right: $pad-medium;
     }
-    @media only screen and (min-width: 992px) {
+    @media only screen and (min-width: 1992px) {
       margin-left: $pad-wide;
       margin-right: $pad-wide;
     }
@@ -121,7 +121,7 @@ body.sidebar-footer {
   .toggle-sidebar { display: none; }
 }
 
-@media only screen and (min-width: 550px) {
+@media only screen and (min-width: 1550px) {
   body > header { font-size: $header-font-size; }
 }
 @media only screen and (min-width: 750px) {
@@ -130,7 +130,7 @@ body.sidebar-footer {
 #main, #content, .sidebar {
   @extend .group;
 }
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 1768px) {
   body { -webkit-text-size-adjust: auto; }
   body > header { font-size: $header-font-size * 1.2; }
   #main {
@@ -166,7 +166,7 @@ body.sidebar-footer {
   }
 }
 
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1992px) {
   body > header { font-size: $header-font-size * 1.3; }
   #content { margin-right: $sidebar-width-wide; }
   #content {

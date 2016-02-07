@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Programmatic Statistics</title><link href="/" rel="alternate"></link><link href="/feeds/all.atom.xml" rel="self"></link><id>/</id><updated>2016-02-07T10:55:00+01:00</updated><entry><title>Bayesian Hierarchical Linear Regression Model</title><link href="/blog/2016/02/07/bayesian-hierarchical-linear-regression-model/" rel="alternate"></link><updated>2016-02-07T10:55:00+01:00</updated><author><name>Igor Marfin</name></author><id>tag:,2016-02-07:blog/2016/02/07/bayesian-hierarchical-linear-regression-model/</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Programmatic Statistics</title><link href="http://igormarfin.github.io/" rel="alternate"></link><link href="http://igormarfin.github.io/feeds/all.atom.xml" rel="self"></link><id>http://igormarfin.github.io/</id><updated>2016-02-07T13:06:00+01:00</updated><entry><title>Bayesian Hierarchical Linear Regression Model</title><link href="http://igormarfin.github.io/blog/2016/02/07/bayesian-hierarchical-linear-regression-model/" rel="alternate"></link><updated>2016-02-07T13:06:00+01:00</updated><author><name>Igor Marfin</name></author><id>tag:igormarfin.github.io,2016-02-07:blog/2016/02/07/bayesian-hierarchical-linear-regression-model/</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -137,7 +137,7 @@ $$\\[5pt]$$&lt;h2 id="Initialization-"&gt;Initialization &lt;a class="anchor-lin
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [11]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class=" highlight hl-ipython2"&gt;&lt;pre&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
@@ -169,7 +169,7 @@ $$\\[5pt]$$&lt;h2 id="Initialization-"&gt;Initialization &lt;a class="anchor-lin
 &lt;span class="n"&gt;logger&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;setLevel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;logging&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;INFO&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
 &lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;book_format&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;load_style&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;figsize&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;set_figsize&lt;/span&gt;
-&lt;span class="n"&gt;load_style&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;load_style&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;"."&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;"/styles/custom2.css"&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -182,7 +182,14 @@ $$\\[5pt]$$&lt;h2 id="Initialization-"&gt;Initialization &lt;a class="anchor-lin
 &lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[1]:&lt;/div&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stderr output_text"&gt;
+&lt;pre&gt;WARNING: pylab import has clobbered these variables: ['figsize']
+`%matplotlib` prevents importing * from pylab and numpy
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="output_area"&gt;&lt;div class="prompt output_prompt"&gt;Out[11]:&lt;/div&gt;
 &lt;div class="output_html rendered_html output_subarea output_execute_result"&gt;
 &lt;style&gt;
 @import url('http://fonts.googleapis.com/css?family=Source+Code+Pro');
@@ -190,7 +197,7 @@ $$\\[5pt]$$&lt;h2 id="Initialization-"&gt;Initialization &lt;a class="anchor-lin
 @import url('http://fonts.googleapis.com/css?family=Arimo');
 
     div.cell{
-        width: 900px;
+        width: 1200px;
         margin-left: 0% !important;
         margin-right: auto;
     }
@@ -375,7 +382,7 @@ $$\\[5pt]$$&lt;h2 id="Initialization-"&gt;Initialization &lt;a class="anchor-lin
       background: #fcfcfc;
       border-left: 5px solid #c76c0c;
       font-family: 'Open sans',verdana,arial,sans-serif;
-      width:680px;
+      width:1000px;
       padding: 10px 10px 10px 10px;
       text-align:justify;
       text-justify:inter-word;
