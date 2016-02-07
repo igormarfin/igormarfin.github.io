@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Programmatic Statistics</title><link href="http://igormarfin.github.io/" rel="alternate"></link><link href="http://igormarfin.github.io/feeds/buildingthisblog.atom.xml" rel="self"></link><id>http://igormarfin.github.io/</id><updated>2016-02-07T13:41:00+01:00</updated><entry><title>HOW-TO make this blog</title><link href="http://igormarfin.github.io/blog/2016/02/07/how-to-make-this-blog/" rel="alternate"></link><updated>2016-02-07T13:41:00+01:00</updated><author><name>Igor Marfin</name></author><id>tag:igormarfin.github.io,2016-02-07:blog/2016/02/07/how-to-make-this-blog/</id><summary type="html">&lt;p&gt;These are only few  steps which you can do, if you want to have such blog:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git clone https://iggy_floyd@bitbucket.org/iggy_floyd/blog_with_ipython_notebook.git
+&lt;span class="nb"&gt;cd &lt;/span&gt;blog_with_ipython_notebook
+make
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then if &lt;tt class="docutils literal"&gt;make&lt;/tt&gt; command is successful, you can initialize your blog and add first posts:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;make blog_ini
+make GitHubPages_ini
+make add_entry_rst About Me,about me,AboutMe
+&lt;span class="nb"&gt;echo&lt;/span&gt; &amp;gt;&amp;gt; src/content/*about-me.rst
+&lt;span class="nb"&gt;echo&lt;/span&gt; &amp;gt;&amp;gt; src/content/*about-me.rst
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Hi! My name is Igor Marfin. I am going to start my blog...&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; src/content/*about-me.rst
+make add_entry_ipython &lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;pwd&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;/backtesting-strategy-with-kalman-model.ipynb,Kalman Modeling,Ipython,Ipython
+
+make html
+make serve
+
+make publish
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;That's it. More information can be found in the &lt;tt class="docutils literal"&gt;docs&lt;/tt&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;firefox doc/README.html
+
+&lt;span class="c"&gt;# or as an alternative way to get docs&lt;/span&gt;
+cat README.wiki
+&lt;/pre&gt;&lt;/div&gt;
+</summary><category term="create pelican blog"></category></entry></feed>
