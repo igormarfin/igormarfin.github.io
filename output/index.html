@@ -1,73 +1,363 @@
+
 <!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Programmatic Statistics</title>
-  <meta name="author" content="Igor Marfin">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="author" content="Igor Marfin" />
+        <meta name="description" content=" &#34;What we observe is not nature itself, but nature exposed to our method of questioning.&#34; -Werner Heisenberg " />
 
 
+    <title>Programmatic Statistics</title>
 
+        <link rel="stylesheet" href="/theme/css/bootstrap.readable.min.css" type="text/css"/>
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/theme/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="/theme/css/pygments/autumn.css" rel="stylesheet" />
+    
+    <link href="/theme/css/pelican-twitchy.min.css" rel="stylesheet" />
 
-
-    <link href="http://igormarfin.github.io/favicon.png" rel="icon">
-
-  <link href="http://igormarfin.github.io/theme/css/main.css" media="screen, projection"
-        rel="stylesheet" type="text/css">
-
-  <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
-        rel="stylesheet" type="text/css">
-  <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
-        rel="stylesheet" type="text/css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <!-- Feeds -->
+        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Programmatic Statistics ATOM Feed" />
 </head>
+<body data-spy="scroll" data-target="#scrollspy">
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper-small" class="twitchy-background">
+            <ul id="accordion-small" class="sidebar-nav sidebar-nav-small">
+                <li>
+        <a href="" title="Programmatic Statistics" class="collapsed">
+            <span class="glyphicon glyphicon-home"></span>
+        </a>
+    </li>
+                <li class="nav-divider"></li>
+                <li>
+        <a href="/archives.html" title="Recent Articles" class="collapsed">
+            <span class="glyphicon glyphicon-th-list"></span>
+        </a>
+    </li>
+                
+                <li class="nav-divider"></li>
+                <li id="share-small">
+                    <a data-toggle="collapse" data-parent="#accordion-small" href="#collapse-share-small" title="Share" class="collapsed">
+                        <i class="fa fa-share-alt padding-small"></i>
+                    </a>
+                </li>
+                <li class="panel anti-panel"><ul id="collapse-share-small" class="collapse ">
+                    <li>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=" title="Share via Facebook" target="popup">
+                            <i class="fa fa-facebook-square padding-small"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://plus.google.com/share?url=" title="Share via Google+" target="popup">
+                            <i class="fa fa-google-plus padding-small"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-count="vertical" title="Share via Twitter" target="popup">
+                            <i class="fa fa-twitter-square padding-small"></i>
+                        </a>
+                    </li>
+                </ul></li>
+                <li class="nav-divider"></li>
+                <li>
+                    <a data-toggle="collapse" data-parent="#accordion-small" href="#collapse-social-small" title="Social" class="collapsed">
+                        <i class="fa fa-users padding-small"></i>
+                    </a>
+                </li>
+                <li class="panel anti-panel"><ul id="collapse-social-small" class="collapse ">
+                    <li>
+                        <a href="https://plus.google.com/u/0/111481335270527541691/posts" title="Google+"><i class="fa fa-google-plus-square fa-lg padding-small"></i></a>
+                    </li>
+                </ul></li>
+                <li class="nav-divider"></li>
+                <li>
+        <a href="#" title="Back to top" class="collapsed">
+            <span class="fa fa-arrow-up"></span>
+        </a>
+    </li>
+            </ul>
+        </div>
+        <div id="sidebar-wrapper" class="twitchy-background">
+            <ul id="accordion" class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="/">
+                            <span class="glyphicon glyphicon-home padding-small"></span>
+                            Programmatic Statistics
+                    </a>
+                </li>
+                    <li>
+                        <a href="/archives.html">
+                            <span class="glyphicon glyphicon-th-list padding-small"></span>
+                            Recent Articles
+                        </a>
+                    </li>
+                <li class="nav-divider"></li>
+                <li id="share">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-share" title="Share" class="collapsed">
+                        <i class="fa fa-share-alt padding-small"></i>
+                        Share
+                    </a>
+                </li>
+                <li class="panel anti-panel"><ul id="collapse-share" class="sidebar_submenu collapse ">
+                    <li>
+                        <a href="https://www.facebook.com/sharer/sharer.php?u=" target="popup">
+                            <i class="fa fa-facebook-square padding-small"></i>
+                            Facebook
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://plus.google.com/share?url=" target="popup">
+                            <i class="fa fa-google-plus padding-small"></i>
+                            Google+
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-count="vertical" target="popup">
+                            <i class="fa fa-twitter-square padding-small"></i>
+                            Twitter
+                        </a>
+                    </li>
+                </ul></li>
+                <li class="nav-divider"></li>
+                <li>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-social">
+                        <i class="fa fa-users padding-small"></i>
+                        Contact
+                    </a>
+                </li>
+                <li class="panel anti-panel"><ul id="collapse-social" class="sidebar_submenu collapse ">
+                    <li>
+                        <a href="https://plus.google.com/u/0/111481335270527541691/posts" title="Google+">
+                            <i class="fa fa-google-plus-square fa-lg padding-small"></i>
+                            Google+
+                        </a>
+                    </li>
+                </ul></li>
+                
+                <li class="nav-divider"></li>
+                <li>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-pages">
+                        <i class="fa fa-folder-open padding-small"></i>
+                        Pages
+                    </a>
+                </li>
+                <li class="panel anti-panel"><ul id="collapse-pages" class="sidebar_submenu collapse ">
+                </ul></li>
+                
+                <li class="nav-divider"></li>
+                <li>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-categories">
+                        <i class="fa fa-folder-open padding-small"></i>
+                        Categories
+                    </a>
+                </li>
+                <li class="panel anti-panel"><ul id="collapse-categories" class="sidebar_submenu collapse ">
+                    <li >
+                        <a href="/category/about-me.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            About me
+                            <span class="badge pull-right categorybadge">1</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="/category/buildingthisblog.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            BuildingThisBlog
+                            <span class="badge pull-right categorybadge">2</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="/category/programming.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            Programming
+                            <span class="badge pull-right categorybadge">1</span>
+                        </a>
+                    </li>
+                    <li >
+                        <a href="/category/statistics.html">
+                            <i class="fa fa-folder-open padding-small"></i>
+                            Statistics
+                            <span class="badge pull-right categorybadge">11</span>
+                        </a>
+                    </li>
+                </ul></li>
+                
+                <li class="nav-divider"></li>
+                <li>
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-tags">
+                        <i class="fa fa-tags padding-small"></i>
+                        Tags
+                    </a>
+                </li>
+                <li class="panel anti-panel"><ul id="collapse-tags" class="sidebar_submenu collapse ">
+                </ul></li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- open/close sidebar -->
+        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
+            <span id="right-arrow" class="glyphicon glyphicon-chevron-right"  title="expand sidebar"></span>
+            <span id="left-arrow" class="glyphicon glyphicon-chevron-left" title="minimize sidebar"></span>
+        </a>
+       <!-- /open/close sidebar -->
 
-<body>
-  <header role="banner"><hgroup>
-  <h1><a href="http://igormarfin.github.io/">Programmatic Statistics</a></h1>
-</hgroup></header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+<section id="content" class="body">
+    <div class="row">
+        <div class="col-lg-9">
+            <div class="jumbotron">  
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1>Programmatic Statistics</h1>
+                        <p> "What we observe is not nature itself, but nature exposed to our method of questioning." -Werner Heisenberg </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-9">
+            <h2>Recent Articles:</h2>
+        </div>
+    </div>
+</section>
+<div class="row">
+    <div class="col-lg-9">
+            <article>
+                <h2>
+                    <a href="/blog/2016/04/15/application-of-the-monte-carlo-integration-in-options-trading-(part-i)/">Application of the Monte Carlo integration in Options trading (part I)</a>
+<div class="post-info">
+    <div class="publish-info-block">
+        <small>
+            <span class="published">
+                <i class="fa fa-calendar padding-small"></i><time datetime="2016-04-15T00:47:00+02:00"> Fri 15 April 2016</time>
+            </span>
+            <span class="category">
+                <i class="fa fa-folder-open padding-small"></i><a href="/category/statistics.html">Statistics</a>
+            </span>
+            <span class="tags">
+                <i class="fa fa-tags padding-small"></i>
+                <a href="/tag/pandas.html">Pandas</a> /                 <a href="/tag/statistics.html">Statistics</a> /                 <a href="/tag/forecast.html">Forecast</a> /                 <a href="/tag/ipython.html">IPython</a> /                 <a href="/tag/monte-carlo.html">Monte-Carlo</a> /                 <a href="/tag/importance-sampling.html">Importance Sampling</a> /                 <a href="/tag/stratified-sampling.html">Stratified Sampling</a> /                 <a href="/tag/option-trading.html">Option trading</a>            </span>
+        </small>
+    </div>
+</div><!-- /.post-info -->                </h2>
+                <div class="summary">
+                    <html><body><div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Application-of-the-Monte-Carlo-integration-in-Options-trading-(part-I)">Application of the Monte Carlo integration in Options trading (part I)<a class="anchor-link" href="#Application-of-the-Monte-Carlo-integration-in-Options-trading-(part-I)">¶</a></h1>$$\\[2pt]$$<p>Igor Marfin <strong>[Unister Gmb@2014]</strong> &lt; <a href="mailto:igor.marfin@unister.de">igor.marfin@unister.de</a>&gt;</p>
+$$\\[40pt]$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">¶</a></h1><ul>
+<li> <ul>
+<li><a href="#0.1-Abstract">0.1 Abstract</a></li>
+<li><a href="#0.2-Initialization">0.2 Initialization</a></li>
+<li><a href="#0.3-Introduction">0.3 Introduction</a><ul>
+<li><a href="#0.3.1-The-Black–Scholes-model-of-the-option-value">0.3.1 The Black–Scholes model of the option value</a></li>
 </ul>
-
-<form action="https://www.google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="sitesearch" value="igormarfin.github.io">
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-
-<ul class="main-navigation">
-      <li >
-        <a href="http://igormarfin.github.io/category/about-me.html">About me</a>
-      </li>
-      <li >
-        <a href="http://igormarfin.github.io/category/buildingthisblog.html">Buildingthisblog</a>
-      </li>
-      <li >
-        <a href="http://igormarfin.github.io/category/programming.html">Programming</a>
-      </li>
-      <li >
-        <a href="http://igormarfin.github.io/category/statistics.html">Statistics</a>
-      </li>
-</ul></nav>
-  <div id="main">
-    <div id="content">
-<div class="blog-index">
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://igormarfin.github.io/blog/2016/02/08/brownian-motion-and-the-wiener-process/">Brownian Motion and the Wiener Process</a>
-      </h1>
-    <p class="meta">
-<time datetime="2016-02-08T20:02:00+01:00" pubdate>Mon 08 February 2016</time>    </p>
-</header>
-
-  <div class="entry-content"><html><body><div class="cell border-box-sizing text_cell rendered">
+</li>
+<li><a href="#0.4-Integration-methods-%28schemes%29-for-the-stock-prices">0.4 Integration methods (schemes) for the stock prices</a><ul>
+<li><a href="#0.4.1-Convergence-of-the-Monte-Carlo-schemes">0.4.1 Convergence of the Monte Carlo schemes</a></li>
+<li><a href="#0.4.2-Quantile-of-the-distribution-of-stochastic-variables">0.4.2 Quantile of the distribution of stochastic variables</a></li>
+</ul>
+</li>
+<li><a href="#0.5-Machinery-to-operate-the-Option-trading-strategies">0.5 Machinery to operate the Option trading strategies</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2>
+                    <a href="/blog/2016/04/14/application-of-the-monte-carlo-integration-in-options-trading-\(part-i\)/">Application of the Monte Carlo integration in Options trading \(part I\)</a>
+<div class="post-info">
+    <div class="publish-info-block">
+        <small>
+            <span class="published">
+                <i class="fa fa-calendar padding-small"></i><time datetime="2016-04-14T21:01:00+02:00"> Thu 14 April 2016</time>
+            </span>
+            <span class="category">
+                <i class="fa fa-folder-open padding-small"></i><a href="/category/statistics.html">Statistics</a>
+            </span>
+            <span class="tags">
+                <i class="fa fa-tags padding-small"></i>
+                <a href="/tag/pandas.html">Pandas</a> /                 <a href="/tag/statistics.html">Statistics</a> /                 <a href="/tag/forecast.html">Forecast</a> /                 <a href="/tag/ipython.html">IPython</a> /                 <a href="/tag/monte-carlo.html">Monte-Carlo</a> /                 <a href="/tag/importance-sampling.html">Importance Sampling</a> /                 <a href="/tag/stratified-sampling.html">Stratified Sampling</a> /                 <a href="/tag/option-trading.html">Option trading</a>            </span>
+        </small>
+    </div>
+</div><!-- /.post-info -->                </h2>
+                <div class="summary">
+                    <html><body><div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Application-of-the-Monte-Carlo-integration-in-Options-trading-(part-I)">Application of the Monte Carlo integration in Options trading (part I)<a class="anchor-link" href="#Application-of-the-Monte-Carlo-integration-in-Options-trading-(part-I)">¶</a></h1>$$\\[2pt]$$<p>Igor Marfin <strong>[Unister Gmb@2014]</strong> &lt; <a href="mailto:igor.marfin@unister.de">igor.marfin@unister.de</a>&gt;</p>
+$$\\[40pt]$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">¶</a></h1><ul>
+<li> <ul>
+<li><a href="#0.1-Abstract">0.1 Abstract</a></li>
+<li><a href="#0.2-Initialization">0.2 Initialization</a></li>
+<li><a href="#0.3-Introduction">0.3 Introduction</a><ul>
+<li><a href="#0.3.1-The-Black–Scholes-model-of-the-option-value">0.3.1 The Black–Scholes model of the option value</a></li>
+</ul>
+</li>
+<li><a href="#0.4-Integration-methods-%28schemes%29-for-the-stock-prices">0.4 Integration methods (schemes) for the stock prices</a><ul>
+<li><a href="#0.4.1-Convergence-of-the-Monte-Carlo-schemes">0.4.1 Convergence of the Monte Carlo schemes</a></li>
+<li><a href="#0.4.2-Quantile-of-the-distribution-of-stochastic-variables">0.4.2 Quantile of the distribution of stochastic variables</a></li>
+</ul>
+</li>
+<li><a href="#0.5-Machinery-to-operate-the-Option-trading-strategies">0.5 Machinery to operate the Option trading strategies</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2>
+                    <a href="/blog/2016/02/08/brownian-motion-and-the-wiener-process/">Brownian Motion and the Wiener Process</a>
+<div class="post-info">
+    <div class="publish-info-block">
+        <small>
+            <span class="published">
+                <i class="fa fa-calendar padding-small"></i><time datetime="2016-02-08T20:02:00+01:00"> Mon 08 February 2016</time>
+            </span>
+            <span class="category">
+                <i class="fa fa-folder-open padding-small"></i><a href="/category/statistics.html">Statistics</a>
+            </span>
+            <span class="tags">
+                <i class="fa fa-tags padding-small"></i>
+                <a href="/tag/brownian-motion.html">Brownian Motion</a> /                 <a href="/tag/statistics.html">Statistics</a> /                 <a href="/tag/stochastic.html">Stochastic</a> /                 <a href="/tag/wiener-process.html">Wiener Process</a> /                 <a href="/tag/bayesian.html">Bayesian</a>            </span>
+        </small>
+    </div>
+</div><!-- /.post-info -->                </h2>
+                <div class="summary">
+                    <html><body><div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -97,21 +387,30 @@
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
-<div class="input"></div>
-  <footer>
-    <a rel="full-article" href="http://igormarfin.github.io/blog/2016/02/08/brownian-motion-and-the-wiener-process/">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://igormarfin.github.io/blog/2016/02/08/money-management-system.-portfolio-optimization-approaches-or-how-to-become-a-millionaire-from-stock-tradings/">Money Management System. Portfolio Optimization Approaches or How to Become a Millionaire from stock tradings</a>
-      </h1>
-    <p class="meta">
-<time datetime="2016-02-08T19:05:00+01:00" pubdate>Mon 08 February 2016</time>    </p>
-</header>
-
-  <div class="entry-content"><html><body><div class="cell border-box-sizing text_cell rendered">
+<div class="input">
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2>
+                    <a href="/blog/2016/02/08/money-management-system.-portfolio-optimization-approaches-or-how-to-become-a-millionaire-from-stock-tradings/">Money Management System. Portfolio Optimization Approaches or How to Become a Millionaire from stock tradings</a>
+<div class="post-info">
+    <div class="publish-info-block">
+        <small>
+            <span class="published">
+                <i class="fa fa-calendar padding-small"></i><time datetime="2016-02-08T19:05:00+01:00"> Mon 08 February 2016</time>
+            </span>
+            <span class="category">
+                <i class="fa fa-folder-open padding-small"></i><a href="/category/statistics.html">Statistics</a>
+            </span>
+            <span class="tags">
+                <i class="fa fa-tags padding-small"></i>
+                <a href="/tag/bayesian.html">Bayesian</a> /                 <a href="/tag/statistics.html">Statistics</a> /                 <a href="/tag/trading.html">Trading</a> /                 <a href="/tag/money.html">Money</a> /                 <a href="/tag/management.html">Management</a> /                 <a href="/tag/portfolio.html">Portfolio</a> /                 <a href="/tag/optimization.html">Optimization</a> /                 <a href="/tag/millionaire.html">Millionaire</a> /                 <a href="/tag/pymc.html">PyMC</a> /                 <a href="/tag/ipython.html">Ipython</a>            </span>
+        </small>
+    </div>
+</div><!-- /.post-info -->                </h2>
+                <div class="summary">
+                    <html><body><div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -142,21 +441,30 @@ $$\\[40pt]$$
 <li><a href="#0.3-Introduction-to-the-topic">0.3 Introduction to the topic</a></li>
 <li><a href="#0.4-Mean-variance-optimization">0.4 Mean variance optimization</a><ul>
 <li><a href="#0.4.1-How-does-the-**MPT**--treat-the-loss-function-and,-as-a-result,-risk?">0.4.1 How does the <strong>MPT</strong>  treat the loss function and, as a result, risk?</a></li>
-<li><a href="#0.4.2-Get-and-Clean-data-from-Yahoo!-Finance">0.4.2 Get and Clean data from Yahoo! Finance</a></div>
-  <footer>
-    <a rel="full-article" href="http://igormarfin.github.io/blog/2016/02/08/money-management-system.-portfolio-optimization-approaches-or-how-to-become-a-millionaire-from-stock-tradings/">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://igormarfin.github.io/blog/2016/02/08/stochastic-kalman-filter-in-the-finance/">Stochastic Kalman Filter in the Finance</a>
-      </h1>
-    <p class="meta">
-<time datetime="2016-02-08T18:24:00+01:00" pubdate>Mon 08 February 2016</time>    </p>
-</header>
-
-  <div class="entry-content"><html><body><div class="cell border-box-sizing text_cell rendered">
+<li><a href="#0.4.2-Get-and-Clean-data-from-Yahoo!-Finance">0.4.2 Get and Clean data from Yahoo! Finance</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2>
+                    <a href="/blog/2016/02/08/stochastic-kalman-filter-in-the-finance/">Stochastic Kalman Filter in the Finance</a>
+<div class="post-info">
+    <div class="publish-info-block">
+        <small>
+            <span class="published">
+                <i class="fa fa-calendar padding-small"></i><time datetime="2016-02-08T18:24:00+01:00"> Mon 08 February 2016</time>
+            </span>
+            <span class="category">
+                <i class="fa fa-folder-open padding-small"></i><a href="/category/statistics.html">Statistics</a>
+            </span>
+            <span class="tags">
+                <i class="fa fa-tags padding-small"></i>
+                <a href="/tag/bayesian.html">Bayesian</a> /                 <a href="/tag/statistics.html">Statistics</a> /                 <a href="/tag/stochastic.html">Stochastic</a> /                 <a href="/tag/kalman.html">Kalman</a> /                 <a href="/tag/filter.html">Filter</a> /                 <a href="/tag/pymc.html">PyMC</a> /                 <a href="/tag/ipython.html">Ipython</a>            </span>
+        </small>
+    </div>
+</div><!-- /.post-info -->                </h2>
+                <div class="summary">
+                    <html><body><div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -174,415 +482,56 @@ $$\\[40pt]$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Motivation">Motivation<a class="anchor-link" href="#Motivation">¶</a></h2><hr />
 <p>As motivation of this tutorial, let me, to quote  <em>Michael Halls-Moore</em> from <strong>QuantStart.com</strong>, who, in<br />
-his presenation <a href="https://s3.amazonaws.com/quantstart/media/powerpoint/an-introduction-to-backtesting.pdf">AN INTRODUCTION TO BACKTESTING WITH PYTHON AND PANDAS </a></div>
-  <footer>
-    <a rel="full-article" href="http://igormarfin.github.io/blog/2016/02/08/stochastic-kalman-filter-in-the-finance/">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://igormarfin.github.io/blog/2016/02/07/a-post-with-an-image/">A post with an Image</a>
-      </h1>
-    <p class="meta">
-<time datetime="2016-02-07T21:50:00+01:00" pubdate>Sun 07 February 2016</time>    </p>
-</header>
+his presenation <a href="https://s3.amazonaws.com/quantstart/media/powerpoint/an-introduction-to-backtesting.pdf">AN INTRODUCTION TO BACKTESTING WITH PYTHON AND PANDAS </a>
+                </div>
+            </article>
+        <div class="btn-more text-right">
+            <a class="btn btn-default btn-xs twitchy-background" href="/archives.html">
+                View all Articles ...
+            </a>
+        </div>
+    </div>
+</div>
+<footer>
+    <hr>
+    <div class="row">
+        <div class="col-lg-9 text-center">
+            <p><small>
+                Built by <a href="http://docs.getpelican.com/en/latest">Pelican</a> / <a href="https://github.com/ingwinlu/pelican-twitchy">pelican-twitchy</a>
+                &middot;                      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a>
+    Content
+  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution 4.0 International License</a>, except where indicated otherwise.
 
-  <div class="entry-content"><p>Sometimes you would like to post articles with images. What you can do is the following</p>
-<div class="highlight"><pre>make post_with_image
+            </small></p>
+        </div>
+    </div>
+</footer>            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- jQuery Version 1.11.2 -->
+    <script src="/theme/js/jquery-1.11.2.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/theme/js/bootstrap.min.js"></script>
+    <!-- twitchy Script -->
+    <script src="/theme/js/pelican_twitchy.min.js"></script>
+<script>
+    function FadeInOnScroll(ObjectList){
+        ObjectList.each(function(i) {
+            var bottom_of_object = $(this).position().top + $(this).outerHeight();
+            var bottom_of_window = $(window).scrollTop() + $(window).height();
 
-<span class="c"># to test the html output</span>
-make html
-make serve
-
-<span class="c"># to publish to github.com</span>
-make publish
-</pre></div>
-<p><cite>make post_with_image</cite> command. Basicaly, it performs</p>
-<div class="highlight"><pre>make add_entry_rst A post with an Image,blog<span class="se">\\\,</span>post<span class="se">\\\,</span>image ...</pre></div></div>
-  <footer>
-    <a rel="full-article" href="http://igormarfin.github.io/blog/2016/02/07/a-post-with-an-image/">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://igormarfin.github.io/blog/2016/02/07/a-hierarchical-bayesian-model-of-the-bundes-league/">A Hierarchical Bayesian Model of the Bundes League</a>
-      </h1>
-    <p class="meta">
-<time datetime="2016-02-07T16:47:00+01:00" pubdate>Sun 07 February 2016</time>    </p>
-</header>
-
-  <div class="entry-content"><html><body><div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="A-Hierarchical-Bayesian-Model-of-the-Bundes-League">A Hierarchical Bayesian Model of the Bundes League<a class="anchor-link" href="#A-Hierarchical-Bayesian-Model-of-the-Bundes-League">¶</a></h1>$$\\[2pt]$$<p>Igor Marfin <strong>[Unister Gmb@2014]</strong> &lt; <a href="mailto:igor.marfin@unister.de">igor.marfin@unister.de</a>&gt;</p>
-$$\\[40pt]$$<h2 id="Abstract">Abstract<a class="anchor-link" href="#Abstract">¶</a></h2><hr />
-<p>I came across the following blog post on <a href="#Blog">[1]</a>: I quote from it, about the realization for Premier League Football:</p>
-<blockquote><p>It occurred to me that this problem is perfect for a Bayesian model.
-We want to infer the latent paremeters (every team's strength) that are generating the data we observe (the scorelines). Moreover, we know that the scorelines are a noisy measurement of team strength, so ideally, we want a model that makes it easy to quantify our uncertainty about the underlying strengths.</p></div>
-  <footer>
-    <a rel="full-article" href="http://igormarfin.github.io/blog/2016/02/07/a-hierarchical-bayesian-model-of-the-bundes-league/">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://igormarfin.github.io/blog/2016/02/07/shifted-beta-geometric-customer-lifetime-value-model/">Shifted-Beta-Geometric Customer Lifetime Value Model</a>
-      </h1>
-    <p class="meta">
-<time datetime="2016-02-07T14:58:00+01:00" pubdate>Sun 07 February 2016</time>    </p>
-</header>
-
-  <div class="entry-content"><html><body><div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Shifted-Beta-Geometric-(sBG)-Customer-Lifetime-Value-Model">Shifted-Beta-Geometric (sBG) Customer Lifetime Value Model<a class="anchor-link" href="#Shifted-Beta-Geometric-(sBG)-Customer-Lifetime-Value-Model">¶</a></h1>$$\\[2pt]$$<p>Igor Marfin <strong>[Unister Gmb@2014]</strong> &lt; <a href="mailto:igor.marfin@unister.de">igor.marfin@unister.de</a>&gt;</p>
-$$\\[40pt]$$<h2 id="Abstract">Abstract<a class="anchor-link" href="#Abstract">¶</a></h2><hr />
-<p>Idea of the  analysis was taken from the blog <a href="#Blog">[1]</a>:</p>
-<blockquote><p>The academic literature on the Lifetime Value  (LTV) Model breaks down the problem into four scenarios, depending on whether the customer-business relationship is contractual, and on whether customers have discrete opportunities for transactions.</p></div>
-  <footer>
-    <a rel="full-article" href="http://igormarfin.github.io/blog/2016/02/07/shifted-beta-geometric-customer-lifetime-value-model/">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://igormarfin.github.io/blog/2016/02/07/the-online-monitor-pandas-dataframe-transformations/">The online-monitor-pandas-dataframe-transformations</a>
-      </h1>
-    <p class="meta">
-<time datetime="2016-02-07T14:49:00+01:00" pubdate>Sun 07 February 2016</time>    </p>
-</header>
-
-  <div class="entry-content"><html><body><div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Online-Monitor-for-the-Pandas-Dataframe-Transformations">Online Monitor for the Pandas Dataframe Transformations<a class="anchor-link" href="#Online-Monitor-for-the-Pandas-Dataframe-Transformations">¶</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-$$\\[2pt]$$<p>Igor Marfin <strong>[Unister Gmb@2014]</strong> &lt; <a href="mailto:igor.marfin@unister.de">igor.marfin@unister.de</a>&gt;</p>
-$$\\[40pt]$$
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">¶</a></h1><ul>
-<li> <ul>
-<li><a href="#0.1-Abstract">0.1 Abstract</a></li>
-<li><a href="#0.2-Initialization">0.2 Initialization</a></li>
-<li><a href="#0.3-Introduction-to-the-topic-and-motivation">0.3 Introduction to the topic and motivation</a><ul>
-<li><a href="#0.3.1-Utility-functions">0.3.1 Utility functions</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-$$\\[10pt]$$
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="0.1-Abstract">0.1 Abstract<a class="anchor-link" href="#0.1-Abstract">¶</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<hr />
-<p>Today I want to introduce you to my project  called <strong> Online Monitor of the pandas dataframe transformations </strong>. The source code and documentation can be found in the 
-repository <a name="ref-1"></a></div>
-  <footer>
-    <a rel="full-article" href="http://igormarfin.github.io/blog/2016/02/07/the-online-monitor-pandas-dataframe-transformations/">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://igormarfin.github.io/blog/2016/02/07/bayesian-risk/">Bayesian Risk</a>
-      </h1>
-    <p class="meta">
-<time datetime="2016-02-07T14:48:00+01:00" pubdate>Sun 07 February 2016</time>    </p>
-</header>
-
-  <div class="entry-content"><html><body><div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Bayesian-Risk">Bayesian Risk<a class="anchor-link" href="#Bayesian-Risk">¶</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-$$\\[2pt]$$<p>Igor Marfin <strong>[Unister Gmb@2014]</strong> &lt; <a href="mailto:igor.marfin@unister.de">igor.marfin@unister.de</a>&gt;</p>
-$$\\[40pt]$$
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">¶</a></h1><ul>
-<li> <ul>
-<li><a href="#0.1-Abstract">0.1 Abstract</a></li>
-<li><a href="#0.2-Initialization">0.2 Initialization</a></li>
-<li><a href="#0.3-Utility-Theory">0.3 Utility Theory</a><ul>
-<li><a href="#0.3.1-Utility-functions">0.3.1 Utility functions</a></li>
-<li><a href="#0.3.2-Example-on-the-application-of-the-Utility-and-Decision-theories:--" play-game-or-die-...="">0.3.2 Example on the application of the Utility and Decision theories:  "Play Game or Die ..."</a></li>
-<li><a href="#0.3.3-Loss-functions">0.3.3 Loss functions</a></li>
-</ul>
-</li>
-<li><a href="#0.4-Decision-Theory-in-formulas">0.4 Decision Theory in formulas</a><ul>
-<li><a href="#0.4.1-Frequentists-risk-function">0.4.1 Frequentists risk function</a><ul>
-<li><a href="#0.4.1.1-Example-of-the-frequentists-risk-function-for-the-squared-error-loss">0.4.1.1 Example of the frequentists risk function for the squared-error loss</a></div>
-  <footer>
-    <a rel="full-article" href="http://igormarfin.github.io/blog/2016/02/07/bayesian-risk/">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://igormarfin.github.io/blog/2016/02/07/probabilistic-matrix-factorization-for-making-personalized-recommendations/">Probabilistic Matrix Factorization for Making Personalized Recommendations</a>
-      </h1>
-    <p class="meta">
-<time datetime="2016-02-07T14:18:00+01:00" pubdate>Sun 07 February 2016</time>    </p>
-</header>
-
-  <div class="entry-content"><html><body><div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Probabilistic-Matrix-Factorization-for-Making-Personalized-Recommendations">Probabilistic Matrix Factorization for Making Personalized Recommendations<a class="anchor-link" href="#Probabilistic-Matrix-Factorization-for-Making-Personalized-Recommendations">¶</a></h1><p>Igor Marfin <a href="mailto:igor.marfin@unister.de">igor.marfin@unister.de</a></p>
-<h2 id="Abstract">Abstract<a class="anchor-link" href="#Abstract">¶</a></h2><hr />
-<p>The model discussed in this analysis was presented in <a href="http://pymc-devs.github.io/pymc3/pmf-pymc/">the PyMC3 tutorial page</a>. The aim of the work is implementaion and testing the Probabilistic Matrix Factorization  model in terms of the <strong> Bayesian network</strong>  with a help of the PyMC2.</p></div>
-  <footer>
-    <a rel="full-article" href="http://igormarfin.github.io/blog/2016/02/07/probabilistic-matrix-factorization-for-making-personalized-recommendations/">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://igormarfin.github.io/blog/2016/02/07/stochastic-volatility-model/">Stochastic Volatility Model</a>
-      </h1>
-    <p class="meta">
-<time datetime="2016-02-07T14:01:00+01:00" pubdate>Sun 07 February 2016</time>    </p>
-</header>
-
-  <div class="entry-content"><html><body><div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Stochastic-Volatility-model">Stochastic Volatility model<a class="anchor-link" href="#Stochastic-Volatility-model">¶</a></h1><p>Igor Marfin <a href="mailto:igor.marfin@unister.de">igor.marfin@unister.de</a></p>
-<h2 id="Abstract">Abstract<a class="anchor-link" href="#Abstract">¶</a></h2><hr />
-<p>The model discussed in this analysis was presented in
-<a href="http://pymc-devs.github.io/pymc3/stochastic_volatility/">the PyMC3 tutorial page</a>. The aim of the work is implementaion and testing theStochastic Volatility model in terms of the <strong> Bayesian network</strong>  with a help of the PyMC2. More details can be found at <a href="https://bitbucket.org/iggy_floyd/stochastic-volatility-model">https://bitbucket.org/iggy_floyd/stochastic-volatility-model</a>.</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Motivation">Motivation<a class="anchor-link" href="#Motivation">¶</a></h2><hr />
-<blockquote><p>Asset prices have time-varying volatility (variance of day over day returns). In some periods, returns are highly variable, while in others very stable. Stochastic volatility models model this with a latent volatility variable, modeled as a stochastic process. The following model is similar to the one described in the No-U-Turn Sampler paper, Hoffman (2011) p21.</p></div>
-  <footer>
-    <a rel="full-article" href="http://igormarfin.github.io/blog/2016/02/07/stochastic-volatility-model/">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://igormarfin.github.io/blog/2016/02/07/about-meI'm a data scientist and programmer currently based in Chemnitz, Germany./">About Me</a>
-      </h1>
-    <p class="meta">
-<time datetime="2016-02-07T13:41:00+01:00" pubdate>Sun 07 February 2016</time>    </p>
-</header>
-
-  <div class="entry-content"><p>Previuosly, I was engaged with researches in particle and theoretical physics at CERN, Switzerland.
-My work was related not only to physics but also to statistical analyisis and software development for experiments at the Compact Muon Solenoid (CMS) detector at Large Hadron Collider. I was involved with my group in ...</p></div>
-  <footer>
-    <a rel="full-article" href="http://igormarfin.github.io/blog/2016/02/07/about-meI'm a data scientist and programmer currently based in Chemnitz, Germany./">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://igormarfin.github.io/blog/2016/02/07/how-to-make-this-blog/">HOW-TO make this blog</a>
-      </h1>
-    <p class="meta">
-<time datetime="2016-02-07T13:41:00+01:00" pubdate>Sun 07 February 2016</time>    </p>
-</header>
-
-  <div class="entry-content"><p>These are only few  steps which you can do, if you want to have such blog:</p>
-<div class="highlight"><pre>git clone https://iggy_floyd@bitbucket.org/iggy_floyd/blog_with_ipython_notebook.git
-<span class="nb">cd </span>blog_with_ipython_notebook
-make
-</pre></div>
-<p>Then if <tt class="docutils literal">make</tt> command is successful, you can initialize your blog and add first posts:</p>
-<div class="highlight"><pre>make blog_ini
-make GitHubPages_ini
-make add_entry_rst About ...</pre></div></div>
-  <footer>
-    <a rel="full-article" href="http://igormarfin.github.io/blog/2016/02/07/how-to-make-this-blog/">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://igormarfin.github.io/blog/2016/02/07/bayesian-hierarchical-linear-regression-model/">Bayesian Hierarchical Linear Regression Model</a>
-      </h1>
-    <p class="meta">
-<time datetime="2016-02-07T13:23:00+01:00" pubdate>Sun 07 February 2016</time>    </p>
-</header>
-
-  <div class="entry-content"><html><body><div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Hierarchical-Linear-Regression-in-PyMC2">Hierarchical Linear Regression in PyMC2<a class="anchor-link" href="#Hierarchical-Linear-Regression-in-PyMC2">¶</a></h1>$$\\[2pt]$$<p>Igor Marfin <strong>[Unister Gmb@2014]</strong> &lt; <a href="mailto:igor.marfin@unister.de">igor.marfin@unister.de</a>&gt;</p>
-$$\\[40pt]$$<h2 id="Abstract">Abstract<a class="anchor-link" href="#Abstract">¶</a></h2><hr />
-<p>More details on this study can be found in my <strong>bitbucket repository</strong> <a href="https://bitbucket.org/iggy_floyd/bayesian-pymc-linear-regression-model">https://bitbucket.org/iggy_floyd/bayesian-pymc-linear-regression-model</a>.
-Writting this tutorial was inspired by the  blog <a href="#Blog">[1]</a>. I would like to quote a few statements as my motivation:</p>
-<blockquote><p>In this blog post we will:
-    provide and intuitive explanation of hierarchical/multi-level Bayesian modeling;
-    show how this type of model can easily be built and estimated in PyMC2;
-    demonstrate the advantage of using hierarchical Bayesian modelling as opposed to non-hierarchical Bayesian modelling by comparing the two;
-    visualize the "shrinkage effect" (explained below); and</p></div>
-  <footer>
-    <a rel="full-article" href="http://igormarfin.github.io/blog/2016/02/07/bayesian-hierarchical-linear-regression-model/">Read On &crarr;</a>
-  </footer>
-  		</article>
-<div class="pagination">
-
-  <br />
-</div></div>
-<aside class="sidebar">
-  <section>
-    <h1>Recent Posts</h1>
-    <ul id="recent_posts">
-      <li class="post">
-          <a href="http://igormarfin.github.io/blog/2016/02/08/brownian-motion-and-the-wiener-process/">Brownian Motion and the Wiener Process</a>
-      </li>
-      <li class="post">
-          <a href="http://igormarfin.github.io/blog/2016/02/08/money-management-system.-portfolio-optimization-approaches-or-how-to-become-a-millionaire-from-stock-tradings/">Money Management System. Portfolio Optimization Approaches or How to Become a Millionaire from stock tradings</a>
-      </li>
-      <li class="post">
-          <a href="http://igormarfin.github.io/blog/2016/02/08/stochastic-kalman-filter-in-the-finance/">Stochastic Kalman Filter in the Finance</a>
-      </li>
-      <li class="post">
-          <a href="http://igormarfin.github.io/blog/2016/02/07/a-post-with-an-image/">A post with an Image</a>
-      </li>
-      <li class="post">
-          <a href="http://igormarfin.github.io/blog/2016/02/07/a-hierarchical-bayesian-model-of-the-bundes-league/">A Hierarchical Bayesian Model of the Bundes League</a>
-      </li>
-    </ul>
-  </section>
-  <section>
-      
-    <h1>Categories</h1>
-    <ul id="recent_posts">
-        <li><a href="http://igormarfin.github.io/category/about-me.html">About me</a></li>
-        <li><a href="http://igormarfin.github.io/category/buildingthisblog.html">BuildingThisBlog</a></li>
-        <li><a href="http://igormarfin.github.io/category/programming.html">Programming</a></li>
-        <li><a href="http://igormarfin.github.io/category/statistics.html">Statistics</a></li>
-    </ul>
-  </section>
- 
-
-  <section>
-  <h1>Tags</h1>
-    <a href="http://igormarfin.github.io/tag/about-me.html">about me</a>,    <a href="http://igormarfin.github.io/tag/money.html">Money</a>,    <a href="http://igormarfin.github.io/tag/image.html">image</a>,    <a href="http://igormarfin.github.io/tag/bayesian.html">Bayesian</a>,    <a href="http://igormarfin.github.io/tag/trading.html">Trading</a>,    <a href="http://igormarfin.github.io/tag/factorization.html">Factorization</a>,    <a href="http://igormarfin.github.io/tag/lifetime.html">Lifetime</a>,    <a href="http://igormarfin.github.io/tag/portfolio.html">Portfolio</a>,    <a href="http://igormarfin.github.io/tag/regression.html">Regression</a>,    <a href="http://igormarfin.github.io/tag/statistics.html">Statistics</a>,    <a href="http://igormarfin.github.io/tag/matrix.html">Matrix</a>,    <a href="http://igormarfin.github.io/tag/bundesliga.html">Bundesliga</a>,    <a href="http://igormarfin.github.io/tag/predictions.html">Predictions</a>,    <a href="http://igormarfin.github.io/tag/forecast.html">Forecast</a>,    <a href="http://igormarfin.github.io/tag/blog.html">blog</a>,    <a href="http://igormarfin.github.io/tag/wiener-process.html">Wiener Process</a>,    <a href="http://igormarfin.github.io/tag/stochastic.html">Stochastic</a>,    <a href="http://igormarfin.github.io/tag/pandas.html">Pandas</a>,    <a href="http://igormarfin.github.io/tag/javascript.html">Javascript</a>,    <a href="http://igormarfin.github.io/tag/linear.html">Linear</a>,    <a href="http://igormarfin.github.io/tag/kalman.html">Kalman</a>,    <a href="http://igormarfin.github.io/tag/python.html">Python</a>,    <a href="http://igormarfin.github.io/tag/create-pelican-blog.html">create pelican blog</a>,    <a href="http://igormarfin.github.io/tag/football.html">Football</a>,    <a href="http://igormarfin.github.io/tag/management.html">Management</a>,    <a href="http://igormarfin.github.io/tag/brownian-motion.html">Brownian Motion</a>,    <a href="http://igormarfin.github.io/tag/scores.html">Scores</a>,    <a href="http://igormarfin.github.io/tag/ipython.html">Ipython</a>,    <a href="http://igormarfin.github.io/tag/post.html">post</a>,    <a href="http://igormarfin.github.io/tag/volatility.html">Volatility</a>,    <a href="http://igormarfin.github.io/tag/customer.html">Customer</a>,    <a href="http://igormarfin.github.io/tag/risk-management.html">Risk Management</a>,    <a href="http://igormarfin.github.io/tag/pymc.html">PyMC</a>,    <a href="http://igormarfin.github.io/tag/programming.html">Programming</a>,    <a href="http://igormarfin.github.io/tag/millionaire.html">Millionaire</a>,    <a href="http://igormarfin.github.io/tag/filter.html">Filter</a>,    <a href="http://igormarfin.github.io/tag/optimization.html">Optimization</a>,    <a href="http://igormarfin.github.io/tag/recommendations.html">Recommendations</a>,    <a href="http://igormarfin.github.io/tag/model.html">Model</a>,    <a href="http://igormarfin.github.io/tag/bet.html">Bet</a>,    <a href="http://igormarfin.github.io/tag/crm.html">CRM</a>  </section>
-
-
-    <section>
-        <h1>Social</h1>
-        <ul>
-            <li><a href="#" target="_blank">You can add links in your config file</a></li>
-            <li><a href="#" target="_blank">Another social link</a></li>
-        </ul>
-    </section>
-    <section>
-        <h1>Blogroll</h1>
-        <ul>
-            <li><a href="http://getpelican.com/" target="_blank">Pelican</a></li>
-            <li><a href="http://python.org/" target="_blank">Python.org</a></li>
-            <li><a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a></li>
-            <li><a href="#" target="_blank">You can modify those links in your config file</a></li>
-        </ul>
-    </section>
-
-<section class="googleplus">
-  <h1>
-    <a href="https://plus.google.com/111481335270527541691?rel=author">
-      <img src="//www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
-      Google+
-    </a>
-  </h1>
-</section>
-</aside>    </div>
-  </div>
-  <footer role="contentinfo"><p>
-    Copyright &copy;  2016  Igor Marfin &mdash;
-  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
-</p></footer>
-  <script src="http://igormarfin.github.io/theme/js/modernizr-2.0.js"></script>
-  <script src="http://igormarfin.github.io/theme/js/ender.js"></script>
-  <script src="http://igormarfin.github.io/theme/js/octopress.js" type="text/javascript"></script>
-  <script type="text/javascript">
-    var disqus_shortname = 'igormarfingithubio';
-    (function() {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-     })();
-  </script>
-  <script type="text/javascript">
-    (function() {
-      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-      script.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
-    })();
-  </script>
+            if( bottom_of_window > bottom_of_object ){
+                $(this).fadeTo(750,1);
+            }
+        });
+    }
+    articles = $("article").fadeTo(0, 0.05);
+    FadeInOnScroll(articles)
+    $(window).scroll(function() {
+        FadeInOnScroll(articles)
+    });
+</script>
 </body>
 </html>

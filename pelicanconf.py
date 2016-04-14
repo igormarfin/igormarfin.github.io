@@ -26,8 +26,8 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
          ('You can modify those links in your config file', '#'),)
 
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+SOCIAL = (('Google+', 'https://plus.google.com/u/0/111481335270527541691/posts'),
+         )
 
 DEFAULT_PAGINATION = False
 
@@ -74,3 +74,18 @@ SITEURL = "http://igormarfin.github.io/"
 # DISQUS comments
 DISQUS_SITENAME = "igormarfingithubio"
 
+# Test
+SITESUBTITLE=u""" "What we observe is not nature itself, but nature exposed to our method of questioning." -Werner Heisenberg """
+RECENT_POST_COUNT = 5 
+#EXPAND_LATEST_ON_INDEX = True 
+OPEN_GRAPH = False 
+BOOTSTRAP_THEME = "readable" 
+PYGMENTS_STYLE = "autumn" 
+TYPOGRIFY = False
+#SITELOGO="theme/images/preview_small.PNG"
+#DISPLAY_RECENT_POSTS_ON_MENU = True
+DISPLAY_PAGES_ON_MENU = True
+DISPLAY_TAGS_ON_MENU  = True
+DISPLAY_CATEGORIES_ON_MENU = True
+CC_LICENSE =  "CC-BY-NC"
+SHARE = True

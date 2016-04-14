@@ -1,43 +1,63 @@
 {% extends "base.html" %}
-{% block title %}{{ article.title|striptags }} &mdash; {{ SITENAME }}{% endblock %}
-{% block content %}
-<div>
-  <article class="hentry" role="article">
-    {% include '_includes/article.html' %}
-    <footer>
-      {% include '_includes/article_infos.html' %}
-      {% include '_includes/sharing.html' %}
-    </footer>
-  </article>
 
-  
-    
-    {% if article.share_post and article.status != 'draft' %}
-    <section>
-    <p id="post-share-links">
-        Share on:
-        
-        <a href="{{article.share_post['twitter']}}" target="_blank" title="Share on Twitter">Twitter</a>
-        
-        <a href="{{article.share_post['facebook']}}" target="_blank" title="Share on Facebook">Facebook</a>
-        
-        <a href="{{article.share_post['google-plus']}}" target="_blank" title="Share on Google Plus">Google+</a>
-        
-        <a href="{{article.share_post['email']}}" target="_blank" title="Share via Email">Email</a>
-    </p>
+{% block title %}{{ article.title|striptags }} - {{ SITENAME }}{% endblock %}
+{% block html_lang %}{{ article.lang }}{% endblock %}
+
+{% block meta %}
+    {% if article.author %}
+        <meta name="author" content="{{ article.author }}" />
+    {% else %}
+        <meta name="author" content="{{ AUTHOR }}" />
+    {% endif %}
+    {% if article.tags %}
+        <meta name="keywords" content="{{ article.tags|join(',')|striptags }}" />
+    {% endif %}
+    {% if article.summary %}
+        <meta name="description" content="{{ article.summary|striptags|escape }}" />
+    {% endif %}
+{% endblock %}
+
+{% block canonical_rel %}
+<link rel="canonical" href="{{ SITEURL }}/{{ article.url }}">
+{% endblock %}
+
+{% block collapse_latest %}in{% endblock %}
+
+{% block content %}
+<section id="content">
+    <article>
+        <div class="row">
+            <div class="col-lg-9">
+                <header class="page-header">
+                    <h1>
+                        <a href="{{ SITEURL }}/{{ article.url }}"
+                           rel="bookmark"
+                           title="Permalink to {{ article.title|striptags }}">
+                            {{ article.title }}
+                        </a>
+                        <small>
+                        {% include "include/article_info.html" %}
+                        </small>
+                    </h1>
+                </header>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="entry-content">
+                    {{ article.content }}
+                </div>
+                <footer class="text-right">
+                    <p>- {{article.author}}</p>
+                </footer>
+                {% include 'include/comments.html' %}
+            </div>
+            {% include 'include/toc.html' %}
+        </div>
+    </article>
 </section>
-{% endif %}
-    
-  {% if (DISQUS_SITENAME or ISSO_SITEURL) and SITEURL and article.status != "draft" %}
-  <section>
-    <h1>Comments</h1>
-    {% if ISSO_SITEURL %}
-    <section id="isso-thread"></section>
-    {% endif %}
-    {% if DISQUS_SITENAME %}
-    <div id="disqus_thread" aria-live="polite">{% include '_includes/disqus_thread.html' %}</div>
-    {% endif %}
-  </section>
-  {% endif %}
-</div>
+{% endblock %}
+
+{% block scripts %}
+    {% include 'include/comments_scripts.html' %}
 {% endblock %}
