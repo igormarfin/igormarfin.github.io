@@ -109,7 +109,7 @@ if 'bootstrap3' in THEME_NAME:
     Also I am a big fan of the Bayesian Statistics. 
     <br> 
     <br>
-    <b>Contact me:</b><br><br>  iggy.floyd.de at google.com'
+    <b>Contact me:</b><br><br>  iggy.floyd.de at google.com
     """
     AVATAR = "http://www.googledrive.com/host/0B5OwgVT-YmdbZFBWSlRCWVdmVGM"
 
@@ -127,6 +127,12 @@ if 'bootstrap3' in THEME_NAME:
     DISPLAY_CATEGORIES_ON_MENU= True
     #BOOTSTRAP_NAVBAR_INVERSE=True
     #ARTICLE_PATHS = ['blog']
+    ADDTHIS_PROFILE="ra-571208988724f2bf"
+    ADDTHIS_FACEBOOK_LIKE = False   
+    ADDTHIS_TWEET  = False
+    CC_LICENSE = "CC-BY-NC-SA" 
+    GOOGLE_PLUS_ID = '111481335270527541691'
+    GOOGLE_PLUS_ONE = True 
    
 # DISQUS SUPPORT
 # DISQUS comments
