@@ -112,3 +112,12 @@
     <script src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/js/shariff.min.js"></script>
 {% endif %}
 {% endblock %}
+
+ <article class="hentry" role="article">
+   {% include '_includes/article.html' %}
+   <footer>
+      {% include '_includes/article_infos.html' %}
+      {% include '_includes/sharing.html' %}
+    </footer>
+ </article>
+

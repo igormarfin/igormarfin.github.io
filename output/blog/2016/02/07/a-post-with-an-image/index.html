@@ -1,4 +1,59 @@
-<!DOCTYPE html>
+<header>
+      <h1 class="entry-title">A post with an Image</h1>
+    <p class="meta">
+<time datetime="2016-02-07T21:50:00+01:00" pubdate>Sun 07 February 2016</time>    </p>
+</header>
+
+  <div class="entry-content"><p>Sometimes you would like to post articles with images. What you can do is the following</p>
+<div class="highlight"><pre>make post_with_image
+
+<span class="c"># to test the html output</span>
+make html
+make serve
+
+<span class="c"># to publish to github.com</span>
+make publish
+</pre></div>
+<p><cite>make post_with_image</cite> command. Basicaly, it performs</p>
+<div class="highlight"><pre>make add_entry_rst A post with an Image,blog<span class="se">\\\,</span>post<span class="se">\\\,</span>image,BuildingThisBlog
+cat how-to-post-with-image.rst &gt;&gt; <span class="k">$(</span>BLOG_SOURCE<span class="k">)</span>/content/*a-post-with-an-image.rst
+mkdir -p <span class="k">$(</span>BLOG_SOURCE<span class="k">)</span>/content/images
+cp pelican-plugin-post-stats-medium-example.png <span class="k">$(</span>BLOG_SOURCE<span class="k">)</span>/content/images/
+<span class="nb">echo</span> <span class="s2">&quot;</span>
+
+<span class="s2">Here is my image</span>
+
+<span class="s2"> .. figure:: /images/pelican-plugin-post-stats-medium-example.png</span>
+<span class="s2">          :align: right</span>
+
+<span class="s2">          This is the caption of the figure.</span>
+
+<span class="s2">&quot;</span> &gt;&gt; <span class="k">$(</span>BLOG_SOURCE<span class="k">)</span>/content/*a-post-with-an-image.rst
+</pre></div>
+<p>Also it is important that your <cite>pelicanconf.py</cite> has <cite>images</cite> in the static path:</p>
+<div class="highlight"><pre><span class="nv">STATIC_PATHS</span><span class="o">=[</span><span class="s1">&#39;images&#39;</span><span class="o">]</span>
+</pre></div>
+<p>Here is my image</p>
+<div class="figure align-right">
+<img alt="" src="/images/pelican-plugin-post-stats-medium-example.png" />
+<p class="caption">This is the caption of the figure.</p>
+</div>
+<p>That's it.</p>
+</div>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">
+        Dr. Igor Marfin
+    </span>
+  </span>
+<time datetime="2016-02-07T21:50:00+01:00" pubdate>Sun 07 February 2016</time>  <span class="categories">
+    <a class='category' href='http://igormarfin.github.io/category/buildingthisblog.html'>BuildingThisBlog</a>
+  </span>
+  <span class="categories">
+    <a class="category" href="http://igormarfin.github.io/tag/blog.html">blog</a>,    <a class="category" href="http://igormarfin.github.io/tag/post.html">post</a>,    <a class="category" href="http://igormarfin.github.io/tag/image.html">image</a>  </span>
+</p><div class="sharing">
+  <div class="g-plusone" data-size="medium"></div>
+</div><!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
     <title>A post with an Image - Programmatic Statistics</title>
@@ -252,5 +307,23 @@ cp pelican-plugin-post-stats-medium-example.png <span class="k">$(</span>BLOG_SO
 
         <script type="text/javascript">var addthis_config = {"data_track_addressbar": true};</script>
     <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-571208988724f2bf"></script>
+  <script type="text/javascript">
+    var disqus_shortname = 'igormarfingithubio';
+    var disqus_identifier = '/blog/2016/02/07/a-post-with-an-image/';
+    var disqus_url = 'http://igormarfin.github.io/blog/2016/02/07/a-post-with-an-image/';
+    var disqus_title = 'A post with an Image';
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = "//" + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+     })();
+  </script>
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
 </body>
 </html>
