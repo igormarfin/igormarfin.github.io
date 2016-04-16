@@ -1,14 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Programmatic Statistics</title><link href="http://igormarfin.github.io/" rel="alternate"></link><link href="http://igormarfin.github.io/feeds/about-me.atom.xml" rel="self"></link><id>http://igormarfin.github.io/</id><updated>2016-02-07T13:41:00+01:00</updated><entry><title>About Me</title><link href="http://igormarfin.github.io/blog/2016/02/07/about-meI'm%20a%20data%20scientist%20and%20programmer%20currently%20based%20in%20Chemnitz,%20Germany./" rel="alternate"></link><updated>2016-02-07T13:41:00+01:00</updated><author><name>Igor Marfin</name></author><id>tag:igormarfin.github.io,2016-02-07:blog/2016/02/07/about-meI'm a data scientist and programmer currently based in Chemnitz, Germany./</id><summary type="html">&lt;p&gt;Previuosly, I was engaged with researches in particle and theoretical physics at CERN, Switzerland.
-My work was related not only to physics but also to statistical analyisis and software development
-for experiments at the Compact Muon Solenoid (CMS) detector
-at Large Hadron Collider. I was involved with my group in the search for the Higgs particle.
-I think we have all done a great job to discover the Higgs boson in 2012.
-As a final point of my &amp;quot;physics&amp;quot; story was the PhD thesis, which I defended with summa cum laude.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Programmatic Statistics</title><link href="http://igormarfin.github.io/" rel="alternate"></link><link href="http://igormarfin.github.io/feeds/about-me.atom.xml" rel="self"></link><id>http://igormarfin.github.io/</id><updated>2016-02-07T13:41:00+01:00</updated><entry><title>About Me</title><link href="http://igormarfin.github.io/blog/2016/02/07/about-meI'm%20a%20data%20scientist%20and%20programmer%20currently%20based%20in%20Chemnitz,%20Germany./" rel="alternate"></link><updated>2016-02-07T13:41:00+01:00</updated><author><name>Dr. Igor Marfin</name></author><id>tag:igormarfin.github.io,2016-02-07:blog/2016/02/07/about-meI'm a data scientist and programmer currently based in Chemnitz, Germany./</id><summary type="html">&lt;p&gt;Previuosly, I was engaged with researches in particle and theoretical physics at CERN, Switzerland.
+My work was related not only to physics but also to statistical analyisis and software development for experiments at the Compact Muon Solenoid (CMS) detector at Large Hadron Collider. I was involved with my group in the search for the Higgs particle. I think we have all done a great job to discover the Higgs boson in 2012. As a final point of my &amp;quot;physics&amp;quot; story was the PhD thesis, which I defended with summa cum laude, i.e. with &amp;quot;the highest honor&amp;quot; in 2014.&lt;/p&gt;
 &lt;p&gt;Now I am investigating and developing the techniques of the machine learning.
 Also I am a big fan of the Bayesian Statistics.
-My current projects are related to the Device Fingerprinting,
-Fraud Prevention System for online transactions and Predictive Customer Behavior Modeling.&lt;/p&gt;
+My current projects are related to the Device Fingerprinting, Fraud Prevention System for online transactions
+and Predictive Customer Behavior Modeling.&lt;/p&gt;
 &lt;p&gt;You can visit my &lt;a class="reference external" href="https://bitbucket.org/iggy_floyd/"&gt;repository&lt;/a&gt; to look at my projects.&lt;/p&gt;
 &lt;p&gt;I'm interested in doing distance work in the field of the data analysis.
 You could contact me at iggy.floyd.de at gmail.com&lt;/p&gt;

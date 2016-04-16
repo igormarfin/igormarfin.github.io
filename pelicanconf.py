@@ -3,7 +3,7 @@
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
-AUTHOR = u'Igor Marfin'
+AUTHOR = u'Dr. Igor Marfin'
 SITENAME = u'Programmatic Statistics'
 SITEURL = '"http://igormarfin.github.io/'
 
