@@ -24,3 +24,8 @@ DELETE_OUTPUT_DIRECTORY = True
 #GOOGLE_ANALYTICS = ""
 
 STATIC_PATHS=['images']
+
+# DISQUS SUPPORT
+SITEURL = "http://igormarfin.github.io/"
+# DISQUS comments
+DISQUS_SITENAME = "igormarfingithubio"    

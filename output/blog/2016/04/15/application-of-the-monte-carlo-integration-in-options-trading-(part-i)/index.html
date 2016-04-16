@@ -1,256 +1,148 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Application of the Monte Carlo integration in Options trading (part I) - Programmatic Statistics</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="http://igormarfin.github.io/blog/2016/04/15/application-of-the-monte-carlo-integration-in-options-trading-(part-i)/">
+
         <meta name="author" content="Igor Marfin" />
         <meta name="keywords" content="Pandas,Statistics,Forecast,IPython,Monte-Carlo,Importance Sampling,Stratified Sampling,Option trading" />
         <meta name="description" content="Application of the Monte Carlo integration in Options trading (part I)¶$$\\[2pt]$$Igor Marfin [Unister Gmb@2014] &lt; igor.marfin@unister.de&gt; $$\\[40pt]$$ Table of Contents¶ 0.1 Abstract 0.2 Initialization 0.3 Introduction 0.3.1 The Black–Scholes model of the option value 0.4 Integration methods (schemes) for the stock prices 0.4.1 Convergence of the Monte Carlo schemes 0.4.2 Quantile of the distribution of stochastic variables 0.5 Machinery to operate the Option trading strategies" />
 
+        <meta property="og:site_name" content="Programmatic Statistics" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Application of the Monte Carlo integration in Options trading (part I)"/>
+        <meta property="og:url" content="http://igormarfin.github.io/blog/2016/04/15/application-of-the-monte-carlo-integration-in-options-trading-(part-i)/"/>
+        <meta property="og:description" content="Application of the Monte Carlo integration in Options trading (part I)¶$$\\[2pt]$$Igor Marfin [Unister Gmb@2014] &lt; igor.marfin@unister.de&gt; $$\\[40pt]$$ Table of Contents¶ 0.1 Abstract 0.2 Initialization 0.3 Introduction 0.3.1 The Black–Scholes model of the option value 0.4 Integration methods (schemes) for the stock prices 0.4.1 Convergence of the Monte Carlo schemes 0.4.2 Quantile of the distribution of stochastic variables 0.5 Machinery to operate the Option trading strategies"/>
+        <meta property="article:published_time" content="2016-04-15" />
+            <meta property="article:section" content="Statistics" />
+            <meta property="article:tag" content="Pandas" />
+            <meta property="article:tag" content="Statistics" />
+            <meta property="article:tag" content="Forecast" />
+            <meta property="article:tag" content="IPython" />
+            <meta property="article:tag" content="Monte-Carlo" />
+            <meta property="article:tag" content="Importance Sampling" />
+            <meta property="article:tag" content="Stratified Sampling" />
+            <meta property="article:tag" content="Option trading" />
+            <meta property="article:author" content="Igor Marfin" />
 
-    <title>Application of the Monte Carlo integration in Options trading (part I) - Programmatic Statistics</title>
 
-        <link rel="stylesheet" href="/theme/css/bootstrap.readable.min.css" type="text/css"/>
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://igormarfin.github.io/theme/css/bootstrap.yeti.min.css" type="text/css"/>
+    <link href="http://igormarfin.github.io/theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="/theme/css/font-awesome.min.css" rel="stylesheet" />
-    <link href="/theme/css/pygments/autumn.css" rel="stylesheet" />
+    <link href="http://igormarfin.github.io/theme/css/pygments/autumn.css" rel="stylesheet">
+    <link href="http://igormarfin.github.io/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://igormarfin.github.io/theme/css/style.css" type="text/css"/>
+
+        <link href="http://igormarfin.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Programmatic Statistics ATOM Feed"/>
+
+
+
+        <link href="http://igormarfin.github.io/feeds/statistics.atom.xml" type="application/atom+xml" rel="alternate"
+              title="Programmatic Statistics Statistics ATOM Feed"/>
     
-    <link href="/theme/css/pelican-twitchy.min.css" rel="stylesheet" />
+<!-- MathJax -->
+<script src='https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-    
-    <!-- Feeds -->
-        <link href="/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
-              title="Programmatic Statistics ATOM Feed" />
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
 </head>
-<body data-spy="scroll" data-target="#scrollspy">
-    <div id="wrapper">
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper-small" class="twitchy-background">
-            <ul id="accordion-small" class="sidebar-nav sidebar-nav-small">
-                <li>
-        <a href="" title="Programmatic Statistics" class="collapsed">
-            <span class="glyphicon glyphicon-home"></span>
-        </a>
-    </li>
-                <li class="nav-divider"></li>
-                <li>
-        <a href="/archives.html" title="Recent Articles" class="collapsed">
-            <span class="glyphicon glyphicon-th-list"></span>
-        </a>
-    </li>
-                
-                <li class="nav-divider"></li>
-                <li id="share-small">
-                    <a data-toggle="collapse" data-parent="#accordion-small" href="#collapse-share-small" title="Share" class="collapsed">
-                        <i class="fa fa-share-alt padding-small"></i>
-                    </a>
-                </li>
-                <li class="panel anti-panel"><ul id="collapse-share-small" class="collapse ">
-                    <li>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=/blog/2016/04/15/application-of-the-monte-carlo-integration-in-options-trading-(part-i)/" title="Share via Facebook" target="popup">
-                            <i class="fa fa-facebook-square padding-small"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://plus.google.com/share?url=/blog/2016/04/15/application-of-the-monte-carlo-integration-in-options-trading-(part-i)/" title="Share via Google+" target="popup">
-                            <i class="fa fa-google-plus padding-small"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-count="vertical" title="Share via Twitter" target="popup">
-                            <i class="fa fa-twitter-square padding-small"></i>
-                        </a>
-                    </li>
-                </ul></li>
-                <li class="nav-divider"></li>
-                <li>
-                    <a data-toggle="collapse" data-parent="#accordion-small" href="#collapse-social-small" title="Social" class="collapsed">
-                        <i class="fa fa-users padding-small"></i>
-                    </a>
-                </li>
-                <li class="panel anti-panel"><ul id="collapse-social-small" class="collapse ">
-                    <li>
-                        <a href="https://plus.google.com/u/0/111481335270527541691/posts" title="Google+"><i class="fa fa-google-plus-square fa-lg padding-small"></i></a>
-                    </li>
-                </ul></li>
-                <li class="nav-divider"></li>
-                <li>
-        <a href="#" title="Back to top" class="collapsed">
-            <span class="fa fa-arrow-up"></span>
-        </a>
-    </li>
-            </ul>
-        </div>
-        <div id="sidebar-wrapper" class="twitchy-background">
-            <ul id="accordion" class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="/">
-                            <span class="glyphicon glyphicon-home padding-small"></span>
-                            Programmatic Statistics
-                    </a>
-                </li>
-                    <li>
-                        <a href="/archives.html">
-                            <span class="glyphicon glyphicon-th-list padding-small"></span>
-                            Recent Articles
-                        </a>
-                    </li>
-                <li class="nav-divider"></li>
-                <li id="share">
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-share" title="Share" class="collapsed">
-                        <i class="fa fa-share-alt padding-small"></i>
-                        Share
-                    </a>
-                </li>
-                <li class="panel anti-panel"><ul id="collapse-share" class="sidebar_submenu collapse ">
-                    <li>
-                        <a href="https://www.facebook.com/sharer/sharer.php?u=//blog/2016/04/15/application-of-the-monte-carlo-integration-in-options-trading-(part-i)/" target="popup">
-                            <i class="fa fa-facebook-square padding-small"></i>
-                            Facebook
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://plus.google.com/share?url=//blog/2016/04/15/application-of-the-monte-carlo-integration-in-options-trading-(part-i)/" target="popup">
-                            <i class="fa fa-google-plus padding-small"></i>
-                            Google+
-                        </a>
-                    </li>
-                    <li>
-                        <a href="https://twitter.com/share" class="twitter-share-button" data-count="vertical" target="popup">
-                            <i class="fa fa-twitter-square padding-small"></i>
-                            Twitter
-                        </a>
-                    </li>
-                </ul></li>
-                <li class="nav-divider"></li>
-                <li>
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-social">
-                        <i class="fa fa-users padding-small"></i>
-                        Contact
-                    </a>
-                </li>
-                <li class="panel anti-panel"><ul id="collapse-social" class="sidebar_submenu collapse ">
-                    <li>
-                        <a href="https://plus.google.com/u/0/111481335270527541691/posts" title="Google+">
-                            <i class="fa fa-google-plus-square fa-lg padding-small"></i>
-                            Google+
-                        </a>
-                    </li>
-                </ul></li>
-                
-                <li class="nav-divider"></li>
-                <li>
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-pages">
-                        <i class="fa fa-folder-open padding-small"></i>
-                        Pages
-                    </a>
-                </li>
-                <li class="panel anti-panel"><ul id="collapse-pages" class="sidebar_submenu collapse ">
-                </ul></li>
-                
-                <li class="nav-divider"></li>
-                <li>
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-categories">
-                        <i class="fa fa-folder-open padding-small"></i>
-                        Categories
-                    </a>
-                </li>
-                <li class="panel anti-panel"><ul id="collapse-categories" class="sidebar_submenu collapse ">
-                    <li >
-                        <a href="/category/about-me.html">
-                            <i class="fa fa-folder-open padding-small"></i>
-                            About me
-                            <span class="badge pull-right categorybadge">1</span>
-                        </a>
-                    </li>
-                    <li >
-                        <a href="/category/buildingthisblog.html">
-                            <i class="fa fa-folder-open padding-small"></i>
-                            BuildingThisBlog
-                            <span class="badge pull-right categorybadge">2</span>
-                        </a>
-                    </li>
-                    <li >
-                        <a href="/category/programming.html">
-                            <i class="fa fa-folder-open padding-small"></i>
-                            Programming
-                            <span class="badge pull-right categorybadge">1</span>
-                        </a>
-                    </li>
-                    <li class="active">
-                        <a href="/category/statistics.html">
-                            <i class="fa fa-folder-open padding-small"></i>
-                            Statistics
-                            <span class="badge pull-right categorybadge">10</span>
-                        </a>
-                    </li>
-                </ul></li>
-                
-                <li class="nav-divider"></li>
-                <li>
-                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse-tags">
-                        <i class="fa fa-tags padding-small"></i>
-                        Tags
-                    </a>
-                </li>
-                <li class="panel anti-panel"><ul id="collapse-tags" class="sidebar_submenu collapse ">
-                </ul></li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
-        <!-- open/close sidebar -->
-        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">
-            <span id="right-arrow" class="glyphicon glyphicon-chevron-right"  title="expand sidebar"></span>
-            <span id="left-arrow" class="glyphicon glyphicon-chevron-left" title="minimize sidebar"></span>
-        </a>
-       <!-- /open/close sidebar -->
-
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-<section id="content">
-    <article>
-        <div class="row">
-            <div class="col-lg-9">
-                <header class="page-header">
-                    <h1>
-                        <a href="/blog/2016/04/15/application-of-the-monte-carlo-integration-in-options-trading-(part-i)/"
-                           rel="bookmark"
-                           title="Permalink to Application of the Monte Carlo integration in Options trading (part I)">
-                            Application of the Monte Carlo integration in Options trading (part I)
-                        </a>
-                        <small>
-<div class="post-info">
-    <div class="publish-info-block">
-        <small>
-            <span class="published">
-                <i class="fa fa-calendar padding-small"></i><time datetime="2016-04-15T01:52:00+02:00"> Fri 15 April 2016</time>
-            </span>
-            <span class="category">
-                <i class="fa fa-folder-open padding-small"></i><a href="/category/statistics.html">Statistics</a>
-            </span>
-            <span class="tags">
-                <i class="fa fa-tags padding-small"></i>
-                <a href="/tag/pandas.html">Pandas</a> /                 <a href="/tag/statistics.html">Statistics</a> /                 <a href="/tag/forecast.html">Forecast</a> /                 <a href="/tag/ipython.html">IPython</a> /                 <a href="/tag/monte-carlo.html">Monte-Carlo</a> /                 <a href="/tag/importance-sampling.html">Importance Sampling</a> /                 <a href="/tag/stratified-sampling.html">Stratified Sampling</a> /                 <a href="/tag/option-trading.html">Option trading</a>            </span>
-        </small>
-    </div>
-</div><!-- /.post-info -->                        </small>
-                    </h1>
-                </header>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	    <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="http://igormarfin.github.io/" class="navbar-brand">
+Programmatic Statistics                </a>
             </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                            <li >
+                                <a href="http://igormarfin.github.io/category/about-me.html">About me</a>
+                            </li>
+                            <li >
+                                <a href="http://igormarfin.github.io/category/buildingthisblog.html">Buildingthisblog</a>
+                            </li>
+                            <li class="active">
+                                <a href="http://igormarfin.github.io/category/statistics.html">Statistics</a>
+                            </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><span>
+                    <form class="navbar-search" action="/search.html">
+                      <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                    </form></span>
+                  </li>
+                  <li><a href="http://igormarfin.github.io/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-        <div class="row">
-            <div class="col-lg-9">
-                <div class="entry-content">
-                    <style type="text/css">/*!
+    </div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://igormarfin.github.io/blog/2016/04/15/application-of-the-monte-carlo-integration-in-options-trading-(part-i)/"
+                       rel="bookmark"
+                       title="Permalink to Application of the Monte Carlo integration in Options trading (part I)">
+                        Application of the Monte Carlo integration in Options trading (part I)
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-04-15T01:52:00+02:00"> Fri 15 April 2016</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://igormarfin.github.io/tag/pandas.html">Pandas</a>
+        /
+	<a href="http://igormarfin.github.io/tag/statistics.html">Statistics</a>
+        /
+	<a href="http://igormarfin.github.io/tag/forecast.html">Forecast</a>
+        /
+	<a href="http://igormarfin.github.io/tag/ipython.html">IPython</a>
+        /
+	<a href="http://igormarfin.github.io/tag/monte-carlo.html">Monte-Carlo</a>
+        /
+	<a href="http://igormarfin.github.io/tag/importance-sampling.html">Importance Sampling</a>
+        /
+	<a href="http://igormarfin.github.io/tag/stratified-sampling.html">Stratified Sampling</a>
+        /
+	<a href="http://igormarfin.github.io/tag/option-trading.html">Option trading</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <style type="text/css">/*!
 *
 * IPython notebook
 *
@@ -12575,67 +12467,79 @@ $$\\[5pt]$$<p>A short <code>`to-do</code> list for my future lectures is the fol
 }
 </script>
 
-                </div>
-                <footer class="text-right">
-                    <p>- Igor Marfin</p>
-                </footer>
-    <section id="comments" class="comments ">
-        <hr/>
+            </div>
+            <!-- /.entry-content -->
+    <hr/>
+    <section class="comments" id="comments">
         <h2>Comments</h2>
+
         <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'igormarfingithubio'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'application-of-the-monte-carlo-integration-in-options-trading-(part-i)';
+                var disqus_url = 'http://igormarfin.github.io/blog/2016/04/15/application-of-the-monte-carlo-integration-in-options-trading-(part-i)/';
+
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
         <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
             Disqus.</a></noscript>
         <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
     </section>
-            </div>
+        </article>
+    </section>
+
         </div>
-    </article>
-</section>
+    </div>
+</div>
 <footer>
-    <hr>
-    <div class="row">
-        <div class="col-lg-9 text-center">
-            <p><small>
-                Built by <a href="http://docs.getpelican.com/en/latest">Pelican</a> / <a href="https://github.com/ingwinlu/pelican-twitchy">pelican-twitchy</a>
-                &middot;                      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="//i.creativecommons.org/l/by-nc/4.0/80x15.png" /></a>
-    Content
-  licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution 4.0 International License</a>, except where indicated otherwise.
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy;  Igor Marfin
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://igormarfin.github.io/theme/js/jquery.min.js"></script>
 
-            </small></p>
-        </div>
-    </div>
-</footer>            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-    </div>
-    <!-- /#wrapper -->
-    <!-- jQuery Version 1.11.2 -->
-    <script src="/theme/js/jquery-1.11.2.min.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="/theme/js/bootstrap.min.js"></script>
-    <!-- twitchy Script -->
-    <script src="/theme/js/pelican_twitchy.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://igormarfin.github.io/theme/js/bootstrap.min.js"></script>
 
-<!-- disqus -->
-<script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'igormarfingithubio'; // required: replace example with your forum shortname
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://igormarfin.github.io/theme/js/respond.min.js"></script>
 
-            var disqus_identifier = 'application-of-the-monte-carlo-integration-in-options-trading-(part-i)';
-        var disqus_url = '/blog/2016/04/15/application-of-the-monte-carlo-integration-in-options-trading-(part-i)/';
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'igormarfingithubio'; // required: replace example with your forum shortname
 
-    var disqus_config = function () {
-        this.language = "en";
-    };
         /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
-        var dsq = document.createElement('script');
-        dsq.type = 'text/javascript';
-        dsq.async = true;
-        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    })();
-</script>
-<!-- /disqus -->
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+
 </body>
 </html>

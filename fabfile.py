@@ -171,3 +171,8 @@ def make_entry_ipython(notebook="./test.ipynb",title="My first title",tags="pyth
         w.write(t)
     print("File created -> " + f_create)
     
+
+
+
+
+
