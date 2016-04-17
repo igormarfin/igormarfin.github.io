@@ -29,3 +29,8 @@ STATIC_PATHS=['images']
 SITEURL = "http://igormarfin.github.io/"
 # DISQUS comments
 DISQUS_SITENAME = "igormarfingithubio"    
+
+CACHE_CONTENT=True
+LOAD_CONTENT_CACHE = True
+#CACHE_PATH = 'cache'
+

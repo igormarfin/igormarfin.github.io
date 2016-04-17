@@ -227,35 +227,44 @@ $$\\[40pt]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">¶</a></h1><ul>
+<h1 id="Table-of-Contents">Table of Contents<a class="anchor-link" href="#Table-of-Contents">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
 <li> <ul>
-<li><a href="#0.1-Abstract">0.1 Abstract</a></li>
-<li><a href="#0.2-Initialization">0.2 Initialization</a></li>
-<li><a href="#0.3-Introduction">0.3 Introduction</a><ul>
-<li><a href="#0.3.1-The-Black–Scholes-model-of-the-option-value">0.3.1 The Black–Scholes model of the option value</a></li>
+<li><a href="#1.1-Abstract">0.1 Abstract</a></li>
+<li><a href="#1.2-Initialization">0.2 Initialization</a></li>
+<li><a href="#1.3-Introduction">0.3 Introduction</a><ul>
+<li><a href="#1.3.1-The-Black–Scholes-model-of-the-option-value">0.3.1 The Black–Scholes model of the option value</a></li>
 </ul>
 </li>
-<li><a href="#0.4-Integration-methods-%28schemes%29-for-the-stock-prices">0.4 Integration methods (schemes) for the stock prices</a><ul>
-<li><a href="#0.4.1-Convergence-of-the-Monte-Carlo-schemes">0.4.1 Convergence of the Monte Carlo schemes</a></li>
-<li><a href="#0.4.2-Quantile-of-the-distribution-of-stochastic-variables">0.4.2 Quantile of the distribution of stochastic variables</a></li>
+<li><a href="#0.4-Integration-methods-1.4-Integration-methods-%28schemes%29-for-the-stock-prices">0.4 Integration methods (schemes) for the stock prices</a><ul>
+<li><a href="#1.4.1-Convergence-of-the-Monte-Carlo-schemes">0.4.1 Convergence of the Monte Carlo schemes</a></li>
+<li><a href="#1.4.2-Quantile-of-the-distribution-of-stochastic-variables">0.4.2 Quantile of the distribution of stochastic variables</a></li>
 </ul>
 </li>
-<li><a href="#0.5-Machinery-to-operate-the-Option-trading-strategies">0.5 Machinery to operate the Option trading strategies</a><ul>
-<li><a href="#0.5.1-Stock-volatility">0.5.1 Stock volatility</a><ul>
-<li><a href="#0.5.1.1-Historical-volatility-calculator">0.5.1.1 Historical volatility calculator</a></li>
-<li><a href="#0.5.1.2-Instantaneous-volatility-calculator">0.5.1.2 Instantaneous volatility calculator</a></li>
-<li><a href="#0.5.1.3-Implied-%28-the-future-realized%29-volatility">0.5.1.3 Implied ( the future realized) volatility</a></li>
+<li><a href="#1.5-Machinery-to-operate-the-Option-trading-strategies">0.5 Machinery to operate the Option trading strategies</a><ul>
+<li><a href="#1.5.1-Stock-volatility">0.5.1 Stock volatility</a><ul>
+<li><a href="#1.5.1.1-Historical-volatility-calculator">0.5.1.1 Historical volatility calculator</a></li>
+<li><a href="#1.5.1.2-Instantaneous-volatility-calculator">0.5.1.2 Instantaneous volatility calculator</a></li>
+<li><a href="#0.5.1.3-Implied-1.5.1.3-Implied-%28-the-future-realized%29-volatility">0.5.1.3 Implied ( the future realized) volatility</a></li>
 </ul>
 </li>
-<li><a href="#0.5.2-Monte-Carlo-calculation-of-the-Option's-Payoff">0.5.2 Monte Carlo calculation of the Option's Payoff</a></li>
+<li><a href="#1.5.2-Monte-Carlo-calculation-of-the-Option's-Payoff">0.5.2 Monte Carlo calculation of the Option's Payoff</a></li>
 </ul>
 </li>
-<li><a href="#0.6-Monte-Carlo-Estimation-of-integrals">0.6 Monte-Carlo Estimation of integrals</a><ul>
-<li><a href="#0.6.1-Monte-Carlo-Importance-Sampling">0.6.1 Monte-Carlo Importance Sampling</a><ul>
-<li><a href="#0.6.1.1-Reject/Accept-method-for-the-Monte-Carlo-Importance-Sampling">0.6.1.1 Reject/Accept method for the Monte-Carlo Importance Sampling</a></li>
+<li><a href="#1.6-Monte-Carlo-Estimation-of-integrals">0.6 Monte-Carlo Estimation of integrals</a><ul>
+<li><a href="#1.6.1-Monte-Carlo-Importance-Sampling">0.6.1 Monte-Carlo Importance Sampling</a><ul>
+<li><a href="#1.6.1.1-Reject/Accept-method-for-the-Monte-Carlo-Importance-Sampling">0.6.1.1 Reject/Accept method for the Monte-Carlo Importance Sampling</a></li>
 </ul>
 </li>
-<li><a href="#0.6.2-Monte-Carlo-with-Stratified-Sampling">0.6.2 Monte-Carlo with Stratified Sampling</a></li>
+<li><a href="#1.6.2-Monte-Carlo-with-Stratified-Sampling">0.6.2 Monte-Carlo with Stratified Sampling</a></li>
 </ul>
 </li>
 </ul>
@@ -269,7 +278,7 @@ $$\\[40pt]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="0.1-Abstract">0.1 Abstract<a class="anchor-link" href="#0.1-Abstract">¶</a></h2>
+<h2 id="1.1-Abstract">1.1 Abstract<a class="anchor-link" href="#1.1-Abstract">¶</a></h2>
 </div>
 </div>
 </div>
@@ -283,6 +292,7 @@ $$\\[40pt]$$
 Stochastic Differential Equations (SDE). The stochastic differential equation is usually  governing the price evolution of a Option call or Option put. I am going to introduce you into the modeling the option tradings using python and Monte Carlo techniques.</p>
 <p>Honestly saying, I got an idea to investigate the topic of the modeling  stochastic processes in the Finance a long time ago. Recently, I have bumped into a small pdf file 
 <a name="ref-1"></a><a href="#cite-Assignment">(CamDavidson-Pilon, 2012)</a> at the Cam Davidson-Pilon's github page  with an Assignment on the stochastic processes in Economics. And I have decided to understand and learn basic points given in the tasks. Therefore, I target two aims, first one is a step-by-step academical understanding of methods to work with stochastic processes in the Finance and second one is development of numerical methods to model stochastic processes in the stock/option tradings.</p>
+<p>I have prepared the bitbucket repository  <a href="https://bitbucket.org/iggy_floyd/monte_carlo_stochastic_process">https://bitbucket.org/iggy_floyd/monte_carlo_stochastic_process</a>, where I have placed these tutorials.</p>
 </div>
 </div>
 </div>
@@ -300,7 +310,7 @@ $$\\[5pt]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="0.2-Initialization">0.2 Initialization<a class="anchor-link" href="#0.2-Initialization">¶</a></h2>
+<h2 id="1.2-Initialization">1.2 Initialization<a class="anchor-link" href="#1.2-Initialization">¶</a></h2>
 </div>
 </div>
 </div>
@@ -316,7 +326,7 @@ $$\\[5pt]$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [1]:</div>
+<div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">sys</span>
@@ -355,7 +365,14 @@ $$\\[5pt]$$
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt output_prompt">Out[1]:</div>
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>WARNING: pylab import has clobbered these variables: ['figsize']
+`%matplotlib` prevents importing * from pylab and numpy
+</pre>
+</div>
+</div>
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <style>
 @import url('http://fonts.googleapis.com/css?family=Source+Code+Pro');
@@ -585,7 +602,7 @@ $$\\[5pt]$$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="o">%%</span><span class="nx">javascript</span>
@@ -642,7 +659,7 @@ $$\\[5pt]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="0.3-Introduction">0.3 Introduction<a class="anchor-link" href="#0.3-Introduction">¶</a></h2>
+<h2 id="1.3-Introduction">1.3 Introduction<a class="anchor-link" href="#1.3-Introduction">¶</a></h2>
 </div>
 </div>
 </div>
@@ -653,11 +670,9 @@ $$\\[5pt]$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr />
 <p>A typical stochastic differential equation is of the form <a name="ref-2"></a><a href="#cite-Wiki">(Wiki:SDE, 2016)</a></p>
-\begin{definition}\label{def:SDE}
-\begin{eqnarray}
+\begin{eqnarray}\label{def:SDE}
 \mathrm{d} X_t = \mu(X_t,t)\, \mathrm{d} t + \sigma(X_t,t)\, \mathrm{d} B_t ,
-\end{eqnarray}
-\end{definition}$$\\[1pt]$$<p>where $X_t$ is a price of the asset (option),which follows to the stochastic process, $\mu(X_t,t)$ is a so-called trend function and $\sigma(X_t,t) \mathrm{d} B_t$ is a variation defined by the Wiener process $B_t$.</p>
+\end{eqnarray}$$\\[1pt]$$<p>where $X_t$ is a price of the asset (option),which follows to the stochastic process, $\mu(X_t,t)$ is a so-called trend function and $\sigma(X_t,t) \mathrm{d} B_t$ is a variation defined by the Wiener process $B_t$.</p>
 <p>Before we go further and start a simple analysis, we want to understand the basics of the stochastic calculations. There is an important Itô's lemma <a name="ref-3"></a><a href="#cite-ITO">(Wiki:Ito_Lemmma, 2016)</a>, which is used in to find the differential of a time-dependent function of a stochastic process. This is an informal derivation of the lemma.</p>
 <p>Assume $X_t$ is a Ito drift-diffusion process that satisfies the stochastic differential equation \ref{def:SDE}, where $\mu(X_t,t)=\mu_t$ and $\sigma(X_t,t) = \sigma_t$ functions are constans.  If f(t,x) is a twice-differentiable scalar function, its expansion in a Taylor series is</p>
 \begin{eqnarray}
@@ -665,11 +680,9 @@ df = \frac{\partial f}{\partial t}\,dt + \frac{\partial f}{\partial x}\,dx + \fr
 \end{eqnarray}\begin{eqnarray}
 df = \frac{\partial f}{\partial t}\,dt + \frac{\partial f}{\partial x}(\mu_t\,dt + \sigma_t\,dB_t) + \frac{1}{2}\frac{\partial^2 f}{\partial x^2} \left (\mu_t^2\,dt^2 + 2\mu_t\sigma_t\,dt\,dB_t + \sigma_t^2\,dB_t^2 \right ) + \cdots. 
 \end{eqnarray}<p>In the limit as $dt \rightarrow 0$, the terms $dt^2$ and $dtdBt$ tend to zero faster than $dB^2$, which is $O(dt)$. Setting them  to zero, substituting dt for $dB^2$, and collecting the $dt$ and $dB$ terms, we obtain</p>
-\begin{lemma}\label{def:ito}
-\begin{eqnarray}
+\begin{eqnarray}\label{def:ito}
 df = \left(\frac{\partial f}{\partial t} + \mu_t\frac{\partial f}{\partial x} + \frac{\sigma_t^2}{2}\frac{\partial^2 f}{\partial x^2}\right)dt + \sigma_t\frac{\partial f}{\partial x}\,dB_t.
-\end{eqnarray}
-\end{lemma}<p>The equation \ref{def:ito} has an important meaning: the two-differential function of the stochastic process is also a stochastic process.</p>
+\end{eqnarray}<p>The equation \ref{def:ito} has an important meaning: the two-differential function of the stochastic process is also a stochastic process.</p>
 </div>
 </div>
 </div>
@@ -687,7 +700,7 @@ $$\\[5pt]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="0.3.1-The-Black–Scholes-model-of-the-option-value">0.3.1 The Black–Scholes model of the option value<a class="anchor-link" href="#0.3.1-The-Black–Scholes-model-of-the-option-value">¶</a></h3>
+<h3 id="1.3.1-The-Black–Scholes-model-of-the-option-value">1.3.1 The Black–Scholes model of the option value<a class="anchor-link" href="#1.3.1-The-Black–Scholes-model-of-the-option-value">¶</a></h3>
 </div>
 </div>
 </div>
@@ -715,11 +728,9 @@ $$ \frac{\partial^2 V}{\partial S^2} &gt;0  $$<p>is fulfilled. If we buy the opt
 dV_t = r\left(V_t-\frac{\partial V}{\partial S}S_t\right)\,dt + \frac{\partial V}{\partial S}\,dS_t,
 \end{eqnarray}<p>where the first term describes the profit we can obtain from putting our money into the risk-free investment fonds. Here I use the the notation of the option value $V_t$  for total portfolio value. The above formula of the total portfolio increase only makes a sense in the case when you have already bought the option.</p>
 <p>Combining the two equations gives the celebrated Black–Scholes equation</p>
-\begin{theorem}\label{def:bs}
-\begin{eqnarray}
+\begin{eqnarray}\label{def:bs}
 \frac{\partial V}{\partial t} + \frac{\sigma^2S^2}{2}\frac{\partial^2 V}{\partial S^2} + rS\frac{\partial V}{\partial S}-rV = 0. 
-\end{eqnarray}
-\end{theorem}<p>If we could integrate  \cite{def:bs} to predict the value of the option in the future time $t$, we would be able to minimize the risk by skipping from consideration such options which values will be predicted to be lowering.</p>
+\end{eqnarray}<p>If we could integrate  \cite{def:bs} to predict the value of the option in the future time $t$, we would be able to minimize the risk by skipping from consideration such options which values will be predicted to be lowering.</p>
 </div>
 </div>
 </div>
@@ -737,7 +748,7 @@ $$\\[5pt]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="0.4-Integration-methods-(schemes)-for-the-stock-prices">0.4 Integration methods (schemes) for the stock prices<a class="anchor-link" href="#0.4-Integration-methods-(schemes)-for-the-stock-prices">¶</a></h2>
+<h2 id="1.4-Integration-methods-(schemes)-for-the-stock-prices">1.4 Integration methods (schemes) for the stock prices<a class="anchor-link" href="#1.4-Integration-methods-(schemes)-for-the-stock-prices">¶</a></h2>
 </div>
 </div>
 </div>
@@ -4134,7 +4145,7 @@ SJhgBwCAhAl2AABImGAHAICECXYAAEjYF3a951jsJ40PAAAAAElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="0.4.1-Convergence-of-the-Monte-Carlo-schemes">0.4.1 Convergence of the Monte Carlo schemes<a class="anchor-link" href="#0.4.1-Convergence-of-the-Monte-Carlo-schemes">¶</a></h3>
+<h3 id="1.4.1-Convergence-of-the-Monte-Carlo-schemes">1.4.1 Convergence of the Monte Carlo schemes<a class="anchor-link" href="#1.4.1-Convergence-of-the-Monte-Carlo-schemes">¶</a></h3>
 </div>
 </div>
 </div>
@@ -5278,7 +5289,7 @@ RESeYOeCiIiIiIg8wc4FERERERF54v8neQrDw1GdcQAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="0.4.2-Quantile-of-the-distribution-of-stochastic-variables">0.4.2 Quantile of the distribution of stochastic variables<a class="anchor-link" href="#0.4.2-Quantile-of-the-distribution-of-stochastic-variables">¶</a></h3>
+<h3 id="1.4.2-Quantile-of-the-distribution-of-stochastic-variables">1.4.2 Quantile of the distribution of stochastic variables<a class="anchor-link" href="#1.4.2-Quantile-of-the-distribution-of-stochastic-variables">¶</a></h3>
 </div>
 </div>
 </div>
@@ -6954,7 +6965,7 @@ $$\\[5pt]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="0.5-Machinery-to-operate-the-Option-trading-strategies">0.5 Machinery to operate the Option trading strategies<a class="anchor-link" href="#0.5-Machinery-to-operate-the-Option-trading-strategies">¶</a></h2>
+<h2 id="1.5-Machinery-to-operate-the-Option-trading-strategies">1.5 Machinery to operate the Option trading strategies<a class="anchor-link" href="#1.5-Machinery-to-operate-the-Option-trading-strategies">¶</a></h2>
 </div>
 </div>
 </div>
@@ -6980,11 +6991,9 @@ which guarantees you to sell stocks at the strike price.</p>
 <li><strong>Premium</strong>: this is the price you pay when you buy an option and the price you receive when you sell an option.</li>
 </ol>
 <p>The current price of the Call Option on the market $S_t^{Option}$  is defined by the formula</p>
-\begin{definition}\label{def:priceOptionCall}
-\begin{eqnarray}
+\begin{eqnarray}\label{def:priceOptionCall}
 S_t^{Option} = S_t^{stock} + Premium - S^{Strike},
-\end{eqnarray}
-\end{definition}$$\\[1pt]$$<p>where   $S_t^{stock}$ is the current stock price, $Premium$ is the price you have to pay to the option holder because of the volatility of the stock prices.</p>
+\end{eqnarray}$$\\[1pt]$$<p>where   $S_t^{stock}$ is the current stock price, $Premium$ is the price you have to pay to the option holder because of the volatility of the stock prices.</p>
 <p>The call premium tends to go down as the option gets closer to the call date. And it goes down as the option price rises relative to the stock price. 
 Also it is worth to mention that there are Bid/Ask prices of the option which are
 is more relevant in ascertaining the value of the option than the last price since options are not frequently traded. <strong>Meaning the value is usually the Ask/Bid Price</strong>. I want to clarify the Bid/Ask price definitions a little bit. As Investopedia <a name="ref-8"></a><a href="#cite-BidAskSpread">(Investopedia, 2016)</a> states, the Bid/Ask/Spread terms on the market are fully determined by the concept of the <strong>Supply and Demand</strong>.</p>
@@ -7171,7 +7180,7 @@ $$\\[5pt]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="0.5.1-Stock-volatility">0.5.1 Stock volatility<a class="anchor-link" href="#0.5.1-Stock-volatility">¶</a></h3>
+<h3 id="1.5.1-Stock-volatility">1.5.1 Stock volatility<a class="anchor-link" href="#1.5.1-Stock-volatility">¶</a></h3>
 </div>
 </div>
 </div>
@@ -7183,18 +7192,14 @@ $$\\[5pt]$$
 <hr />
 <p>There are many definitions of the Stock Volatility. I will try to undercover all of the them.</p>
 <p>First, let's recover the difinion of the stock return. Suppose $S_t$ is the price of the stock on day $t$, then the daily return on day $t$ is:</p>
-\begin{definition}\label{def:return}
-\begin{eqnarray}
+\begin{eqnarray}\label{def:return}
 r_t = \frac{ S_t - S_{t-1} }{ S_{t-1} }.
-\end{eqnarray}
-\end{definition}$$\\[1pt]$$<p>Also logarithmic returns are defined according to the Financial Mathematics
+\end{eqnarray}$$\\[1pt]$$<p>Also logarithmic returns are defined according to the Financial Mathematics
 <a name="ref-9"></a><a href="#cite-WikiVolatility">(WikiVolatility, 2016)</a>.
 The logarithmic returns are determined as follows</p>
-\begin{definition}\label{def:logreturn}
-\begin{eqnarray}
+\begin{eqnarray}\label{def:logreturn}
 logr_t = log(r_t+1).
-\end{eqnarray}
-\end{definition}$$\\[1pt]$$<p>Let's implement the calculation of returns for stocks. I will copy/paste a few code from my previous study <strong>"Money Management System: Portfolio Optimization Approaches or How to Become a Millionaire from stock tradings"</strong>.</p>
+\end{eqnarray}$$\\[1pt]$$<p>Let's implement the calculation of returns for stocks. I will copy/paste a few code from my previous study <strong>"Money Management System: Portfolio Optimization Approaches or How to Become a Millionaire from stock tradings"</strong>.</p>
 </div>
 </div>
 </div>
@@ -8355,7 +8360,7 @@ $$\\[5pt]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="0.5.1.1-Historical-volatility-calculator">0.5.1.1 Historical volatility calculator<a class="anchor-link" href="#0.5.1.1-Historical-volatility-calculator">¶</a></h4>
+<h4 id="1.5.1.1-Historical-volatility-calculator">1.5.1.1 Historical volatility calculator<a class="anchor-link" href="#1.5.1.1-Historical-volatility-calculator">¶</a></h4>
 </div>
 </div>
 </div>
@@ -8476,7 +8481,7 @@ $$\\[5pt]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="0.5.1.2-Instantaneous-volatility-calculator">0.5.1.2 Instantaneous volatility calculator<a class="anchor-link" href="#0.5.1.2-Instantaneous-volatility-calculator">¶</a></h4>
+<h4 id="1.5.1.2-Instantaneous-volatility-calculator">1.5.1.2 Instantaneous volatility calculator<a class="anchor-link" href="#1.5.1.2-Instantaneous-volatility-calculator">¶</a></h4>
 </div>
 </div>
 </div>
@@ -8669,7 +8674,7 @@ $$\\[5pt]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="0.5.1.3-Implied-(-the-future-realized)-volatility">0.5.1.3 Implied ( the future realized) volatility<a class="anchor-link" href="#0.5.1.3-Implied-(-the-future-realized)-volatility">¶</a></h4>
+<h4 id="1.5.1.3-Implied-(-the-future-realized)-volatility">1.5.1.3 Implied ( the future realized) volatility<a class="anchor-link" href="#1.5.1.3-Implied-(-the-future-realized)-volatility">¶</a></h4>
 </div>
 </div>
 </div>
@@ -9020,7 +9025,7 @@ $$\\[5pt]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="0.5.2-Monte-Carlo-calculation-of-the-Option's-Payoff">0.5.2 Monte Carlo calculation of the Option's Payoff<a class="anchor-link" href="#0.5.2-Monte-Carlo-calculation-of-the-Option's-Payoff">¶</a></h3>
+<h3 id="1.5.2-Monte-Carlo-calculation-of-the-Option's-Payoff">1.5.2 Monte Carlo calculation of the Option's Payoff<a class="anchor-link" href="#1.5.2-Monte-Carlo-calculation-of-the-Option's-Payoff">¶</a></h3>
 </div>
 </div>
 </div>
@@ -9031,31 +9036,21 @@ $$\\[5pt]$$
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr />
 $$\\[5pt]$$<p>We have reached the point when we would like to estimate the profit from buying the  call options. This option's profit is called the option's payoff. The formula of the payoff is quite simple</p>
-\begin{definition}\label{def:payoff}
-\begin{eqnarray}
+\begin{eqnarray}\label{def:payoff}
 P(S(t)) = Max (S(t)-K,0.),
-\end{eqnarray}
-\end{definition}$$\\[1pt]$$<p>where $P(t)$, $S(t)$ and $K$ are the payoff, stock and strike prices of the option by the time $t$. To estimate the $P(t)$ \ref{def:payoff}, we assume that the stock prices follows the Ito drift-diffusion process, namely the Geometric Brownian Motion, which is defined as</p>
-\begin{definition}\label{def:GBM}
-\begin{eqnarray}
+\end{eqnarray}$$\\[1pt]$$<p>where $P(t)$, $S(t)$ and $K$ are the payoff, stock and strike prices of the option by the time $t$. To estimate the $P(t)$ \ref{def:payoff}, we assume that the stock prices follows the Ito drift-diffusion process, namely the Geometric Brownian Motion, which is defined as</p>
+\begin{eqnarray}\label{def:GBM}
 \mathrm{d}S(t)=rS(t)\mathrm{d}t+\sigma S(t)\mathrm{d}B(t).
-\end{eqnarray}
-\end{definition}$$\\[1pt]$$<p>Recalling the Ito lemma \ref{def:ito}, we can rewrite the equation \ref{def:GBM} in the form</p>
-\begin{definition}\label{def:GBM2}
-\begin{eqnarray}
+\end{eqnarray}$$\\[1pt]$$<p>Recalling the Ito lemma \ref{def:ito}, we can rewrite the equation \ref{def:GBM} in the form</p>
+\begin{eqnarray}\label{def:GBM2}
 \mathrm{d}log(S(t)) = (r−\frac{1}{2}\sigma^2)\mathrm{d}t+\sigma \mathrm{d}B(t).
-\end{eqnarray}
-\end{definition}$$\\[1pt]$$<p>The SDE \ref{def:GMB2} has an analytical solution,</p>
-\begin{theorem}\label{def:GBM3}
-\begin{eqnarray}
+\end{eqnarray}$$\\[1pt]$$<p>The SDE \ref{def:GMB2} has an analytical solution,</p>
+\begin{eqnarray}\label{def:GBM3}
 S(t)=S(0)e^{(r−\frac{1}{2}\sigma^2)T+\sigma\sqrt{T}N(0,1)},
-\end{eqnarray}
-\end{theorem}$$\\[1pt]$$<p>where we've used the fact that since $B(t)$ is a Brownian motion, it has the distribution as a normal distribution with variance $T$. Our aim is the developing the Monte Carlo estimator of the P(S(t)), i.e. $\hat{E}(P(S(0)e^{(r−\frac{1}{2}\sigma^2)T+\sigma\sqrt{T}N(0,1)}))$</p>
-\begin{definition}\label{def:MCpayoff}
+\end{eqnarray}$$\\[1pt]$$<p>where we've used the fact that since $B(t)$ is a Brownian motion, it has the distribution as a normal distribution with variance $T$. Our aim is the developing the Monte Carlo estimator of the $P(S(t))$, i.e. $\hat{E}(P(S(0)e^{(r−\frac{1}{2}\sigma^2)T+\sigma\sqrt{T}N(0,1)}))$</p>
 \begin{eqnarray}
-\hat{E}(P(S(t)) = \frac{1}{I}\sum_i^I P(S_i(t)).
-\end{eqnarray}
-\end{definition}$$\\[1pt]$$<p>Usually, the risk-neutral pay-off for a call option, $e^{-rT}\cdot E(P(S(t)$, is considered.</p>
+\hat{E}(P(S(t)) = \frac{1}{I}\sum_i^I  P(S_i(t)).
+\end{eqnarray}$$\\[1pt]$$<p>Usually, the risk-neutral pay-off for a call option, $e^{-rT}\cdot E(P(S(t)$, is considered.</p>
 </div>
 </div>
 </div>
@@ -9692,11 +9687,9 @@ AAAASUVORK5CYII=
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>It is important that your GBM model  of the $S(t)$ has a right estimation of the daily drift term $\mu$, which is determined by $r$ and $\sigma$,</p>
-\begin{definition}\label{def:drift_term}
-\begin{eqnarray}
+\begin{eqnarray}\label{def:drift_term}
 \mu =r−\frac{1}{2}\sigma^2.
-\end{eqnarray}
-\end{definition}$$\\[1pt]$$<p>What happens when we increase the free-risk rate $r$ in two times, and hence the daily trend term $\mu$ takes  a larger value?</p>
+\end{eqnarray}$$\\[1pt]$$<p>What happens when we increase the free-risk rate $r$ in two times, and hence the daily trend term $\mu$ takes  a larger value?</p>
 <p>The answer is given below.</p>
 </div>
 </div>
@@ -10245,7 +10238,7 @@ $$\\[5pt]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="0.6-Monte-Carlo-Estimation-of-integrals">0.6 Monte-Carlo Estimation of integrals<a class="anchor-link" href="#0.6-Monte-Carlo-Estimation-of-integrals">¶</a></h2>
+<h2 id="1.6-Monte-Carlo-Estimation-of-integrals">1.6 Monte-Carlo Estimation of integrals<a class="anchor-link" href="#1.6-Monte-Carlo-Estimation-of-integrals">¶</a></h2>
 </div>
 </div>
 </div>
@@ -10271,7 +10264,7 @@ $$\\[5pt]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="0.6.1-Monte-Carlo-Importance-Sampling">0.6.1 Monte-Carlo Importance Sampling<a class="anchor-link" href="#0.6.1-Monte-Carlo-Importance-Sampling">¶</a></h3>
+<h3 id="1.6.1-Monte-Carlo-Importance-Sampling">1.6.1 Monte-Carlo Importance Sampling<a class="anchor-link" href="#1.6.1-Monte-Carlo-Importance-Sampling">¶</a></h3>
 </div>
 </div>
 </div>
@@ -11189,7 +11182,7 @@ $$\\[5pt]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="0.6.1.1-Reject/Accept-method-for-the-Monte-Carlo-Importance-Sampling">0.6.1.1 Reject/Accept method for the Monte-Carlo Importance Sampling<a class="anchor-link" href="#0.6.1.1-Reject/Accept-method-for-the-Monte-Carlo-Importance-Sampling">¶</a></h4>
+<h4 id="1.6.1.1-Reject/Accept-method-for-the-Monte-Carlo-Importance-Sampling">1.6.1.1 Reject/Accept method for the Monte-Carlo Importance Sampling<a class="anchor-link" href="#1.6.1.1-Reject/Accept-method-for-the-Monte-Carlo-Importance-Sampling">¶</a></h4>
 </div>
 </div>
 </div>
@@ -11686,7 +11679,7 @@ $$\\[5pt]$$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="0.6.2-Monte-Carlo-with-Stratified-Sampling">0.6.2 Monte-Carlo with Stratified Sampling<a class="anchor-link" href="#0.6.2-Monte-Carlo-with-Stratified-Sampling">¶</a></h3>
+<h3 id="1.6.2-Monte-Carlo-with-Stratified-Sampling">1.6.2 Monte-Carlo with Stratified Sampling<a class="anchor-link" href="#1.6.2-Monte-Carlo-with-Stratified-Sampling">¶</a></h3>
 </div>
 </div>
 </div>
@@ -11696,8 +11689,8 @@ $$\\[5pt]$$
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr />
-$$\\[5pt]$$<p>Next our task is to implement the stratified sampling <a name="ref-13"></a><a href="#cite-Stratified">(WikiStratifiedSampling, 2016)</a> in the Monte Carlo estimator. Why do we need to stratify sample at all? This can improve the accuracy of the Monte Carlo estimation. Let's integrate our target function in the 5 regions as $0<x a="" and="" basic="" mc.="" using="">
-</x></p></div>
+$$\\[5pt]$$<p>Next our task is to implement the stratified sampling <a name="ref-13"></a><a href="#cite-Stratified">(WikiStratifiedSampling, 2016)</a> in the Monte Carlo estimator. Why do we need to stratify sample at all? This can improve the accuracy of the Monte Carlo estimation. Let's integrate our target function in the 5 regions as $0\leq x\leq 0.5$, $0.5\leq x\leq 1.5$,$1.5\leq x\leq 2$, $0\leq x\leq 1$ and $1\leq x\leq 2$ using a basic MC.</p>
+</div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
@@ -11832,7 +11825,8 @@ Result QUAD is  1.76416278152
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>It is clearly visible that Monte Carlo is inaccurate in the region of $0.5<x a="" accuracy="" code="" could="" found="" generated="" have="" i="" if="" in="" increase="" let="" mc="" more="" perhaps="" points="" region.="" sample.="" simple="" stratify="" the="" this="" to="" try="" we="" were="">stratified.py, for this purpose.</x></p>
+<p>It is clearly visible that Monte Carlo is inaccurate in the region of $0.5\leq x\leq 1.5$. We could perhaps increase the MC accuracy if more points were generated in this region.
+Let's try to stratify the sample. I have found a simple code, <code>stratified.py</code>, for this purpose.</p>
 </div>
 </div>
 </div>
@@ -11998,7 +11992,25 @@ Average in 2 region is 0.813675
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>and it is obvious that it only  works for categorical values and not numbers.</p>
-$$\\[5pt]$$<h4 id="The-adaptive-Monte-Carlo-VEGAS-algorithm">The adaptive Monte Carlo VEGAS algorithm<a class="anchor-link" href="#The-adaptive-Monte-Carlo-VEGAS-algorithm">¶</a></h4><hr />
+$$\\[5pt]$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="1.6.2.1-The-adaptive-Monte-Carlo-VEGAS-algorithm">1.6.2.1 The adaptive Monte Carlo VEGAS algorithm<a class="anchor-link" href="#1.6.2.1-The-adaptive-Monte-Carlo-VEGAS-algorithm">¶</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
 $$\\[5pt]$$<p>There is a method implementing the adaptive stratified sampling for Monte Carlo 
 simulations. This method is called VEGAS algorithm. You can install python version of the VEGAS algorithm <a name="ref-14"></a><a href="#cite-VEGAS">(G.P.Lepage, 2015)</a>.</p>
 </div>
@@ -12306,7 +12318,25 @@ DQAAAJj0f/dnzw98oer3AAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>That's it for this lecture.</p>
-$$\\[5pt]$$<h1 id="Plans-for--next-tutorials">Plans for  next tutorials<a class="anchor-link" href="#Plans-for--next-tutorials">¶</a></h1><hr />
+$$\\[5pt]$$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="2.-Plans-for--next-tutorials">2. Plans for  next tutorials<a class="anchor-link" href="#2.-Plans-for--next-tutorials">¶</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr />
 $$\\[5pt]$$<p>A short <code>`to-do</code> list for my future lectures is the following:</p>
 <ul>
 <li><p>Introduction to Strategies of the option trading like</p>

@@ -67,6 +67,9 @@ MONTH_ARCHIVE_SAVE_AS = 'posts/{date:%Y}/{date:%b}/index.html'
 
 STATIC_PATHS=['images']
 
+CACHE_CONTENT=True
+LOAD_CONTENT_CACHE = True
+#CACHE_PATH = 'cache'
 
 #
 THEME=THEME+"/"+THEME_NAME
