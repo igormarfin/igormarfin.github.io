@@ -1,5 +1,1468 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Programmatic Statistics</title><link href="http://igormarfin.github.io/" rel="alternate"></link><link href="http://igormarfin.github.io/feeds/programming.atom.xml" rel="self"></link><id>http://igormarfin.github.io/</id><updated>2016-02-07T14:49:00+01:00</updated><entry><title>The online-monitor-pandas-dataframe-transformations</title><link href="http://igormarfin.github.io/blog/2016/02/07/the-online-monitor-pandas-dataframe-transformations/" rel="alternate"></link><updated>2016-02-07T14:49:00+01:00</updated><author><name>Igor Marfin</name></author><id>tag:igormarfin.github.io,2016-02-07:blog/2016/02/07/the-online-monitor-pandas-dataframe-transformations/</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Programmatic Statistics</title><link href="http://igormarfin.github.io/" rel="alternate"></link><link href="http://igormarfin.github.io/feeds/programming.atom.xml" rel="self"></link><id>http://igormarfin.github.io/</id><updated>2016-05-02T20:32:00+02:00</updated><entry><title>Statifiers for Python and C++. Statifiering python Machine-Learning scripts</title><link href="http://igormarfin.github.io/blog/2016/05/02/statifiers-for-python-and-c++.-statifiering-python-machine-learning-scripts/" rel="alternate"></link><updated>2016-05-02T20:32:00+02:00</updated><author><name>Dr. Igor Marfin</name></author><id>tag:igormarfin.github.io,2016-05-02:blog/2016/05/02/statifiers-for-python-and-c++.-statifiering-python-machine-learning-scripts/</id><summary type="html">&lt;div class="section" id="id1"&gt;
+&lt;h2&gt;&lt;a class="toc-backref" href="#id85"&gt;Statifiers for Python and C++. Statifiering python Machine-Learning scripts&lt;/a&gt;&lt;/h2&gt;
+&lt;table class="docutils field-list" frame="void" rules="none"&gt;
+&lt;col class="field-name" /&gt;
+&lt;col class="field-body" /&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;Author:&lt;/th&gt;&lt;td class="field-body"&gt;Igor Marfin&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;Contact:&lt;/th&gt;&lt;td class="field-body"&gt;&lt;a class="reference external" href="mailto:igor.marfin&amp;#64;unister.de"&gt;igor.marfin&amp;#64;unister.de&lt;/a&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;Organization:&lt;/th&gt;&lt;td class="field-body"&gt;private&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;Date:&lt;/th&gt;&lt;td class="field-body"&gt;Apr 26, 2016, 9:06:51 AM&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;Status:&lt;/th&gt;&lt;td class="field-body"&gt;draft&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;Version:&lt;/th&gt;&lt;td class="field-body"&gt;1&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class="field"&gt;&lt;th class="field-name"&gt;Copyright:&lt;/th&gt;&lt;td class="field-body"&gt;This document has been placed in the public domain. You
+may do with it as you wish. You may copy, modify,
+redistribute, reattribute, sell, buy, rent, lease,
+destroy, or improve it, quote it at length, excerpt,
+incorporate, collate, fold, staple, or mutilate it, or do
+anything else to it that your or anyone else's heart
+desires.&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;div class="admonition-dedication admonition"&gt;
+&lt;p class="first admonition-title"&gt;Dedication&lt;/p&gt;
+&lt;p class="last"&gt;For statisticians &amp;amp; programmers&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="admonition-abstract admonition"&gt;
+&lt;p class="first admonition-title"&gt;Abstract&lt;/p&gt;
+&lt;p class="last"&gt;This projects reveals a few secrets about the ways how to produce cross-platform programs in Python and C++.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="contents topic" id="table-of-contents"&gt;
+&lt;p class="topic-title first"&gt;Table of Contents&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#id1" id="id85"&gt;Statifiers for Python and C++. Statifiering python Machine-Learning scripts&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#introduction-to-the-topic-and-motivation" id="id86"&gt;Introduction to the topic and motivation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#protecting-a-python-codebase" id="id87"&gt;Protecting a Python codebase&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#installation-of-the-tutorial" id="id88"&gt;Installation of the tutorial&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#go-a-swiss-army-knife-for-cross-platform-applications" id="id89"&gt;Go: a swiss army knife for cross-platform applications&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#how-to-create-a-binary-from-a-python-script-with-pyinstaller" id="id90"&gt;How to create a binary from a Python Script with &lt;tt class="docutils literal"&gt;PyInstaller&lt;/tt&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#how-to-compile-python-scripts-with-cython" id="id91"&gt;How to compile python scripts with &lt;tt class="docutils literal"&gt;Cython&lt;/tt&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#cgo-go-binding-for-c-c" id="id92"&gt;CGO: GO Binding for C/C++&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#xgo-cgo-cross-compiler" id="id93"&gt;XGO - CGO cross compiler&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#connecting-go-and-python-together" id="id94"&gt;Connecting GO and Python together&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#binding-cgo-and-cython-together" id="id95"&gt;Binding CGO and Cython together&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#python-virtual-machine" id="id96"&gt;Python Virtual Machine&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#static-python" id="id97"&gt;Static-Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#bonus-a-simple-statifier-to-make-a-portable-executable-package-from-any-binary" id="id98"&gt;Bonus: A simple statifier to make a portable executable package from any binary&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#documentation" id="id99"&gt;Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference internal" href="#references" id="id100"&gt;References&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;div class="section" id="introduction-to-the-topic-and-motivation"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id86"&gt;Introduction to the topic and motivation&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;I want to introduce you to my motivation which forces me to develop this project.&lt;/p&gt;
+&lt;p&gt;You may be wondering, &amp;quot;why would you want to have statically linked python applications?&amp;quot;.
+There are a few reasons why dynamic linking for Python and C/
+C++ programs is superior :&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Fixes (either security or only bug) have to be applied to only one place: the new DSO(s).
+If various applications are linked statically, all of them would have to be relinked.
+By the time the problem is discovered the sysadmin usually forgot which apps are built with the problematic library.&lt;/li&gt;
+&lt;li&gt;Security measures like load address randomization cannot be used.
+With statically linked applications, only the stack and heap address can be randomized.
+All text has a fixed address in all invocations.
+With dynamically linked applications, the kernel has the ability to load all DSOs at arbitrary addresses,
+independent from each other.
+In case the application is built as a position independent executable (PIE) even this code can be
+loaded at random addresses.
+Fixed addresses (or even only fixed offsets) are the dreams of attackers.
+And no, it is not possible in general to generate PIEs with static linking.&lt;/li&gt;
+&lt;li&gt;More efficient use of physical memory. All processes share the same physical pages for the code in the DSOs.
+With prelinking startup times for dynamically linked code is as good as that of statically linked code.&lt;/li&gt;
+&lt;li&gt;All kinds of features in the libc (locale (through iconv), NSS, IDN, ...)
+require dynamic linking to load the appropriate external code.
+We have very limited support for doing this in statically linked code.
+But it requires that the dynamically loaded modules available at runtime must come from the same glibc
+version as the code linked into the application.
+And it is completely unsupported to dynamically load DSOs this way which are not part of glibc.&lt;/li&gt;
+&lt;li&gt;Related, trivial NSS modules can be used from statically linked apps directly.
+If they require extensive dependencies (like the LDAP NSS module, not part of glibc proper)
+this will likely not work.&lt;/li&gt;
+&lt;li&gt;No accidental violation of the (L)GPL. Should a program which is statically linked be given to a third party,
+it is necessary to provide the possibility to regenerate the program code.&lt;/li&gt;
+&lt;li&gt;Tools and hacks like ltrace, LD_PRELOAD, LD_PROFILE, LD_AUDIT don't work at the statical linking.
+These can be effective debugging and profiling, especially for remote debugging where
+the user cannot be trusted with doing complex debugging work.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After all, &amp;quot;static linking is evil&amp;quot;.  But, how would we answer questions, pointed out below,
+if the dynamic linking were only possible at the modern Operating Systems:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;Were it possible to achieve cross platform compatibility in C/C++ applications?&lt;/li&gt;
+&lt;li&gt;Were it possible to run Python programs on other machines without requiring that they have installed Python?&lt;/li&gt;
+&lt;li&gt;Were it possible to run Python programs on other machines without requiring that they have had
+the same versions of the same libraries installed that you do?&lt;/li&gt;
+&lt;li&gt;Were it possible to distribute the python code under the commercial licence? The &lt;tt class="docutils literal"&gt;.pyc&lt;/tt&gt; files
+can be easily decompiled (disassembled) and  the code, that checks the license file, can be removed.
+It is not desirable that the commercial code could be read by customers,
+because the code might be stolen or at least the &amp;quot;novel ideas&amp;quot;. Also for
+proprietary or security-conscious applications, this is unacceptable.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;style&gt; .red {color:red; font-size: 200%;} &lt;/style&gt;&lt;p&gt;It would be &amp;quot;&lt;span class="red"&gt;NOT&lt;/span&gt;, &lt;span class="red"&gt;NOT&lt;/span&gt; and once more &lt;span class="red"&gt;NOT&lt;/span&gt;&amp;quot; possible.&lt;/p&gt;
+&lt;p&gt;In this tutorial, I will try to review technologies helping to build cross-platform (cross-compiled)
+solutions in Python and C/C++. My &lt;a class="reference external" href="https://bitbucket.org/iggy_floyd/virtual_machine_python"&gt;project&lt;/a&gt; &lt;a class="footnote-reference" href="#id30" id="id31"&gt;[1]&lt;/a&gt;, which I call a &lt;tt class="docutils literal"&gt;Python Virtual Machine&lt;/tt&gt;, is aimed to
+illustrate considered approaches and techniques.&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="Cross-platform compatibility" src="/images/Crossplatform.jpg" style="width: 770.0px; height: 320.0px;" /&gt;
+&lt;p class="caption"&gt;Cross-platform applications&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="protecting-a-python-codebase"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id87"&gt;Protecting a Python codebase&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;There are numerous discussions and arguments about protection of the python codebase with
+exploting the bytecode &lt;a class="reference external" href="http://bits.citrusbyte.com/protecting-a-python-codebase/"&gt;ref1&lt;/a&gt; &lt;a class="footnote-reference" href="#id32" id="id33"&gt;[2]&lt;/a&gt;, &lt;a class="reference external" href="https://github.com/citrusbyte/python-obfuscation"&gt;ref2&lt;/a&gt; &lt;a class="footnote-reference" href="#id34" id="id35"&gt;[3]&lt;/a&gt;, &lt;a class="reference external" href="http://stackoverflow.com/questions/261638/how-do-i-protect-python-code"&gt;ref3&lt;/a&gt; &lt;a class="footnote-reference" href="#id36" id="id37"&gt;[4]&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;The generated &lt;tt class="docutils literal"&gt;*.pyc&lt;/tt&gt; files are quite simple binaries containing &lt;tt class="docutils literal"&gt;a magic number (four bytes)&lt;/tt&gt;,
+&lt;tt class="docutils literal"&gt;a timestamp (four bytes)&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;a code object (marshalled code)&lt;/tt&gt;.
+It’s fair to think that this is a secure mechanism.
+It’s not hard to apply the &lt;tt class="docutils literal"&gt;dis&lt;/tt&gt; module to get a notion of what the code is about,
+and there are tools which can be used to translate the op-codes back to human-friendly strings, for example
+that’s already done by the &lt;tt class="docutils literal"&gt;uncompyle2 package&lt;/tt&gt;.&lt;/p&gt;
+&lt;p&gt;Usually at forums, when someone raises a request on help, like&lt;/p&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt; I'm building a Python application and don't want to force my clients to install Python and modules. I also want to make my application closed-source.
+&lt;/pre&gt;
+&lt;p&gt;three solutions are proposed:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://mborgerson.com/creating-an-executable-from-a-python-script"&gt;pyinstaller&lt;/a&gt; &lt;a class="footnote-reference" href="#id38" id="id39"&gt;[5]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://nuitka.net/doc/user-manual.html#command-line"&gt;nuitka&lt;/a&gt; &lt;a class="footnote-reference" href="#id40" id="id41"&gt;[6]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://pypi.python.org/pypi/Cython/"&gt;cython&lt;/a&gt; &lt;a class="footnote-reference" href="#id42" id="id43"&gt;[7]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I have tested all of them.
+Unfortunately I have to admit that &lt;tt class="docutils literal"&gt;nuitka&lt;/tt&gt; has failed to produce C++ wrapping code from python scripts.
+Therefore I restrict myself to consideration of &lt;tt class="docutils literal"&gt;pyinstaller&lt;/tt&gt;'s  and &lt;tt class="docutils literal"&gt;cython&lt;/tt&gt;'s ways to &lt;tt class="docutils literal"&gt;binarize&lt;/tt&gt; python code.
+Before we proceed further, I spend some time on installation instructions.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="installation-of-the-tutorial"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id88"&gt;Installation of the tutorial&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="important"&gt;
+&lt;p class="first admonition-title"&gt;Important&lt;/p&gt;
+&lt;p class="last"&gt;The project relies on the presence of &lt;tt class="docutils literal"&gt;Autotools&lt;/tt&gt; in the system.
+Before, proceed further, please, install them: &lt;tt class="docutils literal"&gt;sudo &lt;span class="pre"&gt;apt-get&lt;/span&gt; install &lt;span class="pre"&gt;autotools-dev&lt;/span&gt;&lt;/tt&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Simply, clone the project&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git clone https://iggy_floyd@bitbucket.org/iggy_floyd/virtual_machine_python.git
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;and test a configuration of your system that you have components like&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;python&lt;/li&gt;
+&lt;li&gt;scientific python modules&lt;/li&gt;
+&lt;li&gt;golang and its supporting tools&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;installed. It is done via the &lt;tt class="docutils literal"&gt;make&lt;/tt&gt;  command as it's  shown below&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;make
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="go-a-swiss-army-knife-for-cross-platform-applications"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id89"&gt;Go: a swiss army knife for cross-platform applications&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;A few years ago I tinkered with Go, a language created and promoted by google. I found it cool. I have developed a few small projects, &lt;a class="reference external" href="https://bitbucket.org/iggy_floyd/go-cpp"&gt;go-cpp&lt;/a&gt; &lt;a class="footnote-reference" href="#id44" id="id45"&gt;[8]&lt;/a&gt;,
+&lt;a class="reference external" href="https://bitbucket.org/iggy_floyd/go-tutorial"&gt;go-tutorials&lt;/a&gt; &lt;a class="footnote-reference" href="#id46" id="id47"&gt;[9]&lt;/a&gt; and &lt;a class="reference external" href="https://bitbucket.org/iggy_floyd/test-otto"&gt;test-otto (a Go's javascript interpeter)&lt;/a&gt; &lt;a class="footnote-reference" href="#id48" id="id49"&gt;[10]&lt;/a&gt; in Go.&lt;/p&gt;
+&lt;p&gt;There is a number of reasons that folks are in love with golang. One the most mentioned is the static linking.&lt;/p&gt;
+&lt;p&gt;As long as the source being compiled is native go, the go compiler will statically link the executable.
+Though when you need to use cgo, then the compiler has to use its external linker.&lt;/p&gt;
+&lt;div class="important"&gt;
+&lt;p class="first admonition-title"&gt;Important&lt;/p&gt;
+&lt;p&gt;At least Go compiler and linker are needed to be installed in the system. Please, read and follow installation instructions found at
+the official &lt;a class="reference external" href="https://golang.org/doc/install"&gt;web site&lt;/a&gt; &lt;a class="footnote-reference" href="#id50" id="id51"&gt;[11]&lt;/a&gt; of the Golang.  Also it would be helpful to install the &lt;tt class="docutils literal"&gt;godocdown&lt;/tt&gt; &lt;a class="reference external" href="https://github.com/robertkrimen/godocdown"&gt;tool&lt;/a&gt; &lt;a class="footnote-reference" href="#id52" id="id53"&gt;[12]&lt;/a&gt; generating Go documentation in the
+Markdown format:&lt;/p&gt;
+&lt;div class="last"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;go get github.com/robertkrimen/godocdown/godocdown
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="how-to-create-a-binary-from-a-python-script-with-pyinstaller"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id90"&gt;How to create a binary from a Python Script with &lt;tt class="docutils literal"&gt;PyInstaller&lt;/tt&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;div class="important"&gt;
+&lt;p class="first admonition-title"&gt;Important&lt;/p&gt;
+&lt;p&gt;I would like to mention that all experiments with statifiers have been done in the 32-bit &lt;tt class="docutils literal"&gt;wheezy&lt;/tt&gt;-Debian VM.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;lsb_release -a&lt;span class="p"&gt;;&lt;/span&gt; uname -a
+&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="last doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt; Distributor ID: Debian
+&amp;gt;&amp;gt;&amp;gt; Description:    Debian GNU/Linux 7.8 (wheezy)
+&amp;gt;&amp;gt;&amp;gt; Release:        7.8
+&amp;gt;&amp;gt;&amp;gt; Codename:       wheezy
+&amp;gt;&amp;gt;&amp;gt; Linux debian 3.2.0-4-686-pae #1 SMP Debian 3.2.65-1+deb7u2 i686 GNU/Linux
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;p&gt;In our first exercise we experiment with the &lt;tt class="docutils literal"&gt;Pyinstaller&lt;/tt&gt;.  There is a &lt;a class="reference external" href="https://mborgerson.com/creating-an-executable-from-a-python-script"&gt;nice post&lt;/a&gt; &lt;a class="footnote-reference" href="#id38" id="id54"&gt;[5]&lt;/a&gt; from Matt Borgerson
+concerning this topic. Basic ideas and a few examples were taken  from this publication to illustrate the technology.
+One can look at the examples of the  &lt;tt class="docutils literal"&gt;pyinstaller&lt;/tt&gt; application by reading the corresponded &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;HOW-TO&lt;/span&gt;&lt;/tt&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;cat pyinstaller/HOW-TO
+&lt;/pre&gt;&lt;/div&gt;
+&lt;!-- the text below can be obtained running a command ``./rsTCodeBlockProducer.sh bash pyinstaller/HOW-TO`` --&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# installation of the wxPython&lt;/span&gt;
+sudo apt-get install python-wxgtk2.8
+
+&lt;span class="c"&gt;# installation of the Pyinstaller&lt;/span&gt;
+sudo pip install pyinstaller
+
+&lt;span class="c"&gt;# test 1: a windowed application&lt;/span&gt;
+pyinstaller --onefile --windowed window_app.py
+
+&lt;span class="c"&gt;# test 2: a simple script utilizing numpy and pandas&lt;/span&gt;
+&lt;span class="c"&gt;# -d for debugging purpose&lt;/span&gt;
+pyinstaller --onefile -d numpy_pandas_test.py
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The fist appication &lt;tt class="docutils literal"&gt;window_app.py&lt;/tt&gt; is a simple &lt;tt class="docutils literal"&gt;Hello World&lt;/tt&gt; windowed application built on top of the cross-platform &lt;tt class="docutils literal"&gt;wxWidgets&lt;/tt&gt;
+&lt;a class="reference external" href="http://www.wxpython.org/"&gt;C++ library&lt;/a&gt; &lt;a class="footnote-reference" href="#id55" id="id56"&gt;[13]&lt;/a&gt;  helping to create appications  for Windows, Mac OS X, Linux and other platforms with a single code base.&lt;/p&gt;
+&lt;p&gt;The code of the python script is shown below.&lt;/p&gt;
+&lt;!-- the text below can be obtained running a command ``./rsTCodeBlockProducer.sh python pyinstaller/window_app.py`` --&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/env python&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;wx&lt;/span&gt;
+&lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;wx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;App&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;False&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;frame&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;wx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Frame&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;wx&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ID_ANY&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;frame&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Show&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;True&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;MainLoop&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;We can easily compile it to the binary&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;pyinstaller
+pyinstaller --onefile --windowed window_app.py
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;and test the obtained file.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# you can start a window by a command&lt;/span&gt;
+&lt;span class="c"&gt;#./dist/window_app&lt;/span&gt;
+
+ldd dist/window_app
+&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt;     linux-gate.so.1 =&amp;gt;  (0xb776b000)
+&amp;gt;&amp;gt;&amp;gt;     libdl.so.2 =&amp;gt; /lib/i386-linux-gnu/i686/cmov/libdl.so.2 (0xb774d000)
+&amp;gt;&amp;gt;&amp;gt;     libz.so.1 =&amp;gt; /lib/i386-linux-gnu/libz.so.1 (0xb7734000)
+&amp;gt;&amp;gt;&amp;gt;     libc.so.6 =&amp;gt; /lib/i386-linux-gnu/i686/cmov/libc.so.6 (0xb75cf000)
+&amp;gt;&amp;gt;&amp;gt;     /lib/ld-linux.so.2 (0xb776c000)
+&lt;/pre&gt;
+&lt;p&gt;The next example demostrates building a binary from a python script intened to be used in
+some data analysis. This script utilizes pandas and numpy libraries. To run the &lt;tt class="docutils literal"&gt;pyinstaller&lt;/tt&gt; on the script properly, you need to install
+&lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;libgdk-pixbuf2.0-dev&lt;/span&gt;&lt;/tt&gt;, &lt;a class="reference external" href="http://stackoverflow.com/questions/35020183/pyinstaller-not-compiling-large-program-in-python2-7-64-bit-ubuntu"&gt;ref_about_proble&lt;/a&gt; &lt;a class="footnote-reference" href="#id57" id="id58"&gt;[14]&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo apt-get install libgdk-pixbuf2.0-dev
+&lt;/pre&gt;&lt;/div&gt;
+&lt;!-- obtained with ``./rsTCodeBlockProducer.sh python pyinstaller/numpy_pandas_test.py`` --&gt;
+&lt;!-- required a few hacks: add "src_root_path_or_glob = src_root_path_or_glob.split('\n')[-1]" @  line 421 of /usr/local/lib/python2.7/dist-packages/PyInstaller/building/utils.py
+add
+ try:
+  import re
+  m=re.search('\{.*\}',txt,re.DOTALL)
+  txt = m.group(0)
+ except:
+   return ''
+
+ @ line 127 of  /usr/local/lib/python2.7/dist-packages/PyInstaller/utils/hooks/__init__.py --&gt;
+&lt;p&gt;Afterwards, the script&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/env python&lt;/span&gt;
+
+
+&lt;span class="c"&gt;# Main Program starts here&lt;/span&gt;
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;main&lt;/span&gt;&lt;span class="p"&gt;():&lt;/span&gt;
+ &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+ &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;/usr/local/lib/python2.7/dist-packages&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="c"&gt;# to fix the problem with numpy: this replaces  1.6 version by 1.9&lt;/span&gt;
+
+ &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;
+ &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+ &lt;span class="c"&gt;# it doesn&amp;#39;t work because of the incompatibility with numpy installed in my VM&lt;/span&gt;
+ &lt;span class="c"&gt;#import pandas as pd&lt;/span&gt;
+
+ &lt;span class="c"&gt;# 1) print a numpy array&lt;/span&gt;
+ &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;array&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+ &lt;span class="c"&gt;# it doesn&amp;#39;t work because of the incompatibility with numpy installed in my VM&lt;/span&gt;
+ &lt;span class="c"&gt;# 2) take a look at the dataset&lt;/span&gt;
+ &lt;span class="c"&gt;#df = pd.read_csv(&amp;quot;train.csv&amp;quot;)&lt;/span&gt;
+ &lt;span class="c"&gt;#print &amp;#39;**&amp;#39;*60,&amp;#39;\n&amp;#39;&lt;/span&gt;
+ &lt;span class="c"&gt;#print df.head()&lt;/span&gt;
+ &lt;span class="c"&gt;#print &amp;#39;**&amp;#39;*60,&amp;#39;\n&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;can be compiled and run.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;pyinstaller
+pyinstaller --onefile numpy_pandas_test.py
+dist/numpy_pandas_test
+ldd dist/numpy_pandas_test
+&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt;    ['/usr/local/lib/python2.7/dist-packages', '/tmp/_MEItpKh8l']
+&amp;gt;&amp;gt;&amp;gt;    [1 2 3 4]
+&lt;/pre&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt;    linux-gate.so.1 =&amp;gt;  (0xb77a5000)
+&amp;gt;&amp;gt;&amp;gt;    libdl.so.2 =&amp;gt; /lib/i386-linux-gnu/i686/cmov/libdl.so.2 (0xb7785000)
+&amp;gt;&amp;gt;&amp;gt;    libz.so.1 =&amp;gt; /lib/i386-linux-gnu/libz.so.1 (0xb776c000)
+&amp;gt;&amp;gt;&amp;gt;    libc.so.6 =&amp;gt; /lib/i386-linux-gnu/i686/cmov/libc.so.6 (0xb7607000)
+&amp;gt;&amp;gt;&amp;gt;    /lib/ld-linux.so.2 (0xb77a6000)
+&lt;/pre&gt;
+&lt;p&gt;If you test this binary on a machine with other version of the Linux, say,
+for example, Ubuntu with 64-bit architecture,&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;lsb_release -a
+uname -m
+&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt;    No LSB modules are available.
+&amp;gt;&amp;gt;&amp;gt;    Distributor ID:  Ubuntu
+&amp;gt;&amp;gt;&amp;gt;    Description:     Ubuntu 14.04.3 LTS
+&amp;gt;&amp;gt;&amp;gt;    Release: 14.04
+&amp;gt;&amp;gt;&amp;gt;    Codename:        trusty
+&lt;/pre&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt;    x86_64
+&lt;/pre&gt;
+&lt;p&gt;you will probably get either an error of the missing &lt;a class="reference external" href="http://stackoverflow.com/questions/2716702/no-such-file-or-directory-error-when-executing-a-binary"&gt;32-bit dynamic loader&lt;/a&gt; &lt;a class="footnote-reference" href="#id59" id="id60"&gt;[15]&lt;/a&gt; &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;ld-linux.so.2&lt;/span&gt;&lt;/tt&gt;  like&lt;/p&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt; ./numpy_pandas_test :error “No such file or directory”
+&lt;/pre&gt;
+&lt;p&gt;or an error of the missing dynamic libraries like &lt;tt class="docutils literal"&gt;libz.so.1&lt;/tt&gt;.&lt;/p&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt; ./numpy_pandas_test: error while loading shared libraries: libz.so.1: cannot open shared object file: No such file or directory
+&lt;/pre&gt;
+&lt;p&gt;The first problem can be solved by installing the 32-bit loader and the 32-bit Standard C library.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;sudo apt-get install libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5 lib32z1
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The second one reqiures more sophisticated solution. I provide it via the scripts &lt;tt class="docutils literal"&gt;build_package.sh&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;statifier.py&lt;/tt&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ls pyinstaller/&lt;span class="o"&gt;{&lt;/span&gt;build_package,statifier&lt;span class="o"&gt;}&lt;/span&gt;*
+&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt; pyinstaller/build_package.sh  pyinstaller/statifier.py
+&lt;/pre&gt;
+&lt;p&gt;You simply build the package with all need dynamic libraries inside,&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;cd  &lt;/span&gt;pyinstaller
+pyinstaller --onefile numpy_pandas_test.py
+ln -s dist/numpy_pandas_test numpy_pandas_test&lt;span class="p"&gt;;&lt;/span&gt; ./build_package.sh numpy_pandas_test&lt;span class="p"&gt;;&lt;/span&gt; rm numpy_pandas_test
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;then you copy it to the remote machine (VM, Docker Container etc) with a different OS&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;scp vagrant@172.17.0.1:/home/vagrant/project/package_numpy_pandas_test.tgz
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;and execute it here.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;tar -xf package_numpy_pandas_test.tgz
+&lt;span class="nb"&gt;cd &lt;/span&gt;package_numpy_pandas_test/
+./numpy_pandas_test
+&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt;    ['/usr/local/lib/python2.7/dist-packages', '/tmp/_MEItpKh8l']
+&amp;gt;&amp;gt;&amp;gt;    [1 2 3 4]
+&lt;/pre&gt;
+&lt;p&gt;To close the topic about &lt;tt class="docutils literal"&gt;pyinstaller&lt;/tt&gt;, I want to add that  &lt;tt class="docutils literal"&gt;pyinstaller&lt;/tt&gt; makes packaging of all python modules and
+extenstions &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;(*.so&lt;/span&gt; files found in the python modules)&lt;/tt&gt;,  which are being &amp;quot;imported&amp;quot; in the script, and the python runtime environment
+in one executable file or directory.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="how-to-compile-python-scripts-with-cython"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id91"&gt;How to compile python scripts with &lt;tt class="docutils literal"&gt;Cython&lt;/tt&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;As the &lt;a class="reference external" href="https://github.com/cython/cython/wiki/EmbeddingCython"&gt;Cython wiki&lt;/a&gt; &lt;a class="footnote-reference" href="#id61" id="id62"&gt;[16]&lt;/a&gt; suggests,&lt;/p&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt;   Typically Cython is used to create extension modules for use from Python programs.
+&amp;gt;&amp;gt;&amp;gt;   It is, however, possible to write a standalone programs in Cython.
+&amp;gt;&amp;gt;&amp;gt;   This is done via embedding the Python interpreter with the --embed option.
+&lt;/pre&gt;
+&lt;p&gt;we can build C programs from python scripts. To prove this approach, we have to install &lt;tt class="docutils literal"&gt;Cython&lt;/tt&gt; first.&lt;/p&gt;
+&lt;p&gt;I refer you to  the instructions on installation of the &lt;tt class="docutils literal"&gt;Cython&lt;/tt&gt; found in the file &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;cython/HOW-TO&lt;/span&gt;&lt;/tt&gt;.&lt;/p&gt;
+&lt;!-- obtained with ``./rsTCodeBlockProducer.sh bash cython/HOW-TO`` --&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# How to install Cython&lt;/span&gt;
+&lt;span class="c"&gt;# https://pypi.python.org/pypi/Cython/&lt;/span&gt;
+
+&lt;span class="c"&gt;# method 1&lt;/span&gt;
+&lt;span class="c"&gt;# pip install Cython --install-option=&amp;quot;--no-cython-compile&amp;quot;&lt;/span&gt;
+
+&lt;span class="c"&gt;# method 2, https://github.com/cython/cython/wiki/Installing&lt;/span&gt;
+wget http://cython.org/release/Cython-0.24.tar.gz
+tar -xf Cython-0.24.tar.gz
+&lt;span class="nb"&gt;cd &lt;/span&gt;Cython-0.24/
+sudo python setup.py install
+
+&lt;span class="c"&gt;# to build a binary from a python script&lt;/span&gt;
+make
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If &lt;tt class="docutils literal"&gt;Cython&lt;/tt&gt; has been successfully installed, you can look at the python script which we are going to translate to a C standalone program.&lt;/p&gt;
+&lt;!-- obtained with ``./rsTCodeBlockProducer.sh python cython/titanic_logistic_regression_grid_search_roc_plot_example.py`` --&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/env python&lt;/span&gt;
+
+&lt;span class="sd"&gt;&amp;#39;&amp;#39;&amp;#39; This is an example of the application of the Logistic fucntion to the dataset analysis.&lt;/span&gt;
+&lt;span class="sd"&gt;    Logistic function is helpful to model binary models&lt;/span&gt;
+
+&lt;span class="sd"&gt;    This is a analysis with dedicated sklearn sub-modules.&lt;/span&gt;
+
+&lt;span class="sd"&gt;    The basic idea is taken from&lt;/span&gt;
+&lt;span class="sd"&gt;    http://scikit-learn.org/stable/auto_examples/linear_model/plot_iris_logistic.html#example-linear-model-plot-iris-logistic-py&lt;/span&gt;
+&lt;span class="sd"&gt;    http://scikit-learn.org/stable/auto_examples/grid_search_digits.html&lt;/span&gt;
+&lt;span class="sd"&gt;    http://www.pyimagesearch.com/2014/06/23/applying-deep-learning-rbm-mnist-using-python/&lt;/span&gt;
+
+&lt;span class="sd"&gt;    DataFrameImputer was taken from&lt;/span&gt;
+&lt;span class="sd"&gt;    http://stackoverflow.com/questions/25239958/impute-categorical-missing-values-in-scikit-learn&lt;/span&gt;
+
+&lt;span class="sd"&gt;    About Precision and Recall&lt;/span&gt;
+&lt;span class="sd"&gt;    http://en.wikipedia.org/wiki/Precision_and_recall&lt;/span&gt;
+
+&lt;span class="sd"&gt;    About Type 1 and Type 2 errors&lt;/span&gt;
+&lt;span class="sd"&gt;    http://en.wikipedia.org/wiki/Type_I_and_type_II_errors&lt;/span&gt;
+
+&lt;span class="sd"&gt;    About scorring parameters for sklearn classifiers&lt;/span&gt;
+&lt;span class="sd"&gt;    http://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter&lt;/span&gt;
+
+&lt;span class="sd"&gt;    About plottig ROC in sklearn&lt;/span&gt;
+&lt;span class="sd"&gt;    http://scikit-learn.org/stable/auto_examples/plot_roc_crossval.html&lt;/span&gt;
+
+&lt;span class="sd"&gt;    About plottig Precision vs Recall in sklearn&lt;/span&gt;
+&lt;span class="sd"&gt;    http://scikit-learn.org/stable/auto_examples/plot_precision_recall.html&lt;/span&gt;
+
+&lt;span class="sd"&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;/usr/local/lib/python2.7/dist-packages&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="c"&gt;# to fix the problem with numpy: this replaces  1.6 version by 1.9&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.ensemble&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ExtraTreesClassifier&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.cross_validation&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;cross_val_score&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.preprocessing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Imputer&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;preprocessing&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.base&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;TransformerMixin&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;StringIO&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;StringIO&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;prettytable&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;statsmodels.api&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;sm&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pylab&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pl&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;linear_model&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.cross_validation&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;train_test_split&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.grid_search&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;GridSearchCV&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.metrics&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;classification_report&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.metrics&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;roc_curve&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;auc&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;precision_recall_curve&lt;/span&gt;
+
+&lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="nc"&gt;DataFrameImputer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;TransformerMixin&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;__init__&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="sd"&gt;&amp;quot;&amp;quot;&amp;quot;Impute missing values.&lt;/span&gt;
+
+&lt;span class="sd"&gt;        Columns of dtype object are imputed with the most frequent value&lt;/span&gt;
+&lt;span class="sd"&gt;        in column.&lt;/span&gt;
+
+&lt;span class="sd"&gt;        Columns of other types are imputed with mean of column.&lt;/span&gt;
+
+&lt;span class="sd"&gt;        &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+
+        &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fill&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Series&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;value_counts&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dtype&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dtype&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;O&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;mean&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;c&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;
+            &lt;span class="n"&gt;index&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;columns&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;
+
+    &lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;None&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+        &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fillna&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fill&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+
+&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;transform_data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;train_df&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;input_variable_names&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+ &lt;span class="sd"&gt;&amp;#39;&amp;#39;&amp;#39; transform categorial data in train_df to numerical&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+
+
+ &lt;span class="n"&gt;input_variable_types&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;string&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;object&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;train_df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ftypes&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="n"&gt;train_df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ftypes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;input_variable_names&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+ &lt;span class="n"&gt;labelencoders&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;
+
+
+ &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;input_variable_types&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+&lt;span class="c"&gt;## here transform string label to numeric labels&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;string&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+   &lt;span class="n"&gt;values&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;!=&lt;/span&gt;&lt;span class="n"&gt;np&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nan&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;NaN&amp;#39;&lt;/span&gt; &lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;train_df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;input_variable_names&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_values&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+   &lt;span class="n"&gt;labelencoders&lt;/span&gt;&lt;span class="o"&gt;+=&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;preprocessing&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LabelEncoder&lt;/span&gt;&lt;span class="p"&gt;()]&lt;/span&gt;
+   &lt;span class="n"&gt;labelencoders&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;values&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+   &lt;span class="n"&gt;train_df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;input_variable_names&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="n"&gt;train_df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;input_variable_names&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;]]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;apply&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;labelencoders&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+
+ &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;labelencoders&lt;/span&gt;
+
+
+&lt;span class="c"&gt;# 1) get data for an analysis&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;pd&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;read_csv&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;train.csv&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c"&gt;# 2) take a look at the dataset&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;**&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;**&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;
+
+&lt;span class="c"&gt;# 3) summarize data&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;**&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;describe&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;**&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;
+
+&lt;span class="c"&gt;# 6) we are going to analyze a regressiong factors between &amp;#39;Survied&amp;#39; as a target and Pclass,Sex,Age,Fare,Embarked&lt;/span&gt;
+&lt;span class="c"&gt;# also we introduce dummy categories for all of the Pclass,Sex,Embarked  to do this analysis.&lt;/span&gt;
+&lt;span class="n"&gt;input_variable_names&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Pclass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Sex&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Embarked&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Age&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Fare&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+&lt;span class="c"&gt;# we need to understand the type of variables&lt;/span&gt;
+&lt;span class="n"&gt;input_variable_types&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nb"&gt;map&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;lambda&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;string&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;object&amp;#39;&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ftypes&lt;/span&gt; &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ftypes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;input_variable_names&lt;/span&gt; &lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c"&gt;# do variable transformation&lt;/span&gt;
+&lt;span class="n"&gt;encoders&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;transform_data&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;input_variable_names&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c"&gt;# apply  DataFrameImputer to fix np.nan&lt;/span&gt;
+&lt;span class="n"&gt;df&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;DataFrameImputer&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;transform&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;cols_to_keep&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Survived&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Pclass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Sex&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Embarked&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Age&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Fare&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;data&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;df&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;cols_to_keep&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+
+
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;**&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;head&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;**&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\n&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;&lt;/span&gt;
+
+&lt;span class="c"&gt;# 7) split the sample for train and test sub-samples&lt;/span&gt;
+&lt;span class="c"&gt;# Split the dataset in two equal parts&lt;/span&gt;
+&lt;span class="n"&gt;train_cols&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Pclass&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Sex&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Embarked&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Age&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Fare&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;X_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_test&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;train_test_split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;train_cols&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt;&lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Survived&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;test_size&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;0.5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;random_state&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="c"&gt;# Set the parameters by cross-validation and scores&lt;/span&gt;
+&lt;span class="n"&gt;tuned_parameters&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;C&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;10000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;1e5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="mf"&gt;1e6&lt;/span&gt;&lt;span class="p"&gt;]}&lt;/span&gt;
+&lt;span class="c"&gt;# the whole list of scoring types can be found here:&lt;/span&gt;
+&lt;span class="c"&gt;# http://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter&lt;/span&gt;
+
+&lt;span class="c"&gt;# choose the best &amp;#39;recall&amp;#39; strategy and start the grid&lt;/span&gt;
+&lt;span class="n"&gt;scoring&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;recall&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;clf&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;GridSearchCV&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;linear_model&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;LogisticRegression&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mf"&gt;1e5&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;tuned_parameters&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;n_jobs&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;verbose&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;cv&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;scoring&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;scoring&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;clf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;fit&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_train&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_train&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Best parameters:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;bestParams&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;clf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;best_estimator_&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_params&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;sorted&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tuned_parameters&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;keys&lt;/span&gt;&lt;span class="p"&gt;()):&lt;/span&gt;
+  &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\t&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="si"&gt;%s&lt;/span&gt;&lt;span class="s"&gt;: &lt;/span&gt;&lt;span class="si"&gt;%f&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;bestParams&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Detailed classification report:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;The model is trained on the full development set.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;The scores are computed on the full evaluation set.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="n"&gt;y_true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_pred&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;y_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;clf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;best_estimator_&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;predict&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;classification_report&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;y_pred&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+
+&lt;span class="c"&gt;# 9) Compute ROC curve and area under the curve&lt;/span&gt;
+&lt;span class="n"&gt;probas_&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;clf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;best_estimator_&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;predict_proba&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;X_test&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;fpr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tpr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;thresholds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;roc_curve&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;probas_&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;roc_auc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;auc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fpr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tpr&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;fpr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tpr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lw&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;ROC (area = &lt;/span&gt;&lt;span class="si"&gt;%0.2f&lt;/span&gt;&lt;span class="s"&gt;)&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;roc_auc&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;],&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;--&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;color&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mf"&gt;0.6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;0.6&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;0.6&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Luck&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlim&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.05&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1.05&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylim&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.05&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1.05&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;False Positive Rate (FPR or Type-1 error )&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;True Positive Rate (TPR or recall or Type-2 error)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Receiver operating characteristic example&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;lower right&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+&lt;span class="c"&gt;# 10) Compute Precision (PositivePredictiveValue=TP/(TP+FP))  vs recall (TPR=P/(TP+FN))&lt;/span&gt;
+&lt;span class="c"&gt;# http://scikit-learn.org/stable/auto_examples/plot_precision_recall.html&lt;/span&gt;
+&lt;span class="n"&gt;ppv&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;tpr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;thresholds&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;precision_recall_curve&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;y_test&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;probas_&lt;/span&gt;&lt;span class="p"&gt;[:,&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;roc_auc&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;auc&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tpr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ppv&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;plot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;tpr&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ppv&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;lw&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;label&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Precsion-Recall curve (area = &lt;/span&gt;&lt;span class="si"&gt;%0.2f&lt;/span&gt;&lt;span class="s"&gt;)&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;roc_auc&lt;/span&gt;&lt;span class="p"&gt;))&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlim&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.05&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1.05&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylim&lt;/span&gt;&lt;span class="p"&gt;([&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;0.05&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mf"&gt;1.05&lt;/span&gt;&lt;span class="p"&gt;])&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ylabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;PPV (or precision)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;xlabel&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;True Positive Rate (TPR or recall)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;title&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Precsion-Recall Curve example&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;legend&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;loc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;lower right&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;pl&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+
+
+&lt;span class="nb"&gt;raw_input&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Press the Enter key...&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This is a simple example of the Logistic Regression analysis, which I wrote a few years ago during my experiments with the &lt;a class="reference external" href="http://scikit-learn.org/stable/"&gt;scikit-learn package&lt;/a&gt; &lt;a class="footnote-reference" href="#id63" id="id64"&gt;[17]&lt;/a&gt;  to
+solve the problem given at the &lt;a class="reference external" href="https://www.kaggle.com/c/titanic"&gt;Kaggle Competition 2012&lt;/a&gt; &lt;a class="footnote-reference" href="#id65" id="id66"&gt;[18]&lt;/a&gt;, &lt;strong&gt;Titanic: Machine Learning from Disaster&lt;/strong&gt;. The script does nothing except training
+the Logistic regressor with optimized parameters and calculating ROC, Precision-Recall curves for obtained model.&lt;/p&gt;
+&lt;p&gt;Let's build the executable binary, &lt;tt class="docutils literal"&gt;embedded&lt;/tt&gt; from the script &lt;tt class="docutils literal"&gt;titanic_logistic_regression_grid_search_roc_plot_example.py&lt;/tt&gt; and run it.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;cython
+make
+./embedded
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The result of both command is shown below.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;gcc -pthread -c titanic_logistic_regression_grid_search_roc_plot_example.c -I/usr/include/python2.7 -I/usr/include/python2.7
+gcc -pthread -o embedded titanic_logistic_regression_grid_search_roc_plot_example.o -L/usr/lib -L/usr/lib/python2.7/config -lpython2.7 -lpthread -ldl  -lutil -lm -Xlinker -export-dynamic -Wl,-O1 -Wl,-Bsymbolic-functions
+
+
+************************************************************************************************************************
+
+   PassengerId  Survived  Pclass  &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="m"&gt;0&lt;/span&gt;            &lt;span class="m"&gt;1&lt;/span&gt;         &lt;span class="m"&gt;0&lt;/span&gt;       3
+&lt;span class="m"&gt;1&lt;/span&gt;            &lt;span class="m"&gt;2&lt;/span&gt;         &lt;span class="m"&gt;1&lt;/span&gt;       1
+&lt;span class="m"&gt;2&lt;/span&gt;            &lt;span class="m"&gt;3&lt;/span&gt;         &lt;span class="m"&gt;1&lt;/span&gt;       3
+&lt;span class="m"&gt;3&lt;/span&gt;            &lt;span class="m"&gt;4&lt;/span&gt;         &lt;span class="m"&gt;1&lt;/span&gt;       1
+&lt;span class="m"&gt;4&lt;/span&gt;            &lt;span class="m"&gt;5&lt;/span&gt;         &lt;span class="m"&gt;0&lt;/span&gt;       3
+
+                                                Name     Sex  Age  SibSp  &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="m"&gt;0&lt;/span&gt;                            Braund, Mr. Owen Harris    male   &lt;span class="m"&gt;22&lt;/span&gt;      1
+&lt;span class="m"&gt;1&lt;/span&gt;  Cumings, Mrs. John Bradley &lt;span class="o"&gt;(&lt;/span&gt;Florence Briggs Th...  female   &lt;span class="m"&gt;38&lt;/span&gt;      1
+&lt;span class="m"&gt;2&lt;/span&gt;                             Heikkinen, Miss. Laina  female   &lt;span class="m"&gt;26&lt;/span&gt;      0
+&lt;span class="m"&gt;3&lt;/span&gt;       Futrelle, Mrs. Jacques Heath &lt;span class="o"&gt;(&lt;/span&gt;Lily May Peel&lt;span class="o"&gt;)&lt;/span&gt;  female   &lt;span class="m"&gt;35&lt;/span&gt;      1
+&lt;span class="m"&gt;4&lt;/span&gt;                           Allen, Mr. William Henry    male   &lt;span class="m"&gt;35&lt;/span&gt;      0
+
+   Parch            Ticket     Fare Cabin Embarked
+&lt;span class="m"&gt;0&lt;/span&gt;      &lt;span class="m"&gt;0&lt;/span&gt;         A/5 &lt;span class="m"&gt;21171&lt;/span&gt;   7.2500   NaN        S
+&lt;span class="m"&gt;1&lt;/span&gt;      &lt;span class="m"&gt;0&lt;/span&gt;          PC &lt;span class="m"&gt;17599&lt;/span&gt;  71.2833   C85        C
+&lt;span class="m"&gt;2&lt;/span&gt;      &lt;span class="m"&gt;0&lt;/span&gt;  STON/O2. &lt;span class="m"&gt;3101282&lt;/span&gt;   7.9250   NaN        S
+&lt;span class="m"&gt;3&lt;/span&gt;      &lt;span class="m"&gt;0&lt;/span&gt;            &lt;span class="m"&gt;113803&lt;/span&gt;  53.1000  C123        S
+&lt;span class="m"&gt;4&lt;/span&gt;      &lt;span class="m"&gt;0&lt;/span&gt;            &lt;span class="m"&gt;373450&lt;/span&gt;   8.0500   NaN        S
+************************************************************************************************************************
+
+************************************************************************************************************************
+
+       PassengerId    Survived      Pclass         Age       SibSp  &lt;span class="se"&gt;\&lt;/span&gt;
+count   891.000000  891.000000  891.000000  714.000000  891.000000
+mean    446.000000    0.383838    2.308642   29.699118    0.523008
+std     257.353842    0.486592    0.836071   14.526497    1.102743
+min       1.000000    0.000000    1.000000    0.420000    0.000000
+25%     223.500000    0.000000    2.000000   20.125000    0.000000
+50%     446.000000    0.000000    3.000000   28.000000    0.000000
+75%     668.500000    1.000000    3.000000   38.000000    1.000000
+max     891.000000    1.000000    3.000000   80.000000    8.000000
+
+            Parch        Fare
+count  891.000000  891.000000
+mean     0.381594   32.204208
+std      0.806057   49.693429
+min      0.000000    0.000000
+25%      0.000000    7.910400
+50%      0.000000   14.454200
+75%      0.000000   31.000000
+max      6.000000  512.329200
+************************************************************************************************************************
+
+************************************************************************************************************************
+
+   Survived  Pclass  Sex  Embarked  Age     Fare
+&lt;span class="m"&gt;0&lt;/span&gt;         &lt;span class="m"&gt;0&lt;/span&gt;       &lt;span class="m"&gt;3&lt;/span&gt;    &lt;span class="m"&gt;1&lt;/span&gt;         &lt;span class="m"&gt;2&lt;/span&gt;   &lt;span class="m"&gt;22&lt;/span&gt;   7.2500
+&lt;span class="m"&gt;1&lt;/span&gt;         &lt;span class="m"&gt;1&lt;/span&gt;       &lt;span class="m"&gt;1&lt;/span&gt;    &lt;span class="m"&gt;0&lt;/span&gt;         &lt;span class="m"&gt;0&lt;/span&gt;   &lt;span class="m"&gt;38&lt;/span&gt;  71.2833
+&lt;span class="m"&gt;2&lt;/span&gt;         &lt;span class="m"&gt;1&lt;/span&gt;       &lt;span class="m"&gt;3&lt;/span&gt;    &lt;span class="m"&gt;0&lt;/span&gt;         &lt;span class="m"&gt;2&lt;/span&gt;   &lt;span class="m"&gt;26&lt;/span&gt;   7.9250
+&lt;span class="m"&gt;3&lt;/span&gt;         &lt;span class="m"&gt;1&lt;/span&gt;       &lt;span class="m"&gt;1&lt;/span&gt;    &lt;span class="m"&gt;0&lt;/span&gt;         &lt;span class="m"&gt;2&lt;/span&gt;   &lt;span class="m"&gt;35&lt;/span&gt;  53.1000
+&lt;span class="m"&gt;4&lt;/span&gt;         &lt;span class="m"&gt;0&lt;/span&gt;       &lt;span class="m"&gt;3&lt;/span&gt;    &lt;span class="m"&gt;1&lt;/span&gt;         &lt;span class="m"&gt;2&lt;/span&gt;   &lt;span class="m"&gt;35&lt;/span&gt;   8.0500
+************************************************************************************************************************
+
+Fitting &lt;span class="m"&gt;5&lt;/span&gt; folds &lt;span class="k"&gt;for&lt;/span&gt; each of &lt;span class="m"&gt;6&lt;/span&gt; candidates, totalling &lt;span class="m"&gt;30&lt;/span&gt; fits
+&lt;span class="o"&gt;[&lt;/span&gt;Parallel&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;n_jobs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;-1&lt;span class="o"&gt;)]&lt;/span&gt;: Done   &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="nb"&gt;jobs&lt;/span&gt;       &lt;span class="p"&gt;|&lt;/span&gt; elapsed:    0.0s
+&lt;span class="o"&gt;[&lt;/span&gt;Parallel&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;n_jobs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;-1&lt;span class="o"&gt;)]&lt;/span&gt;: Done  &lt;span class="m"&gt;28&lt;/span&gt; out of  &lt;span class="m"&gt;30&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; elapsed:    0.2s remaining:    0.0s
+&lt;span class="o"&gt;[&lt;/span&gt;Parallel&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;n_jobs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;-1&lt;span class="o"&gt;)]&lt;/span&gt;: Done  &lt;span class="m"&gt;30&lt;/span&gt; out of  &lt;span class="m"&gt;30&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; elapsed:    0.2s finished
+
+Best parameters:
+      C: 10.000000
+Detailed classification report:
+&lt;span class="o"&gt;()&lt;/span&gt;
+The model is trained on the full development set.
+The scores are computed on the full evaluation set.
+&lt;span class="o"&gt;()&lt;/span&gt;
+             precision    recall  f1-score   support
+
+          &lt;span class="m"&gt;0&lt;/span&gt;       0.84      0.82      0.83       283
+          &lt;span class="m"&gt;1&lt;/span&gt;       0.69      0.72      0.71       163
+
+avg / total       0.78      0.78      0.78       446
+
+&lt;span class="o"&gt;()&lt;/span&gt;
+Press the Enter key...
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The figures below illustrate ROC and Rrecision-Recall curve of the model predicting survival probability  in the &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;Titanic-Disaster&lt;/span&gt;&lt;/tt&gt; problem&lt;/p&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="ROC of the model" src="/images/figure_1.png" style="width: 570.0px; height: 320.0px;" /&gt;
+&lt;p class="caption"&gt;ROC of the model&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="figure align-center"&gt;
+&lt;img alt="Rrecision-Recall curve of the model" src="/images/figure_2.png" style="width: 570.0px; height: 320.0px;" /&gt;
+&lt;p class="caption"&gt;Rrecision-Recall curve of the model&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The result looks good. There is a question that we would like to answer:&lt;/p&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt; Is the obtained binary portable or not?
+&lt;/pre&gt;
+&lt;p&gt;The answer is &amp;quot;NOT&amp;quot;. If you run it somewhere else, you will likely get something like this&lt;/p&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt;   ./embedded: error while loading shared libraries: libpython2.7.so.1.0: cannot open shared object file: No such file or directory
+&lt;/pre&gt;
+&lt;p&gt;or&lt;/p&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt;  ./embedded:   'import site' failed; use -v for traceback
+&lt;/pre&gt;
+&lt;p&gt;Can we fix the problem?&lt;/p&gt;
+&lt;p&gt;Yes. We can.&lt;/p&gt;
+&lt;p&gt;Later in the tutorial,  I will demonstrate a tool, built on top of &lt;tt class="docutils literal"&gt;Go&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;GCCGO&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;SWIG&lt;/tt&gt; compilers which allows to build and package
+such Machine-Learning python script in one  portable  binary.
+But before we test this tool, let's consider a few basic examples showing how one can obtain statically linked binaries from Python/C++ applications
+with help of the  &lt;tt class="docutils literal"&gt;GO&lt;/tt&gt; compiler.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="section" id="cgo-go-binding-for-c-c"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id92"&gt;CGO: GO Binding for C/C++&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;As I said previously, &lt;tt class="docutils literal"&gt;GO&lt;/tt&gt; makes  the &lt;a class="reference external" href="https://github.com/golang/go/wiki/WindowsCrossCompiling"&gt;cross-compiling of code is very easy&lt;/a&gt; &lt;a class="footnote-reference" href="#id67" id="id68"&gt;[19]&lt;/a&gt;.  If you have &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;GO&amp;gt;=1.5&lt;/span&gt;&lt;/tt&gt; installed on Linux, there is no problem to build
+the windows &lt;tt class="docutils literal"&gt;*.exe&lt;/tt&gt; binary from the GO code at this linux machine&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;cat hello.go
+&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt;   package main
+&amp;gt;&amp;gt;&amp;gt;
+&amp;gt;&amp;gt;&amp;gt;   import &amp;quot;fmt&amp;quot;
+&amp;gt;&amp;gt;&amp;gt;
+&amp;gt;&amp;gt;&amp;gt;   func main() {
+&amp;gt;&amp;gt;&amp;gt;        fmt.Printf(&amp;quot;Hello\n&amp;quot;)
+&amp;gt;&amp;gt;&amp;gt;   }
+&lt;/pre&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;GOOS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;windows &lt;span class="nv"&gt;GOARCH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;386&lt;/span&gt; go build -o hello.exe hello.go
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;That's it. Why not to try to exploit this nice feature of the &lt;tt class="docutils literal"&gt;GO&lt;/tt&gt; to build cross-paltform applications from C++.&lt;/p&gt;
+&lt;div class="section" id="xgo-cgo-cross-compiler"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id93"&gt;XGO - CGO cross compiler&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;For example, let's imagine, that I have developed a C++ program/API at the Linux machine. I want to start it at a computer running Microsoft Windows OS.
+How to cross compile C++ for the MS Windows Machine without developing own C++ build toolchain of the compilers and libraries? Can we do it as easy as possible?&lt;/p&gt;
+&lt;p&gt;There is a tool called &lt;tt class="docutils literal"&gt;XGO&lt;/tt&gt;, &lt;a class="reference external" href="https://github.com/karalabe/xgo"&gt;GO/CGO cross compiler&lt;/a&gt; &lt;a class="footnote-reference" href="#id69" id="id70"&gt;[20]&lt;/a&gt;, developed by Peter Szilagyi. Using LXC (Linux Containers) aka Docker containers, the &lt;tt class="docutils literal"&gt;XGO&lt;/tt&gt;
+allows to build from ANY &lt;tt class="docutils literal"&gt;GO&lt;/tt&gt; project  an executable for any platform supported by  &lt;tt class="docutils literal"&gt;GO&lt;/tt&gt;.  Here I highlight ANY because I want to stress that ANY includes
+also &lt;tt class="docutils literal"&gt;CGO&lt;/tt&gt; projects.  In general, the &lt;tt class="docutils literal"&gt;CGO&lt;/tt&gt; is a layer of stubs allowing to call C functions in GO environment. Also CGO allows to embed C++  code into the &lt;tt class="docutils literal"&gt;GO&lt;/tt&gt;
+program.&lt;/p&gt;
+&lt;p&gt;What doest it mean?
+We can release our C++ project for any platform and OS without big efforts, if we utilize &lt;tt class="docutils literal"&gt;XGO&lt;/tt&gt; for the cross-compiling.&lt;/p&gt;
+&lt;p&gt;But, first, let's try to play with the &lt;tt class="docutils literal"&gt;CGO&lt;/tt&gt;.  I have prepared a small sub-project &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;cgo-cpp&lt;/span&gt;&lt;/tt&gt; which shows basic ideas of binding C++ with the  &lt;tt class="docutils literal"&gt;GO&lt;/tt&gt; runtime.
+If you build the project, using the proposed &lt;tt class="docutils literal"&gt;Makefile&lt;/tt&gt;,&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;cgo-cpp
+make
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;you will get a statically linked binary &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;prog/prog-static&lt;/span&gt;&lt;/tt&gt; which is executable on many linux-based 32/64-bit architecures.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ld prog/prog-static
+prog/prog-static
+&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt;     not a dynamic executable
+&amp;gt;&amp;gt;&amp;gt;     Generator is built
+&amp;gt;&amp;gt;&amp;gt;     Characters: a A
+&amp;gt;&amp;gt;&amp;gt;     Decimals: 1977 650000
+&amp;gt;&amp;gt;&amp;gt;     Preceding with blanks:       1977
+&amp;gt;&amp;gt;&amp;gt;     Preceding with zeros: 0000001977
+&amp;gt;&amp;gt;&amp;gt;     Some different radices: 100 64 144 0x64 0144
+&amp;gt;&amp;gt;&amp;gt;     floats: 3.14 +3e+00 3.141600E+00
+&amp;gt;&amp;gt;&amp;gt;     Width trick:    10
+&amp;gt;&amp;gt;&amp;gt;     A string
+&amp;gt;&amp;gt;&amp;gt;     1804289383
+&lt;/pre&gt;
+&lt;p&gt;It looks promising. What is about &lt;tt class="docutils literal"&gt;XGO&lt;/tt&gt;? How can we use it  in this particular example? I have prepared another &lt;a class="reference external" href="https://bitbucket.org/iggy_floyd/xgo-cpp/"&gt;sub-project&lt;/a&gt; &lt;a class="footnote-reference" href="#id71" id="id72"&gt;[21]&lt;/a&gt;, &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;xgo-cpp&lt;/span&gt;&lt;/tt&gt; being made as a replica of
+the &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;cgo-cpp&lt;/span&gt;&lt;/tt&gt; adopted  to &lt;tt class="docutils literal"&gt;XGO&lt;/tt&gt;.&lt;/p&gt;
+&lt;p&gt;It is worth to mention that, to use the &lt;tt class="docutils literal"&gt;XGO&lt;/tt&gt;, and as a result, &lt;tt class="docutils literal"&gt;Docker&lt;/tt&gt; containers,  we need to switch from the 32-bit VM to 64-bit VM.
+All further tests and exercises are made in the VM with the following OS installed:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;uname -m
+lsb_release -a
+&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt;  x86_64
+&amp;gt;&amp;gt;&amp;gt;  Distributor ID:    Debian
+&amp;gt;&amp;gt;&amp;gt;  Description:       Debian GNU/Linux 8.1 (jessie)
+&amp;gt;&amp;gt;&amp;gt;  Release:   8.1
+&amp;gt;&amp;gt;&amp;gt;  Codename:  jessie
+&lt;/pre&gt;
+&lt;p&gt;I suggest that you have installed the &lt;tt class="docutils literal"&gt;Docker&lt;/tt&gt; system at your machine. If it's so, I recommend you to look at a few  &lt;tt class="docutils literal"&gt;&amp;quot;Getting started with XGO&amp;quot;&lt;/tt&gt; instructions.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;xgo-cpp
+cat HOW-TO
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The content of the &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;HOW-TO&lt;/span&gt;&lt;/tt&gt; is the following.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;### A simple HOW-TO on making cross-platform compilation with GO&lt;/span&gt;
+&lt;span class="c"&gt;### A docker system is required!&lt;/span&gt;
+&lt;span class="c"&gt;###&lt;/span&gt;
+&lt;span class="c"&gt;###&lt;/span&gt;
+&lt;span class="c"&gt;###&lt;/span&gt;
+
+&lt;span class="c"&gt;## Installation of the GO tools: it uses user-defined paths of installation!&lt;/span&gt;
+&lt;span class="c"&gt;## To delete them, simply remove the folder (&amp;#39;xgo&amp;#39;,here)!&lt;/span&gt;
+
+&lt;span class="c"&gt;# build the temporary folders where we put our GO/XGO installation stuff&lt;/span&gt;
+mkdir -p xgo/go
+mkdir -p xgo/go-modules
+
+&lt;span class="c"&gt;# download the latest go runtime environment&lt;/span&gt;
+wget https://storage.googleapis.com/golang/go1.6.2.linux-amd64.tar.gz -O xgo/go1.6.2.linux-amd64.tar.gz
+
+&lt;span class="c"&gt;# unpack the go runtime environment&lt;/span&gt;
+tar -C xgo/ -xzf xgo/go1.6.2.linux-amd64.tar.gz
+
+
+&lt;span class="c"&gt;# a simple script for initialization of the go runtime&lt;/span&gt;
+cat &amp;gt; xgo/ini_go.sh &lt;span class="s"&gt;&amp;lt;&amp;lt;_END&lt;/span&gt;
+&lt;span class="s"&gt;#!/bin/sh&lt;/span&gt;
+
+&lt;span class="s"&gt;export GOROOT=`pwd`/xgo/go&lt;/span&gt;
+&lt;span class="s"&gt;export GOPATH=`pwd`/xgo/go-modules&lt;/span&gt;
+
+&lt;span class="s"&gt;export PATH=\$PATH:\$GOROOT/bin:\$GOPATH/bin&lt;/span&gt;
+
+&lt;span class="s"&gt;_END&lt;/span&gt;
+chmod a+rwx xgo/ini_go.sh
+
+&lt;span class="c"&gt;# initialization of the GO and check version of the GO&lt;/span&gt;
+&lt;span class="nb"&gt;source &lt;/span&gt;xgo/ini_go.sh
+go version
+
+&lt;span class="c"&gt;# get a XGO project  and check it&lt;/span&gt;
+go get github.com/karalabe/xgo
+ls &lt;span class="nv"&gt;$GOPATH&lt;/span&gt;/src/github.com/karalabe/xgo
+ls &lt;span class="nv"&gt;$GOPATH&lt;/span&gt;/bin
+
+
+&lt;span class="c"&gt;# a smoke test of the XGO: build xgo/tests/embedded_cpp subproject of the XGO&lt;/span&gt;
+mkdir -p xgo/test
+&lt;span class="nb"&gt;cd &lt;/span&gt;xgo/test
+&lt;span class="c"&gt;# build a statically linked program for &amp;#39;linux/amd64&amp;#39; target&lt;/span&gt;
+sudo &lt;span class="sb"&gt;`&lt;/span&gt;which xgo&lt;span class="sb"&gt;`&lt;/span&gt; -go 1.6.1 -targets&lt;span class="o"&gt;=&lt;/span&gt;linux/amd64  -ldflags &lt;span class="s1"&gt;&amp;#39;-extldflags &amp;quot;-static&amp;quot;&amp;#39;&lt;/span&gt;  -out embedded_cpp.0.0.1 github.com/karalabe/xgo/tests/embedded_cpp
+
+...
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;As you see, it is quite easy to install the &lt;tt class="docutils literal"&gt;GO&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;XGO&lt;/tt&gt; runtime. You can immediately test the &lt;tt class="docutils literal"&gt;XGO&lt;/tt&gt; cross-compilation for different platforms like
+&lt;tt class="docutils literal"&gt;linux/amd64, linux/386, &lt;span class="pre"&gt;windows-6.0/*,&lt;/span&gt; &lt;span class="pre"&gt;ios-8.1/*&lt;/span&gt;&lt;/tt&gt; etc.  The &lt;tt class="docutils literal"&gt;github.com/karalabe/xgo/tests/embedded_cpp&lt;/tt&gt; project illustrates  embedded C++ code in &lt;tt class="docutils literal"&gt;GO&lt;/tt&gt; sources.
+Let's try to compile it.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;xgo/test
+&lt;span class="c"&gt;# testing the cross-platform compilation of  a smoke test from XGO&lt;/span&gt;
+&lt;span class="nv"&gt;targets&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;linux/amd64 linux/386 windows-6.0/* ios-8.1/*&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; target in &lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$targets&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; tr &lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;\n&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$target&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+sudo &lt;span class="sb"&gt;`&lt;/span&gt;which xgo&lt;span class="sb"&gt;`&lt;/span&gt; -go 1.6.1 -targets&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$target&lt;/span&gt; -ldflags &lt;span class="s1"&gt;&amp;#39;-extldflags &amp;quot;-static&amp;quot;&amp;#39;&lt;/span&gt; -out &lt;span class="se"&gt;\&lt;/span&gt;
+embedded_cpp.0.0.1 github.com/karalabe/xgo/tests/embedded_cpp&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;
+ls -rthl
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;These commands issue the output like it is shown below.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;...
+
+Compiling &lt;span class="k"&gt;for&lt;/span&gt; ios-8.1/arm-7...
+&lt;span class="c"&gt;# github.com/karalabe/xgo/tests/embedded_cpp&lt;/span&gt;
+./snippet.cpp:6:10: fatal error: &lt;span class="s1"&gt;&amp;#39;iostream&amp;#39;&lt;/span&gt; file not found
+ 2016/04/29 15:29:44 Failed to cross compile package: &lt;span class="nb"&gt;exit &lt;/span&gt;status 2.
+
+-rwxr-xr-x &lt;span class="m"&gt;1&lt;/span&gt; vagrant vagrant 3.5M Apr &lt;span class="m"&gt;29&lt;/span&gt; 15:29 embedded_cpp.0.0.1-linux-amd64
+-rwxr-xr-x &lt;span class="m"&gt;1&lt;/span&gt; vagrant vagrant 3.1M Apr &lt;span class="m"&gt;29&lt;/span&gt; 15:29 embedded_cpp.0.0.1-linux-386
+-rwxr-xr-x &lt;span class="m"&gt;1&lt;/span&gt; vagrant vagrant 2.6M Apr &lt;span class="m"&gt;29&lt;/span&gt; 15:29 embedded_cpp.0.0.1-windows-6.0-amd64.exe
+-rwxr-xr-x &lt;span class="m"&gt;1&lt;/span&gt; vagrant vagrant 2.0M Apr &lt;span class="m"&gt;29&lt;/span&gt; 15:29 embedded_cpp.0.0.1-windows-6.0-386.exe
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Everything runs smoothly except compilation for the &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;ios-8.1/&lt;/span&gt;&lt;/tt&gt; platform: it brings errors of missing C++ STL library in the &lt;tt class="docutils literal"&gt;XGO&lt;/tt&gt; compiler toolchain for the &lt;tt class="docutils literal"&gt;OSX&lt;/tt&gt;.
+Here are examples of the cross-platform building my simple &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;xgo-cpp&lt;/span&gt;&lt;/tt&gt; project.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt; &lt;span class="nb"&gt;cd &lt;/span&gt;xgo/test
+
+ &lt;span class="c"&gt;# linux: 64-bit architecture&lt;/span&gt;
+ &lt;span class="c"&gt;#&lt;/span&gt;
+
+ &lt;span class="c"&gt;# remove the cache of the previous exercise&lt;/span&gt;
+ sudo rm -r /root/.xgo-cache
+ &lt;span class="nv"&gt;targets&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;linux/amd64&amp;quot;&lt;/span&gt;
+ &lt;span class="k"&gt;for&lt;/span&gt; target in &lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$targets&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; tr &lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;\n&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$target&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+ sudo &lt;span class="sb"&gt;`&lt;/span&gt;which xgo&lt;span class="sb"&gt;`&lt;/span&gt; -go 1.6.1 -targets&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$target&lt;/span&gt; -ldflags &lt;span class="s1"&gt;&amp;#39;-extldflags &amp;quot;-static&amp;quot;&amp;#39;&lt;/span&gt; -out &lt;span class="se"&gt;\&lt;/span&gt;
+ xgo_example --deps&lt;span class="o"&gt;=&lt;/span&gt;https://bitbucket.org/iggy_floyd/xgo-cpp/downloads/xgo-cpp.tar.bz2 bitbucket.org/iggy_floyd/xgo-cpp/&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+ &lt;span class="k"&gt;done&lt;/span&gt;
+
+ &lt;span class="c"&gt;# linux: 32-bit architecture&lt;/span&gt;
+ &lt;span class="c"&gt;#&lt;/span&gt;
+ &lt;span class="nv"&gt;targets&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;linux/386&amp;quot;&lt;/span&gt;
+ &lt;span class="k"&gt;for&lt;/span&gt; target in &lt;span class="k"&gt;$(&lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$targets&lt;/span&gt; &lt;span class="p"&gt;|&lt;/span&gt; tr &lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;\n&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$target&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+ sudo &lt;span class="sb"&gt;`&lt;/span&gt;which xgo&lt;span class="sb"&gt;`&lt;/span&gt; -v -x -go 1.6.1 -targets&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;$target&lt;/span&gt; -ldflags &lt;span class="s1"&gt;&amp;#39;-extldflags &amp;quot;-static&amp;quot;&amp;#39;&lt;/span&gt; -out &lt;span class="se"&gt;\&lt;/span&gt;
+ xgo_example --deps&lt;span class="o"&gt;=&lt;/span&gt;https://bitbucket.org/iggy_floyd/xgo-cpp/downloads/xgo-cpp.tar.bz2 &lt;span class="se"&gt;\&lt;/span&gt;
+ --depsargs&lt;span class="o"&gt;=&lt;/span&gt;-m32 bitbucket.org/iggy_floyd/xgo-cpp/&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="k"&gt;done&lt;/span&gt;
+
+ ls -rthl
+./xgo_example-linux-386
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;And  this is the result.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;-rwxr-xr-x &lt;span class="m"&gt;1&lt;/span&gt; vagrant vagrant 4.0M Apr &lt;span class="m"&gt;29&lt;/span&gt; 15:58 xgo_example-linux-386
+-rwxr-xr-x &lt;span class="m"&gt;1&lt;/span&gt; vagrant vagrant 4.6M Apr &lt;span class="m"&gt;29&lt;/span&gt; 15:59 xgo_example-linux-amd64
+
+Generator is built
+Characters: a A
+Decimals: &lt;span class="m"&gt;1977&lt;/span&gt; 650000
+Preceding with blanks:       1977
+Preceding with zeros: 0000001977
+Some different radices: &lt;span class="m"&gt;100&lt;/span&gt; &lt;span class="m"&gt;64&lt;/span&gt; &lt;span class="m"&gt;144&lt;/span&gt; 0x64 0144
+floats: 3.14 +3e+00 3.141600E+00
+Width trick:    10
+A string
+1804289383
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;It seems that &lt;tt class="docutils literal"&gt;XGO&lt;/tt&gt; works :-).&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="connecting-go-and-python-together"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id94"&gt;Connecting GO and Python together&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;Now it is time to make a bridge between &lt;tt class="docutils literal"&gt;python&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;GO&lt;/tt&gt; that we could use to
+compile python scripts in the cross-platform manner. OK. Let's go.&lt;/p&gt;
+&lt;div class="section" id="binding-cgo-and-cython-together"&gt;
+&lt;h4&gt;&lt;a class="toc-backref" href="#id95"&gt;Binding CGO and Cython together&lt;/a&gt;&lt;/h4&gt;
+&lt;p&gt;First, we will try to use the same approach we have followed previously: we want to exploit &lt;tt class="docutils literal"&gt;CGO&lt;/tt&gt; layer
+to connect &lt;tt class="docutils literal"&gt;*py&lt;/tt&gt; scripts translated by &lt;tt class="docutils literal"&gt;Cython&lt;/tt&gt; with the &lt;tt class="docutils literal"&gt;GO&lt;/tt&gt; runtime in order to get a statically linked binary.&lt;/p&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt;  Python (script.py) --&amp;gt; Cython (script.c) --&amp;gt; CGO--&amp;gt;GO --&amp;gt; a statically linked binary ``script``
+&lt;/pre&gt;
+&lt;p&gt;One can just have a look at another sub-project &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;cgo-python&lt;/span&gt;&lt;/tt&gt;.
+The stucture and Makefile of the &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;cgo-python``look&lt;/span&gt; similar to ones in the &lt;span class="pre"&gt;``cgo-cpp&lt;/span&gt;&lt;/tt&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;cgo-python
+make
+
+ldd prog/prog
+&lt;span class="nv"&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;&lt;span class="nb"&gt;pwd&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;/lib  prog/prog
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;As a result of the run, we got the output&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;linux-gate.so.1 &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt;  &lt;span class="o"&gt;(&lt;/span&gt;0xb77b0000&lt;span class="o"&gt;)&lt;/span&gt;
+libcgo-python.so &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; not found
+libpython2.7.so.1.0 &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; /usr/lib/libpython2.7.so.1.0 &lt;span class="o"&gt;(&lt;/span&gt;0xb74c6000&lt;span class="o"&gt;)&lt;/span&gt;
+libpthread.so.0 &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; /lib/i386-linux-gnu/i686/cmov/libpthread.so.0 &lt;span class="o"&gt;(&lt;/span&gt;0xb74ad000&lt;span class="o"&gt;)&lt;/span&gt;
+libdl.so.2 &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; /lib/i386-linux-gnu/i686/cmov/libdl.so.2 &lt;span class="o"&gt;(&lt;/span&gt;0xb74a9000&lt;span class="o"&gt;)&lt;/span&gt;
+libutil.so.1 &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; /lib/i386-linux-gnu/i686/cmov/libutil.so.1 &lt;span class="o"&gt;(&lt;/span&gt;0xb74a5000&lt;span class="o"&gt;)&lt;/span&gt;
+libm.so.6 &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; /lib/i386-linux-gnu/i686/cmov/libm.so.6 &lt;span class="o"&gt;(&lt;/span&gt;0xb747f000&lt;span class="o"&gt;)&lt;/span&gt;
+libstdc++.so.6 &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; /usr/lib/i386-linux-gnu/libstdc++.so.6 &lt;span class="o"&gt;(&lt;/span&gt;0xb7392000&lt;span class="o"&gt;)&lt;/span&gt;
+libc.so.6 &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; /lib/i386-linux-gnu/i686/cmov/libc.so.6 &lt;span class="o"&gt;(&lt;/span&gt;0xb722e000&lt;span class="o"&gt;)&lt;/span&gt;
+libz.so.1 &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; /lib/i386-linux-gnu/libz.so.1 &lt;span class="o"&gt;(&lt;/span&gt;0xb7215000&lt;span class="o"&gt;)&lt;/span&gt;
+libgcc_s.so.1 &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; /lib/i386-linux-gnu/libgcc_s.so.1 &lt;span class="o"&gt;(&lt;/span&gt;0xb71f8000&lt;span class="o"&gt;)&lt;/span&gt;
+/lib/ld-linux.so.2 &lt;span class="o"&gt;(&lt;/span&gt;0xb77b1000&lt;span class="o"&gt;)&lt;/span&gt;
+
+Characters: a A
+Decimals: &lt;span class="m"&gt;1977&lt;/span&gt; 650000
+Decimals: 1
+Decimals: prog/prog
+Preceding with blanks:       1977
+Preceding with zeros: 0000001977
+Some different radices: &lt;span class="m"&gt;100&lt;/span&gt; &lt;span class="m"&gt;64&lt;/span&gt; &lt;span class="m"&gt;144&lt;/span&gt; 0x64 0144
+floats: 3.14 +3e+00 3.141600E+00
+Width trick:    10
+A string
+
+fatal error: unexpected signal during runtime execution
+&lt;span class="o"&gt;[&lt;/span&gt;signal 0xb &lt;span class="nv"&gt;code&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;0x2 &lt;span class="nv"&gt;addr&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;0x2 &lt;span class="nv"&gt;pc&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;0x8052cc4&lt;span class="o"&gt;]&lt;/span&gt;
+runtime stack:
+runtime.throw&lt;span class="o"&gt;(&lt;/span&gt;0x814a2c5&lt;span class="o"&gt;)&lt;/span&gt;
+/usr/local/go/src/pkg/runtime/panic.c:520 +0x71
+runtime.sigpanic&lt;span class="o"&gt;()&lt;/span&gt;
+/usr/local/go/src/pkg/runtime/os_linux.c:222 +0x46
+MHeap_Grow&lt;span class="o"&gt;(&lt;/span&gt;0x81598e0, 0x10&lt;span class="o"&gt;)&lt;/span&gt;
+
+...
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;which explicitly shows that the &lt;strong&gt;application binary interface (ABI)&lt;/strong&gt; produced by
+&lt;tt class="docutils literal"&gt;Cython&lt;/tt&gt; is not compatible with the &lt;tt class="docutils literal"&gt;GCO&lt;/tt&gt;. This indicates that the &lt;tt class="docutils literal"&gt;XGO&lt;/tt&gt;
+cross-platform compiler can not be used to build &lt;tt class="docutils literal"&gt;cythonized&lt;/tt&gt; files at the moment.
+In addition, there is another problem.
+If you look at the &lt;a class="reference external" href="https://raw.githubusercontent.com/karalabe/xgo/master/docker/base/Dockerfile"&gt;build toolchain&lt;/a&gt; &lt;a class="footnote-reference" href="#id73" id="id74"&gt;[22]&lt;/a&gt; provided by the &lt;tt class="docutils literal"&gt;XGO&lt;/tt&gt;,  you realize that it mostly consists of
+the C/C++ libraries and C/C++ tools which are required for cross-platform
+compilation and linking of C/C++ programs.  This small extract from the
+corresponding &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;Dockerfile``of&lt;/span&gt; the ``XGO&lt;/tt&gt; confirms my words.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;...
+
+&lt;span class="c"&gt;# Make sure apt-get is up to date and dependent packages are installed&lt;/span&gt;
+RUN &lt;span class="se"&gt;\&lt;/span&gt;
+apt-get update &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+apt-get install -y automake autogen build-essential ca-certificates            &lt;span class="se"&gt;\&lt;/span&gt;
+gcc-5-arm-linux-gnueabi g++-5-arm-linux-gnueabi libc6-dev-armel-cross        &lt;span class="se"&gt;\&lt;/span&gt;
+gcc-5-arm-linux-gnueabihf g++-5-arm-linux-gnueabihf libc6-dev-armhf-cross    &lt;span class="se"&gt;\&lt;/span&gt;
+gcc-5-aarch64-linux-gnu g++-5-aarch64-linux-gnu libc6-dev-arm64-cross        &lt;span class="se"&gt;\&lt;/span&gt;
+gcc-5-multilib g++-5-multilib gcc-mingw-w64 g++-mingw-w64 clang-3.7 llvm-dev &lt;span class="se"&gt;\&lt;/span&gt;
+libtool libxml2-dev uuid-dev libssl-dev swig openjdk-7-jdk pkg-config patch  &lt;span class="se"&gt;\&lt;/span&gt;
+make xz-utils cpio wget zip unzip p7zip git mercurial bzr texinfo help2man --no-install-recommends
+
+&lt;span class="c"&gt;# Fix any stock package issues&lt;/span&gt;
+RUN &lt;span class="se"&gt;\&lt;/span&gt;
+ln -s /usr/include/asm-generic /usr/include/asm &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+ln -s /usr/bin/clang-3.7 /usr/bin/clang         &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="se"&gt;\&lt;/span&gt;
+ln -s /usr/bin/clang++-3.7 /usr/bin/clang++
+
+...
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;There is no evidence of the presence of the python runtime which the &lt;tt class="docutils literal"&gt;cythonization&lt;/tt&gt; depends on.  Perhaps I could fix this issue by adding python libraries to the
+build toolchain of the &lt;tt class="docutils literal"&gt;XGO&lt;/tt&gt;. I would rather postpone the deciding this question until my next tutorial on the topic.&lt;/p&gt;
+&lt;p&gt;Is there any possibility to have a portable binary produced by the &lt;tt class="docutils literal"&gt;Cython&lt;/tt&gt;?&lt;/p&gt;
+&lt;p&gt;Yes. It is possible.&lt;/p&gt;
+&lt;p&gt;The next section is about the tool utilizing  the &lt;tt class="docutils literal"&gt;Cython&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;SWIG&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;GCCGO&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;my own packager&lt;/tt&gt;. They  all together build
+the portable cross-platform binary from the  python script.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="python-virtual-machine"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id96"&gt;Python Virtual Machine&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;I have called this tool  &amp;quot;Python Virtual Machine&amp;quot;. Why is it &amp;quot;Virtual Machine&amp;quot;?
+As you will see later, the result of the build chain is a package containing
+the executable and its context which includes all needed dependencies like dynamic libraries and
+python runtime environment.&lt;/p&gt;
+&lt;p&gt;The sketch of the toolchain is presented below.&lt;/p&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt;  Python (script.py) --&amp;gt; Cython (script.c) --&amp;gt; SWIG/GCCGO/GO --&amp;gt; my own packager --&amp;gt; a portable binary with the context
+&lt;/pre&gt;
+&lt;p&gt;Let's clarify the unknown terms: &lt;tt class="docutils literal"&gt;SWIG&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;GCCGO&lt;/tt&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a class="reference external" href="http://www.swig.org/"&gt;Simplified Wrapper and Interface Generator (SWIG)&lt;/a&gt; &lt;a class="footnote-reference" href="#id75" id="id76"&gt;[23]&lt;/a&gt;
+is a  tool that binds programs written in C and C++ with a variety of high-level programming languages.
+Here we use the &lt;tt class="docutils literal"&gt;SWIG&lt;/tt&gt; to write out the &lt;tt class="docutils literal"&gt;GO&lt;/tt&gt;-specific interface of the &lt;tt class="docutils literal"&gt;cythonized&lt;/tt&gt; file &lt;tt class="docutils literal"&gt;(script.c)&lt;/tt&gt;.&lt;/p&gt;
+&lt;p&gt;Now it is time to tell about  the &lt;tt class="docutils literal"&gt;GCCGO&lt;/tt&gt; compiler.
+The &lt;tt class="docutils literal"&gt;GO&lt;/tt&gt; language has always been defined by a spec, not an implementation. Hence
+the &lt;tt class="docutils literal"&gt;GO&lt;/tt&gt; team has adopted two different compilers that implement that spec: &lt;tt class="docutils literal"&gt;gcc&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;GCCGO&lt;/tt&gt;.&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;gcc&lt;/tt&gt; is the original compiler, and the &lt;tt class="docutils literal"&gt;GO&lt;/tt&gt; uses it by default.&lt;/li&gt;
+&lt;li&gt;&lt;tt class="docutils literal"&gt;GCCGO&lt;/tt&gt; is a different implementation with a different focus&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Compared to the &lt;tt class="docutils literal"&gt;gcc&lt;/tt&gt;, the &lt;tt class="docutils literal"&gt;GCCGO&lt;/tt&gt;  slower to compile but supports more powerful optimization,
+so a CPU-bound program built by &lt;tt class="docutils literal"&gt;GCCGO&lt;/tt&gt; will usually run faster.&lt;/p&gt;
+&lt;p&gt;The idea to use &lt;tt class="docutils literal"&gt;GCCGO&lt;/tt&gt; instead of the &lt;tt class="docutils literal"&gt;CGO&lt;/tt&gt; came to me after I read Yi Wang's  post &lt;a class="reference external" href="https://cxwangyi.wordpress.com/2011/03/28/statically-linking-c-code-with-go-code/"&gt;Statically Link C++ Code With Go Code&lt;/a&gt; &lt;a class="footnote-reference" href="#id77" id="id78"&gt;[24]&lt;/a&gt;.
+I have slightly developed proposals of Yi Wang and added the &lt;tt class="docutils literal"&gt;Cython&lt;/tt&gt; generator for getting a &lt;tt class="docutils literal"&gt;C/C++&lt;/tt&gt; code from  a &lt;tt class="docutils literal"&gt;Python&lt;/tt&gt; script.
+Then the obtained &lt;tt class="docutils literal"&gt;C/C++&lt;/tt&gt; file is processed by the &lt;tt class="docutils literal"&gt;SWIG/GCCGO/GO&lt;/tt&gt; tools in the way as Yi Wang suggests.&lt;/p&gt;
+&lt;div class="important"&gt;
+&lt;p class="first admonition-title"&gt;Important&lt;/p&gt;
+&lt;p class="last"&gt;To run next exercise, One must install the &lt;tt class="docutils literal"&gt;SWIG&lt;/tt&gt; generator. At the Ubuntu/Debian systems, it is usually done via &lt;tt class="docutils literal"&gt;sudo &lt;span class="pre"&gt;apt-get&lt;/span&gt; install swig&lt;/tt&gt;.&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;I have prepared the sub-project &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;gccgo-python&lt;/span&gt;&lt;/tt&gt; to demonstrate the technology on practice. One can simply change to the directory &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;`gccgo-python&lt;/span&gt;&lt;/tt&gt;
+and build a binary through the &lt;tt class="docutils literal"&gt;make&lt;/tt&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;gccgo-python
+make
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;As a result, we obtain the  dinamically linked binary &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;gccgo-python&lt;/span&gt;&lt;/tt&gt; which wrapps around &lt;tt class="docutils literal"&gt;src/simple_script.py&lt;/tt&gt;.
+The script makes simple computation with the help of &lt;tt class="docutils literal"&gt;argparse&lt;/tt&gt;&lt;/p&gt;
+&lt;!-- obtained with ``./rsTCodeBlockProducer.sh python gccgo-python/src/simple_script.py`` --&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="sd"&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;span class="sd"&gt;https://docs.python.org/2.7/library/argparse.html&lt;/span&gt;
+&lt;span class="sd"&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;argparse&lt;/span&gt;
+
+&lt;span class="n"&gt;parser&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;argparse&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ArgumentParser&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;description&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;Process some integers.&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_argument&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;integers&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;metavar&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;N&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;nargs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;+&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                   &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;an integer for the accumulator&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;add_argument&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;--sum&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;dest&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;accumulate&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;store_const&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                   &lt;span class="n"&gt;const&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;sum&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;default&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;max&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+                   &lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;sum the integers (default: find the max)&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;__name__&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;__main__&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+ &lt;span class="n"&gt;args&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;parser&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parse_args&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+ &lt;span class="k"&gt;print&lt;/span&gt; &lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;accumulate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;integers&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;If you list all dynamic libraries which executable loads, you will the presence of the &lt;tt class="docutils literal"&gt;libpython2.7.so.1.0&lt;/tt&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ldd ./gccgo-python
+ls -lh  ./gccgo-python
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;linux-gate.so.1 &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt;  &lt;span class="o"&gt;(&lt;/span&gt;0xb7765000&lt;span class="o"&gt;)&lt;/span&gt;
+libpython2.7.so.1.0 &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; /usr/lib/libpython2.7.so.1.0 &lt;span class="o"&gt;(&lt;/span&gt;0xb747c000&lt;span class="o"&gt;)&lt;/span&gt;
+libdl.so.2 &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; /lib/i386-linux-gnu/i686/cmov/libdl.so.2 &lt;span class="o"&gt;(&lt;/span&gt;0xb7478000&lt;span class="o"&gt;)&lt;/span&gt;
+libutil.so.1 &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; /lib/i386-linux-gnu/i686/cmov/libutil.so.1 &lt;span class="o"&gt;(&lt;/span&gt;0xb7473000&lt;span class="o"&gt;)&lt;/span&gt;
+libz.so.1 &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; /lib/i386-linux-gnu/libz.so.1 &lt;span class="o"&gt;(&lt;/span&gt;0xb745a000&lt;span class="o"&gt;)&lt;/span&gt;
+libgo.so.0 &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; /usr/lib/i386-linux-gnu/libgo.so.0 &lt;span class="o"&gt;(&lt;/span&gt;0xb68d1000&lt;span class="o"&gt;)&lt;/span&gt;
+libpthread.so.0 &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; /lib/i386-linux-gnu/i686/cmov/libpthread.so.0 &lt;span class="o"&gt;(&lt;/span&gt;0xb68b8000&lt;span class="o"&gt;)&lt;/span&gt;
+libm.so.6 &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; /lib/i386-linux-gnu/i686/cmov/libm.so.6 &lt;span class="o"&gt;(&lt;/span&gt;0xb6892000&lt;span class="o"&gt;)&lt;/span&gt;
+libgcc_s.so.1 &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; /lib/i386-linux-gnu/libgcc_s.so.1 &lt;span class="o"&gt;(&lt;/span&gt;0xb6874000&lt;span class="o"&gt;)&lt;/span&gt;
+libc.so.6 &lt;span class="o"&gt;=&lt;/span&gt;&amp;gt; /lib/i386-linux-gnu/i686/cmov/libc.so.6 &lt;span class="o"&gt;(&lt;/span&gt;0xb6710000&lt;span class="o"&gt;)&lt;/span&gt;
+/lib/ld-linux.so.2 &lt;span class="o"&gt;(&lt;/span&gt;0xb7766000&lt;span class="o"&gt;)&lt;/span&gt;
+
+-rwxr-xr-x &lt;span class="m"&gt;1&lt;/span&gt; debian debian 49K May  &lt;span class="m"&gt;2&lt;/span&gt; 12:03 ./gccgo-python
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This small binary can not be started at another machine. If you try to launch it somewhere else, you will probably get&lt;/p&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt; ./gccgo-python: error while loading shared libraries: libpython2.7.so.1.0: cannot open shared object file: No such file or directory
+&lt;/pre&gt;
+&lt;p&gt;Now If we are repeating the same exercise with &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;LDFLAGS=-static&lt;/span&gt;&lt;/tt&gt;, the statically linked binary will be issued&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nv"&gt;LDFLAGS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;-static make
+ldd ./gccgo-python
+ls -lh  ./gccgo-python
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;...
+
+not a dynamic executable
+
+-rwxr-xr-x &lt;span class="m"&gt;1&lt;/span&gt; debian debian 4.5M May  &lt;span class="m"&gt;2&lt;/span&gt; 12:09 ./gccgo-python
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;There are pros and cons to this. On the positive side, we can run the executable across different platforms. The negative effect is
+increase of file's size. However, when you try to execute this file at the machine without &lt;tt class="docutils literal"&gt;python 2.7&lt;/tt&gt; installed, you will come across the following
+problem:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;ImportError: No module named site
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;This means that the python subroutines can't find modules needed to be imported. Can we fix it? Yes, we can. I have developed two hackish packagers
+&lt;tt class="docutils literal"&gt;build_package.sh&lt;/tt&gt; and &lt;tt class="docutils literal"&gt;build_package_simplified.sh&lt;/tt&gt;. The latter is just a 'cutted' version  of the former. The shell scripts attempt to create an
+archive with the python runtime environment and executable packed together.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;cat build_package.sh
+&lt;/pre&gt;&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/bash&lt;/span&gt;
+
+mkdir -p package_&lt;span class="nv"&gt;$1&lt;/span&gt;/.libs
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;dependences of the script... &amp;quot;&lt;/span&gt;
+cp  &lt;span class="nv"&gt;$1&lt;/span&gt; package_&lt;span class="nv"&gt;$1&lt;/span&gt;/.libs
+./statifier.py &lt;span class="nv"&gt;$1&lt;/span&gt;  package_&lt;span class="nv"&gt;$1&lt;/span&gt;/.libs
+
+&lt;span class="c"&gt;# common modules&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;copying common modules...&amp;quot;&lt;/span&gt;
+mkdir -p package_&lt;span class="nv"&gt;$1&lt;/span&gt;/.libs/lib/
+cp -r /usr/lib/python2.7/  package_&lt;span class="nv"&gt;$1&lt;/span&gt;/.libs/lib/
+
+&lt;span class="c"&gt;# scientific python modules and other stuff&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;copying scientific python modules and other stuff...&amp;quot;&lt;/span&gt;
+mkdir -p package_&lt;span class="nv"&gt;$1&lt;/span&gt;/.libs/local/lib/
+cp -r /usr/local/lib/python2.7/  package_&lt;span class="nv"&gt;$1&lt;/span&gt;/.libs/local/lib/
+
+&lt;span class="c"&gt;# numpy hack!&lt;/span&gt;
+&lt;span class="c"&gt;# add numerical support for numpy!&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;adding numerical support for numpy!...&amp;quot;&lt;/span&gt;
+cp /usr/lib/libblas.so.3 package_&lt;span class="nv"&gt;$1&lt;/span&gt;/.libs/
+./statifier.py /usr/lib/libblas.so.3 package_&lt;span class="nv"&gt;$1&lt;/span&gt;/.libs/
+cp /usr/lib/liblapack.so.3  package_&lt;span class="nv"&gt;$1&lt;/span&gt;/.libs/
+
+&lt;span class="c"&gt;# a hack to add hashlib support&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;hacking to add hashlib support...&amp;quot;&lt;/span&gt;
+ls /usr/lib/python2.7/lib-dynload/  &lt;span class="p"&gt;|&lt;/span&gt; xargs -I &lt;span class="o"&gt;{}&lt;/span&gt; ./statifier.py /usr/lib/python2.7/lib-dynload/&lt;span class="o"&gt;{}&lt;/span&gt; package_&lt;span class="nv"&gt;$1&lt;/span&gt;/.libs/
+
+&lt;span class="c"&gt;# a hack to add matlab support&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;hacking to add matplotlib support...&amp;quot;&lt;/span&gt;
+ls /usr/lib/python2.7/dist-packages/gi/  &lt;span class="p"&gt;|&lt;/span&gt; grep .so &lt;span class="p"&gt;|&lt;/span&gt; xargs -I &lt;span class="o"&gt;{}&lt;/span&gt; ./statifier.py /usr/lib/python2.7/dist-packages/gi/&lt;span class="o"&gt;{}&lt;/span&gt; package_&lt;span class="nv"&gt;$1&lt;/span&gt;/.libs/
+&lt;span class="c"&gt;#cp -r /usr/share/pyshared/gi/   /usr/lib/python2.7/dist-packages/&lt;/span&gt;
+rsync /usr/share/pyshared/gi package_&lt;span class="nv"&gt;$1&lt;/span&gt;/.libs/lib/python2.7/dist-packages/  -a --copy-links -v
+rsync /usr/share/pyshared/wx-2.8-gtk2-unicode/wx package_&lt;span class="nv"&gt;$1&lt;/span&gt;/.libs/lib/python2.7/dist-packages/wx-2.8-gtk2-unicode/  -a --copy-links -v
+rsync /usr/share/pyshared/wx-2.8-gtk2-unicode/wxPython package_&lt;span class="nv"&gt;$1&lt;/span&gt;/.libs/lib/python2.7/dist-packages/wx-2.8-gtk2-unicode/  -a --copy-links -v
+
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;hacking Tornado Service of the WebAgg...&amp;quot;&lt;/span&gt;
+sed -i &lt;span class="s2"&gt;&amp;quot;706s/\(.*\)/#\1/&amp;quot;&lt;/span&gt;   package_&lt;span class="nv"&gt;$1&lt;/span&gt;/.libs/local/lib/python2.7/dist-packages/tornado/ioloop.py
+sed -i &lt;span class="s2"&gt;&amp;quot;707s/\(.*\)/#\1/&amp;quot;&lt;/span&gt;   package_&lt;span class="nv"&gt;$1&lt;/span&gt;/.libs/local/lib/python2.7/dist-packages/tornado/ioloop.py
+
+
+
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;writting the executable script...&amp;quot;&lt;/span&gt;
+cat  &amp;gt; package_&lt;span class="nv"&gt;$1&lt;/span&gt;/&lt;span class="nv"&gt;$1&lt;/span&gt; &lt;span class="s"&gt;&amp;lt;&amp;lt;_EOF&lt;/span&gt;
+&lt;span class="s"&gt;#!/bin/bash&lt;/span&gt;
+
+&lt;span class="s"&gt;_abs_path_to_this_file=\$(readlink -f &amp;quot;\$0&amp;quot;)&lt;/span&gt;
+&lt;span class="s"&gt;_local_dir=\$(dirname &amp;quot;\$_abs_path_to_this_file&amp;quot;)&lt;/span&gt;
+&lt;span class="s"&gt;_libs_dir=&amp;quot;\${_local_dir}/.libs&amp;quot;&lt;/span&gt;
+
+&lt;span class="s"&gt;export LD_LIBRARY_PATH=\${_libs_dir}:\$LD_LIBRARY_PATH&lt;/span&gt;
+&lt;span class="s"&gt;export PYTHONPATH=\${_libs_dir}/lib/python2.7/dist-packages/:\${_libs_dir}/lib/python2.7/:\${_libs_dir}/local/lib/python2.7/dist-packages/:\${_libs_dir}/local/lib/python2.7/:\$PYTHONPATH&lt;/span&gt;
+&lt;span class="s"&gt;export PYTHONHOME=\${_libs_dir}&lt;/span&gt;
+
+&lt;span class="s"&gt;.libs/$1 \$@&lt;/span&gt;
+
+&lt;span class="s"&gt;_EOF&lt;/span&gt;
+chmod a+x package_&lt;span class="nv"&gt;$1&lt;/span&gt;/&lt;span class="nv"&gt;$1&lt;/span&gt;
+
+&lt;span class="c"&gt;# copy train.csv&lt;/span&gt;
+cp train.csv package_&lt;span class="nv"&gt;$1&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;archiving...&amp;quot;&lt;/span&gt;
+tar -zcf package_&lt;span class="nv"&gt;$1&lt;/span&gt;.tgz package_&lt;span class="nv"&gt;$1&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Here is one more remark: to have a really portable binary, the python script should follow a few rules:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;a workaround, to escape native python modules on the target machine, should be implemented before imports of system-specific modules like &lt;tt class="docutils literal"&gt;sklearn&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;pandas&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;matplotlib&lt;/tt&gt; etc;&lt;/li&gt;
+&lt;li&gt;the &lt;tt class="docutils literal"&gt;matplotlib&lt;/tt&gt; should use &lt;tt class="docutils literal"&gt;WebAgg&lt;/tt&gt; engine to render graphics. The standard matplotblib's  backend &lt;tt class="docutils literal"&gt;GTK&lt;/tt&gt; is not portable across OS.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The version of the well known script &lt;tt class="docutils literal"&gt;titanic_logistic_regression_grid_search_roc_plot_example.py&lt;/tt&gt;, where the above points are taken into account, can be found
+in the directory &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;gccgo-python/src&lt;/span&gt;&lt;/tt&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/usr/bin/env python&lt;/span&gt;
+
+&lt;span class="sd"&gt;&amp;#39;&amp;#39;&amp;#39; This is an example of the application of the Logistic fucntion to the dataset analysis.&lt;/span&gt;
+&lt;span class="sd"&gt;    Logistic function is helpful to model binary models&lt;/span&gt;
+
+&lt;span class="sd"&gt;    This is a analysis with dedicated sklearn sub-modules.&lt;/span&gt;
+
+&lt;span class="sd"&gt;    The basic idea is taken from&lt;/span&gt;
+&lt;span class="sd"&gt;    http://scikit-learn.org/stable/auto_examples/linear_model/plot_iris_logistic.html#example-linear-model-plot-iris-logistic-py&lt;/span&gt;
+&lt;span class="sd"&gt;    http://scikit-learn.org/stable/auto_examples/grid_search_digits.html&lt;/span&gt;
+&lt;span class="sd"&gt;    http://www.pyimagesearch.com/2014/06/23/applying-deep-learning-rbm-mnist-using-python/&lt;/span&gt;
+
+&lt;span class="sd"&gt;    DataFrameImputer was taken from&lt;/span&gt;
+&lt;span class="sd"&gt;    http://stackoverflow.com/questions/25239958/impute-categorical-missing-values-in-scikit-learn&lt;/span&gt;
+
+&lt;span class="sd"&gt;    About Precision and Recall&lt;/span&gt;
+&lt;span class="sd"&gt;    http://en.wikipedia.org/wiki/Precision_and_recall&lt;/span&gt;
+
+&lt;span class="sd"&gt;    About Type 1 and Type 2 errors&lt;/span&gt;
+&lt;span class="sd"&gt;    http://en.wikipedia.org/wiki/Type_I_and_type_II_errors&lt;/span&gt;
+
+&lt;span class="sd"&gt;    About scorring parameters for sklearn classifiers&lt;/span&gt;
+&lt;span class="sd"&gt;    http://scikit-learn.org/stable/modules/model_evaluation.html#scoring-parameter&lt;/span&gt;
+
+&lt;span class="sd"&gt;    About plottig ROC in sklearn&lt;/span&gt;
+&lt;span class="sd"&gt;    http://scikit-learn.org/stable/auto_examples/plot_roc_crossval.html&lt;/span&gt;
+
+&lt;span class="sd"&gt;    About plottig Precision vs Recall in sklearn&lt;/span&gt;
+&lt;span class="sd"&gt;    http://scikit-learn.org/stable/auto_examples/plot_precision_recall.html&lt;/span&gt;
+
+&lt;span class="sd"&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;os&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sys&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pprint&lt;/span&gt;
+&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;/usr/local/lib/python2.7/dist-packages&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt; &lt;span class="c"&gt;# to fix the problem with numpy: this replaces  1.6 version by 1.9&lt;/span&gt;
+
+&lt;span class="c"&gt;# workaround to escape native python modules on the target machine&lt;/span&gt;
+&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="n"&gt;pythonpath&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;os&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;environ&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;PYTHONPATH&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+  &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;enumerate&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;pythonpath&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;split&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;:&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)):&lt;/span&gt;
+   &lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;insert&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;item&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;except&lt;/span&gt;  &lt;span class="ne"&gt;KeyError&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+  &lt;span class="n"&gt;pprint&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pprint&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="n"&gt;pprint&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pprint&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sys&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;pandas&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;pd&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.ensemble&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;ExtraTreesClassifier&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.cross_validation&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;cross_val_score&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.preprocessing&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;Imputer&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;preprocessing&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;numpy&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;np&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;sklearn.base&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;TransformerMixin&lt;/span&gt;
+&lt;span class="kn"&gt;from&lt;/span&gt; &lt;span class="nn"&gt;StringIO&lt;/span&gt; &lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="n"&gt;StringIO&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;prettytable&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;statsmodels.api&lt;/span&gt; &lt;span class="kn"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;sm&lt;/span&gt;
+&lt;span class="c"&gt;#  Gtk and Wx are not cross-platformed. Use WebAgg for matplotlib backend!&lt;/span&gt;
+&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;matplotlib&lt;/span&gt;
+&lt;span class="n"&gt;matplotlib&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;use&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;WebAgg&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+
+&lt;span class="o"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;To make the portable binary package of the Machine-Learning script, you execute several commands as shown below.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="nb"&gt;cd &lt;/span&gt;gccgo-python/
+make clean
+&lt;span class="nv"&gt;PYSRC&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;src/titanic_logistic_regression_grid_search_roc_plot_example.py make
+make build-package
+ls -lh package_gccgo-python.tgz
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;You will see the output of the previous command if everything runs smoothly.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt; ...
+ hacking Tornado Service of the WebAgg...
+ writting the executable script...
+ archiving...
+
+-rw-r--r-- &lt;span class="m"&gt;1&lt;/span&gt; debian debian 358M May  &lt;span class="m"&gt;2&lt;/span&gt; 13:00 package_gccgo-python.tgz
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="static-python"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id97"&gt;Static-Python&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;This is &lt;a class="reference external" href="https://github.com/bendmorris/static-python"&gt;a fork&lt;/a&gt; &lt;a class="footnote-reference" href="#id79" id="id80"&gt;[25]&lt;/a&gt; of the official Python hg repository with additional tools to enable building Python for static linking.&lt;/p&gt;
+&lt;p&gt;Using the &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;Static-Python&lt;/span&gt;&lt;/tt&gt;, we can&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;run Python programs on other machines without requiring that they install Python.&lt;/li&gt;
+&lt;li&gt;run Python programs on other machines without requiring that they have the same versions of the same libraries installed that you do.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Unfortunately I have to remark that &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;Static-Python&lt;/span&gt;&lt;/tt&gt; doesn't support &lt;tt class="docutils literal"&gt;python scientific&lt;/tt&gt; extensions and modules like &lt;tt class="docutils literal"&gt;numpy&lt;/tt&gt;, &lt;tt class="docutils literal"&gt;pandas&lt;/tt&gt; etc.
+Only 'simple' modules (pure pythonic) could be invoked in the statically linked python environment. The simple &lt;tt class="docutils literal"&gt;&lt;span class="pre"&gt;HOW-TO&lt;/span&gt;&lt;/tt&gt; on usage of the package is presented
+below.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;git clone https://github.com/bendmorris/static-python
+&lt;span class="nb"&gt;cd &lt;/span&gt;static-python
+git checkout 2.7
+sudo apt-get install  python-gdbm
+sudo apt-get install python-tk
+&lt;span class="c"&gt;# change add-ons to the BUILTINS variable in Static.make They should be defined as give below&lt;/span&gt;
+&lt;span class="c"&gt;# override BUILTINS+= array cmath math _struct time  _random operator _collections _heapq itertools _functools _elementtree   _bisect unicodedata atexit _weakref datetime&lt;/span&gt;
+nano Static.make
+make -f Static.make &lt;span class="nv"&gt;BUILTINS&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;math&amp;quot;&lt;/span&gt;
+ldd ./python
+&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt;  not a dynamic executable
+&lt;/pre&gt;
+&lt;p&gt;We can test the &lt;tt class="docutils literal"&gt;math&lt;/tt&gt; module, if execute the following command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;./python  -c &lt;span class="s2"&gt;&amp;quot;import math; print math.pi&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;pre class="doctest-block"&gt;
+&amp;gt;&amp;gt;&amp;gt;  3.14159265359
+&lt;/pre&gt;
+&lt;/div&gt;
+&lt;div class="section" id="bonus-a-simple-statifier-to-make-a-portable-executable-package-from-any-binary"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id98"&gt;Bonus: A simple statifier to make a portable executable package from any binary&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;There are several statifiers on the marker:&lt;/p&gt;
+&lt;ul class="simple"&gt;
+&lt;li&gt;&lt;a class="reference external" href="https://sourceforge.net/projects/statifier/"&gt;ELF statifier&lt;/a&gt; &lt;a class="footnote-reference" href="#id81" id="id82"&gt;[26]&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a class="reference external" href="http://magicermine.com/"&gt;Ermine&lt;/a&gt; &lt;a class="footnote-reference" href="#id83" id="id84"&gt;[27]&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;None of them suits well if need a free of charge, out-of-box solution.&lt;/p&gt;
+&lt;p&gt;&lt;tt class="docutils literal"&gt;ELF statifiers&lt;/tt&gt; requires to switch off the address randomization in the kernel,&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;cat /proc/sys/kernel/randomize_va_space
+&lt;span class="nb"&gt;echo&lt;/span&gt; -n &lt;span class="m"&gt;0&lt;/span&gt; &amp;gt; /proc/sys/kernel/randomize_va_space
+statify xxxxx yyyyyy
+&lt;span class="nb"&gt;echo&lt;/span&gt; -n &lt;span class="m"&gt;2&lt;/span&gt; &amp;gt; /proc/sys/kernel/randomize_va_space
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;while &lt;tt class="docutils literal"&gt;Ermine&lt;/tt&gt; costs money.&lt;/p&gt;
+&lt;p&gt;I have written a simple shell script to pack any executable together with the runtime environment.
+It is called &lt;tt class="docutils literal"&gt;binary_statifier&lt;/tt&gt;. You might probe it via the executing a set of commands as shown below.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# let&amp;#39;s build a portable package for the  LateX system&lt;/span&gt;
+cp &lt;span class="sb"&gt;`&lt;/span&gt;which latex&lt;span class="sb"&gt;`&lt;/span&gt; .
+./build_package.sh latex
+rm latex
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;Then we can extract the package at other machine and run it.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span class="c"&gt;# another platform&lt;/span&gt;
+tar -xf package_latex.tgz
+&lt;span class="nb"&gt;cd &lt;/span&gt;package_latex
+./latex
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;The output of the last command might be like below.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;warning: kpathsea: configuration file texmf.cnf not found in these directories: /etc/texmf/web2c:/usr/share/texlive/texmf/web2c:/usr/share/texlive/texmf-dist/web2c:/usr/local/share/texmf/web2c.
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 &lt;span class="o"&gt;(&lt;/span&gt;TeX Live 2012/Debian&lt;span class="o"&gt;)&lt;/span&gt;
+**
+! End of file on the terminal... why?
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="documentation"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id99"&gt;Documentation&lt;/a&gt;&lt;/h3&gt;
+&lt;p&gt;The main parts of documentation are placed  in the &lt;tt class="docutils literal"&gt;README.rst&lt;/tt&gt;.
+Running the command&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;make doc
+&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;will make a folder &lt;tt class="docutils literal"&gt;doc/&lt;/tt&gt; with the &lt;tt class="docutils literal"&gt;index.html&lt;/tt&gt; which presents documention  in
+the HTML format. One can start httpd service to see the documention at the &lt;tt class="docutils literal"&gt;localhost:8010&lt;/tt&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;make serve
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="section" id="references"&gt;
+&lt;h3&gt;&lt;a class="toc-backref" href="#id100"&gt;References&lt;/a&gt;&lt;/h3&gt;
+&lt;table class="docutils footnote" frame="void" id="id30" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id31"&gt;[1]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="https://bitbucket.org/iggy_floyd/virtual_machine_python"&gt;https://bitbucket.org/iggy_floyd/virtual_machine_python&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id32" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id33"&gt;[2]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="http://bits.citrusbyte.com/protecting-a-python-codebase/"&gt;http://bits.citrusbyte.com/protecting-a-python-codebase/&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id34" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id35"&gt;[3]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="https://github.com/citrusbyte/python-obfuscation"&gt;https://github.com/citrusbyte/python-obfuscation&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id36" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id37"&gt;[4]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="http://stackoverflow.com/questions/261638/how-do-i-protect-python-code"&gt;http://stackoverflow.com/questions/261638/how-do-i-protect-python-code&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id38" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;[5]&lt;/td&gt;&lt;td&gt;&lt;em&gt;(&lt;a class="fn-backref" href="#id39"&gt;1&lt;/a&gt;, &lt;a class="fn-backref" href="#id54"&gt;2&lt;/a&gt;)&lt;/em&gt; &lt;a class="reference external" href="https://mborgerson.com/creating-an-executable-from-a-python-script"&gt;https://mborgerson.com/creating-an-executable-from-a-python-script&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id40" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id41"&gt;[6]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="http://nuitka.net/doc/user-manual.html#command-line"&gt;http://nuitka.net/doc/user-manual.html#command-line&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id42" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id43"&gt;[7]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="https://pypi.python.org/pypi/Cython/"&gt;https://pypi.python.org/pypi/Cython/&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id44" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id45"&gt;[8]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="https://bitbucket.org/iggy_floyd/go-cpp"&gt;https://bitbucket.org/iggy_floyd/go-cpp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id46" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id47"&gt;[9]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="https://bitbucket.org/iggy_floyd/go-tutorial"&gt;https://bitbucket.org/iggy_floyd/go-tutorial&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id48" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id49"&gt;[10]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="https://bitbucket.org/iggy_floyd/test-otto"&gt;https://bitbucket.org/iggy_floyd/test-otto&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id50" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id51"&gt;[11]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="https://golang.org/doc/install"&gt;https://golang.org/doc/install&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id52" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id53"&gt;[12]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="https://github.com/robertkrimen/godocdown"&gt;https://github.com/robertkrimen/godocdown&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id55" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id56"&gt;[13]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="http://www.wxpython.org/"&gt;http://www.wxpython.org/&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id57" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id58"&gt;[14]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="http://stackoverflow.com/questions/35020183/pyinstaller-not-compiling-large-program-in-python2-7-64-bit-ubuntu"&gt;http://stackoverflow.com/questions/35020183/pyinstaller-not-compiling-large-program-in-python2-7-64-bit-ubuntu&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id59" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id60"&gt;[15]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="http://stackoverflow.com/questions/2716702/no-such-file-or-directory-error-when-executing-a-binary"&gt;http://stackoverflow.com/questions/2716702/no-such-file-or-directory-error-when-executing-a-binary&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id61" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id62"&gt;[16]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="https://github.com/cython/cython/wiki/EmbeddingCython"&gt;https://github.com/cython/cython/wiki/EmbeddingCython&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id63" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id64"&gt;[17]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="http://scikit-learn.org/stable/"&gt;http://scikit-learn.org/stable/&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id65" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id66"&gt;[18]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="https://www.kaggle.com/c/titanic"&gt;https://www.kaggle.com/c/titanic&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id67" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id68"&gt;[19]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="https://github.com/golang/go/wiki/WindowsCrossCompiling"&gt;https://github.com/golang/go/wiki/WindowsCrossCompiling&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id69" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id70"&gt;[20]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="https://github.com/karalabe/xgo"&gt;https://github.com/karalabe/xgo&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id71" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id72"&gt;[21]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="https://bitbucket.org/iggy_floyd/xgo-cpp/"&gt;https://bitbucket.org/iggy_floyd/xgo-cpp/&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id73" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id74"&gt;[22]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="https://raw.githubusercontent.com/karalabe/xgo/master/docker/base/Dockerfile"&gt;https://raw.githubusercontent.com/karalabe/xgo/master/docker/base/Dockerfile&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id75" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id76"&gt;[23]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="http://www.swig.org/"&gt;http://www.swig.org/&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id77" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id78"&gt;[24]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="https://cxwangyi.wordpress.com/2011/03/28/statically-linking-c-code-with-go-code/"&gt;https://cxwangyi.wordpress.com/2011/03/28/statically-linking-c-code-with-go-code/&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id79" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id80"&gt;[25]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="https://github.com/bendmorris/static-python"&gt;https://github.com/bendmorris/static-python&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id81" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id82"&gt;[26]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="https://sourceforge.net/projects/statifier/"&gt;https://sourceforge.net/projects/statifier/&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table class="docutils footnote" frame="void" id="id83" rules="none"&gt;
+&lt;colgroup&gt;&lt;col class="label" /&gt;&lt;col /&gt;&lt;/colgroup&gt;
+&lt;tbody valign="top"&gt;
+&lt;tr&gt;&lt;td class="label"&gt;&lt;a class="fn-backref" href="#id84"&gt;[27]&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a class="reference external" href="http://magicermine.com/"&gt;http://magicermine.com/&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</summary><category term="statifier"></category><category term="GO"></category><category term="XGO"></category><category term="Pyinstaller"></category><category term="CGO"></category><category term="Cython"></category><category term="Python"></category><category term="C++"></category></entry><entry><title>The online-monitor-pandas-dataframe-transformations</title><link href="http://igormarfin.github.io/blog/2016/02/07/the-online-monitor-pandas-dataframe-transformations/" rel="alternate"></link><updated>2016-02-07T14:49:00+01:00</updated><author><name>Igor Marfin</name></author><id>tag:igormarfin.github.io,2016-02-07:blog/2016/02/07/the-online-monitor-pandas-dataframe-transformations/</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *

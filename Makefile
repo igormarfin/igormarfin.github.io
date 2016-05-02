@@ -1,6 +1,7 @@
 PY?=python
 PELICAN?=pelican
-PELICANOPTS=   --cache-path /tmp/pelican_cache --verbose
+#PELICANOPTS=   --cache-path /tmp/pelican_cache --verbose
+PELICANOPTS=   --cache-path ./pelican_cache --verbose
 
 BASEDIR=$(CURDIR)
 INPUTDIR=$(BASEDIR)/content

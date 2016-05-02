@@ -32,5 +32,5 @@ DISQUS_SITENAME = "igormarfingithubio"
 
 CACHE_CONTENT=True
 LOAD_CONTENT_CACHE = True
-#CACHE_PATH = 'cache'
+CACHE_PATH = 'pelican_cache'
 
